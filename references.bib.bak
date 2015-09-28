@@ -26,7 +26,6 @@
   Pages                    = {21--28},
   Volume                   = {12},
 
-  Owner                    = {sky},
   Publisher                = {SPRINGER INTERNATIONAL}
 }
 
@@ -46,7 +45,7 @@
   File                     = {:OAS\\How to more effectively accept and refuse orders.pdf:PDF},
   ISSN                     = {08978336},
   Keywords                 = {Engineering--Industrial Engineering, Work in process, Production scheduling, Production controls, Job orders, Inventory control, 5310:Production planning & control},
-  Owner                    = {sky},
+  Owner                    = {CSK},
   Publisher                = {American Production \& Inventory Control Society, Inc.},
   Timestamp                = {2015.08.11},
   Url                      = {http://search.proquest.com/docview/199921030?accountid=15198}
@@ -59,7 +58,6 @@
   Year                     = {2004},
   Pages                    = {384--406},
 
-  Owner                    = {sky},
   Publisher                = {JSTOR}
 }
 
@@ -93,7 +91,7 @@
   Comment                  = {wtf?},
   File                     = {:Cloud Mfg\\Cloud manufacturing Strategic vision and state of the art.pdf:PDF},
   Keywords                 = {Cloud manufacturing (CM), Distributed systems, Resource sharing, Automation and control},
-  Owner                    = {sky},
+  Owner                    = {CSK},
   Publisher                = {Elsevier},
   Review                   = {Cloud Computing view to replicated it in CM
 

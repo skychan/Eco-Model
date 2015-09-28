@@ -1,0 +1,74 @@
+% !Mode:: "TeX:UTF-8"
+% !TEX program = xelatex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you give
+% someone the link to this page, they can edit at the same
+% time. See the help menu above for more info. Enjoy!
+%
+% Note: you can export the pdf to see the result at full
+% resolution.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Flowcharting techniques for easy maintenance
+% Author: Brent Longborough
+\documentclass[x11names]{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,chains}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5mm}%
+%%%>
+\begin{comment}
+:Title: Easy-maintenance flowchart
+:Tags: flowcharts
+:Author: Brent Longborough
+:Slug: flexible-flow-chart
+
+  This TikZ example illustrates a number of techniques for making TikZ
+  flowcharts easier to maintain:
+    * Use of <on chain> and <on grid> to simplify positioning
+    * Use of global <node distance> options to eliminate the need to 
+      specify individual inter-node distances
+    * Use of <join> to reduce the need for references to node names
+    * Use of <join by> styles to tailor specific connectors
+    * Use of <coordinate> nodes to provide consistent layout for
+      parallel flow lines
+    * A method for consistent annotation of decision box exits
+    * A technique for marking coordinate nodes (for layout debugging)
+
+    I encourage you to tinker at this file - add intermediate boxes,
+    alter the global distance settings, and so on, to see how well (or
+    ill!) it adapts.
+\end{comment}
+\colorlet{lcfree}{Green3}
+\colorlet{lcnorm}{Blue3}
+\colorlet{lccong}{Red3}
+\begin{document}
+% =================================================
+% Set up a few colours
+
+% -------------------------------------------------
+% Set up a new layer for the debugging marks, and make sure it is on
+% top
+\pgfdeclarelayer{marx}
+\pgfsetlayers{main,marx}
+% A macro for marking coordinates (specific to the coordinate naming
+% scheme used here). Swap the following 2 definitions to deactivate
+% marks.
+\providecommand{\cmark}[2][]{%
+  \begin{pgfonlayer}{marx}
+    \node [nmark] at (c#2#1) {#2};
+  \end{pgfonlayer}{marx}
+  } 
+\providecommand{\cmark}[2][]{\relax} 
+% -------------------------------------------------
+% Start the picture
+\input{flow1}
+
+
+% =================================================
+\end{document}
