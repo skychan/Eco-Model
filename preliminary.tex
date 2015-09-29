@@ -1,23 +1,42 @@
 % !TEX root = Eco-Model.tex
 \section{Preliminaries} % (fold)
-\subsection{Resources and Services}
-
-BOSS?
-
-\subsection{Orders and Tasks}
+\subsection{Services and Tasks}
+Resources and Services, Orders and Tasks,
 Similary to the relation of service and resource, order and task 
+
+transaction
 
 \subsection{Roles}
 Most recent studies like Wu et al.\cite{Wu2013} described the roles in Cloud Manufacturing as a tri-group model with:\begin{inparaenum}[1)]
-\item Users,
+\item Users/Customers,
 \item Application providers and
 \item Physical resource providers.
 \end{inparaenum}
-However, the roles in real world always not go like this model, since it parted users only by their functions. Before the emendation of these roles, some related standard name should be taken:
-\begin{description}
-\item[] ttt
-\item eee
-\end{description}
+However, the roles in real world always not go like this model, since it parted roles only by their functions. While, users could get different function roles depend on what transaction they take, we should make some modifiacations on this model.
+
+Before the emendation of the roles, some related standard name should be taken:
+\begin{asparadesc}
+\item[User] The main role in Cloud Manufacturing, which is combined of Seller and Buyer as shown in \tabref{tab:categoryuser}, usually acts as Seller or Buyer according to the specific transaction;
+
+\item[Seller] The temporary role in a transaction
+\item[Buyer] The temporary role in a transaction
+\item[Administrator] Operation and maintenance of Platform.
+\end{asparadesc}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Category of Users}
+    \begin{tabularx}{\textwidth}{lccX}
+    \toprule
+          & Seller & Buyer & Description \\
+    \midrule
+    Main User & $\surd$ & $\surd$ & Act as Seller or Buyer according to the specific transaction. \\
+    Enterprise User & $\surd$ & &  \\
+    Customer User& & $\surd$ &  \\
+    \bottomrule
+    \end{tabularx}%
+  \label{tab:categoryuser}%
+\end{table}%
 
 But we take the part little different, ie prp is the generalize
 Denamder
@@ -40,8 +59,10 @@ The style the Cloud Manufacturing Ecosystem draws mainly depends on the way the 
 Because the metioned system is too complex to analyse in every detail, we focus on two important parts -- Order flow and User status -- to help illustrate the Operation Mode.
 
 \subsubsection{Order Flow}
+simple order flow
+\subsubsection{User Rank}
+simple user rank
 
-\subsubsection{User Status}
-
+for these will be described detail in the simulation module.
 \subsection{Big-Data Tools}
 simply descript some related tools and where to use.
