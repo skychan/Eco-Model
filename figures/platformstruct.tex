@@ -1,0 +1,52 @@
+% !TEX root = ..\Eco-Model.tex
+\begin{tikzpicture}
+[mindmap,
+every node/.style={concept, text=white, execute at begin node=\hskip0pt,circular drop shadow},
+root concept/.append style={concept color=black, fill=white, line width=1ex, text=black, font=\Large\scshape},
+grow cyclic,
+level 1/.append style={level distance=4.5cm,sibling angle=90, font=\scshape},
+level 2/.append style={level distance=3cm,sibling angle=45, font=\scriptsize\bf},
+level 3/.append style={level distance=2cm,sibling angle=60, font=\scriptsize\bf},
+level 4/.append style={level distance=1cm,sibling angle=60, font=\tiny\bf}]
+\node [root concept] {Cloud Manufacturing Ecosystem}  % root
+child [concept color = gray]{ node {Schedule}
+child { node {Recommand System}}
+child { node {Decision Making Support}}
+child { node {Ranking Schema}}
+child { node {Match Regualtion}}
+}
+child [concept color = gray]{ node {User}
+  child { node {Submit Order}}
+  child { node {Provide Resource}}
+  child { node {Make Transaction}}
+  child { node {Evalute Others}}
+  }
+child [concept color = gray]{ node {Envolve}
+  child { node {Optimization}
+    child { node {Manufacturing}}
+    child { node {Industrial Chain}}
+    }
+  child { node {Member}
+    child { node {Introduce}}
+    child { node {Eliminate}}
+    }
+  child { node {Adjust User Proportion}}
+  child { node {Development Guidance}}
+  }
+child [concept color = gray]{ node {Platform}
+  child { node {Authority Control}}
+  child { node {Transaction Bridge}}
+  child { node {Dashbord}
+    child { node {Service}}
+    child { node {Task}}
+    child { node {User}}
+    }
+  child { node {Administrate}}
+  child { node {Hub}
+    child { node {Service}}
+    child { node {Resource}}
+    child { node {Ranking}}
+    }
+  }
+;
+\end{tikzpicture}
