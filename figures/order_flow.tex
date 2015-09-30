@@ -1,4 +1,4 @@
-% !TEX root = Eco-Model.tex
+% !TEX root = ../Eco-Model.tex
 \begin{tikzpicture}[%
     >=triangle 60,              % Nice arrows; your taste may be different
     start chain=going below,    % General flow is top-to-bottom
@@ -28,7 +28,7 @@
 }
 % -------------------------------------------------
 % Start by placing the nodes
-\node [term]              {Be Submitted};
+\node [term, fill = lcfree!25]              {Be Submitted};
 \node [proc, join]        {Constrcut into Tasks};
 \node [proc, join]  (p1)  {Evaluate the Seller};
 \node [test, join]  (t1)  {Transact?};
@@ -36,7 +36,7 @@
 \node [test]        (t3)  {Outsourcing?};
 \node [proc]        (p2)  {Process Task and Submit Result};
 \node [test, join]  (t4)  {Order Finished?};
-\node [term]        (m1)  {End Smothly};
+\node [term,fill=lccong!25]        (m1)  {End Smothly};
 
 \node [sky, right=of p1] (c5) {};%\cmark{5}
 \node [proc, right=of t1] (p3)  {Select Next Seller};
@@ -45,7 +45,8 @@
 \node [test, join]  (t6)  {Process Smothly?};
 \node [proc]        (p4)  {Submit Outsourcing Part};
 \node [coord, yshift=2.5mm]       (c4)  {}; %\cmark{4}
-\node [term, right=of m1] (m2)  {End with Error};
+\node [term, fill=lccong!25, right=of m1] (m2)  {End with Error};
+\node [term,  white, yshift=-2cm] (c22) {}; %\cmark{22}
 
 \node [coord, left=of t2] (c1) {}; %\cmark{1}
 \node [coord, right=of t3](c2) {}; %\cmark{2}

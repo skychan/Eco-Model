@@ -1,4 +1,4 @@
-% !TEX root = flow_head.tex
+% !TEX root = ../Eco-Model.tex
 \begin{tikzpicture}[%
     >=triangle 60,              % Nice arrows; your taste may be different
     start chain=going below,    % General flow is top-to-bottom
@@ -27,40 +27,76 @@
 }
 % -------------------------------------------------
 % Start by placing the nodes
-\node [term]              (m1)  {Be Introduced};
+\node [term, fill = lcfree!25]              (m1)  {Be Introduced};
 \node [proc, join]        (p8)  {Get Initial Rank $R$};
-\node [coord, yshift=2mm] (c1)  {}; \cmark{1}
+\node [coord, yshift=2mm] (c1)  {}; %\cmark{1}
 \node [test, yshift=2mm]  (t1)  {Transact?};
-\node [proc, yshift=-3mm] (p1)  {Increase $R$};
+\node [proc, yshift=-2mm] (p1)  {Increase $R$};
 
+\node [coord, yshift=0mm] (c7)  {}; %\cmark{7}
+
+\node [test, yshift=0mm] (t2)  {All Tasks Done?};
+\node [proc]              (p2)  {Process Un-Outsourceing Task};
+\node [test]              (t3)  {Accepted?};
+\node [proc]              (p3)  {Pass the Outsouring Task};
+\node [test, join]        (t4)  {Task Done?};
 
 \node [proc, right=of t1] (p4)  {Wait};
 \node [proc]              (p5)  {Compete to Get Task};
 \node [test, join]        (t5)  {Make it?};
-\node [coord, yshift=2mm] (c3)  {}; \cmark{3}
+
+\node [coord, yshift=2mm] (c4)  {}; %\cmark{4}
 
 \node [test, yshift=2mm]  (t6)  {Outsourcing?};
 \node [test]              (t7)  {Partly or Whole?};
 \node [proc]              (p6)  {Submit Outsourcing Request};
 \node [proc]              (p7)  {Decrease $R$};
 \node [test, join]        (t8)  {$R < R_{base}$?};
-\node [term]              (m2)  {Eliminate};
+\node [term, fill=lccong!25]              (m2)  {Eliminate};
 
-\node [test, left=of c3]  (t2)  {All Tasks Accomplished?};
-\node [proc]              (p2)  {Process Task};
-\node [test]              (t3)  {Accepted?};
-\node [proc]              (p3)  {Pass the Outsouring Task};
-\node [test]              (t4)  {Task Accomplished?};
-
-\node [coord, left=of p1](c2)  {}; \cmark{2}
+\node [coord, left=of p1] (c2)  {}; %\cmark{2}
+\node [coord, right=of t5](c3)  {}; %\cmark{3}
+\node [coord, right=of p2](c5)  {}; %\cmark{5}
+\node [coord, right=of t3](c6)  {}; %\cmark{6}
+\node [coord, left=of c7] (c8)  {}; %\cmark{8}
+\node [coord, right=of t4](c9)  {}; %\cmark{9}
 
 \draw [->, lcnorm] (p4) |- (c1);
 \draw [->, lcnorm] (p8) -- (t1);
 \draw [->, lcnorm] (p1) --(c2) |- (c1);
+\draw [->, lcnorm] (p2) -- (t2);
+\draw [->, lcnorm] (p6) -| (c6) -- (t3);
 
 \path (t1.east)   to node [near start, yshift=1em] {$n$} (p4);
-\path (t1.south) to node [near start, xshift=1em] {$y$} (p1);
+\path (t1.south)  to node [near start, xshift=1em] {$y$} (p1);
   \draw [o->, lcnorm] (t1.east) -- (p4);
   \draw [*->, lcnorm] (t1.south) |- (p5);
-
+\path (t2.east)   to node [near start, yshift=-1em]{$n$} ++(2mm,0);
+\path (t2.north)  to node [near start, xshift=1em] {$y$} (p1);
+  \draw [o->, lcnorm] (t2.east) -- (c4) ;
+  \draw [*->, lcnorm] (t2.north) -- (p1);
+\path (t5.east)   to node [near start, yshift=1em] {$n$} (c3);
+\path (t5.south)  to node [near start, xshift=1em] {$y$} (t6);
+  \draw [o->, lcnorm] (t5.east) -- (c3) |- (p4);
+  \draw [*->, lcnorm] (t5.south) -- (t6);
+\path (t6.west)   to node [near start, yshift=-1em]{$n$} (c5);
+\path (t6.south)  to node [near start, xshift=1em] {$y$} (t7);
+  \draw [*->, lcnorm] (t6.south) -- (t7);
+  \draw [o->, lcnorm] (t6.west) -| (c5) -- (p2);
+\path (t7.west)   to node [near start, yshift=1em] {partly} ++(-1mm,0);
+\path (t7.south)  to node [near start, xshift=2em] {whole} (p6);
+  \draw [*->, lcnorm] (t7.west) -| (c5);
+  \draw [o->, lcnorm] (t7.south) -- (p6);
+\path (t8.east)   to node [near start, yshift=1em] {$n$} ++(1mm,0);
+\path (t8.south)  to node [near start, xshift=1em] {$y$} (m2);
+ \draw [o->, lcnorm] (t8.east) -| (c3);
+ \draw [*->, lcnorm] (t8.south) -- (m2);
+\path (t3.north)  to node [near start, xshift=1em] {$n$} (p2);
+\path (t3.south)  to node [near start, xshift=1em] {$y$} (p3);
+  \draw [o->, lcnorm] (t3.north) -- (p2);
+  \draw [*->, lcnorm] (t3.south) -- (p3);
+\path (t4.west)   to node [near start, yshift=1em] {$y$} ++(-1mm,0);
+\path (t4.east)   to node [near start, yshift=1em] {$n$} (c9);
+  \draw [*->, lcnorm] (t4.west) -| (c8) -- (c7);
+  \draw [o->, lcnorm] (t4.east) -- (c9) |- (p7);
 \end{tikzpicture}
