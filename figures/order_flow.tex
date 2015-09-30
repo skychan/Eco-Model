@@ -16,6 +16,7 @@
   term/.style={proc, rounded corners},
   % coord node style is used for placing corners of connecting lines
   coord/.style={coordinate, on chain, on grid, node distance=6mm and 25mm},
+  sky/.style={coordinate, on chain, on grid, node distance=6mm and 60mm},
   % nmark node style is used for coordinate debugging marks
   nmark/.style={draw, cyan, circle, font={\sffamily\bfseries}},
   % -------------------------------------------------
@@ -27,5 +28,55 @@
 }
 % -------------------------------------------------
 % Start by placing the nodes
-\node [term] {Be Submitted};
+\node [term]              {Be Submitted};
+\node [proc, join]        {Constrcut into Tasks};
+\node [proc, join]  (p1)  {Evaluate the Seller};
+\node [test, join]  (t1)  {Transact?};
+\node [test]        (t2)  {Task Remain?};
+\node [test]        (t3)  {Outsourcing?};
+\node [proc]        (p2)  {Process Task and Submit Result};
+\node [test, join]  (t4)  {Order Finish?};
+\node [term]        (m1)  {End Smothly};
+
+\node [sky, right=of p1] (c5) {};%\cmark{5}
+\node [proc, right=of t1] (p3)  {Select Next Seller};
+\node [test]        (t5)  {Partly or Whole?};
+\node [proc]        (p5)  {Process Un-Outsouring Part and Submit Result};
+\node [test, join]  (t6)  {Process Smothly?};
+\node [proc]        (p4)  {Submit Outsourcing Part};
+\node [coord, yshift=2.5mm]       (c4)  {}; %\cmark{4}
+\node [term, right=of m1] (m2)  {End with Error};
+
+\node [coord, left=of t2] (c1) {}; %\cmark{1}
+\node [coord, right=of t3](c2) {}; %\cmark{2}
+\node [coord, right=of t4](c3) {}; %\cmark{3}
+\node [coord, right=of t5, xshift=3mm](c6) {}; %\cmark{6}
+\node [coord, left=of c4, xshift=-1mm](c8) {}; %\cmark{8}
+
+\path (t1.east) to node [near start, yshift=1em] {$n$} (p3);
+  \draw [o->, lcnorm] (t1.east) -- (p3);
+  \draw [->, lcnorm] (p3) |- (c5);
+\path (t1.south) to node [near start, xshift=1em] {$y$} (t2);
+  \draw [*->, lcnorm] (t1.south) -- (t2);
+\path (t2.west) to node [near start, yshift=1em]  {$n$} (p2.west);
+  \draw [o->, lcnorm] (t2.west) -- (c1) |- (p2.west);
+\path (t2.south) to node [near start, xshift=1em] {$y$} (t3);
+  \draw [*->, lcnorm] (t2.south)  -- (t3);
+\path (t3.east) to node [near start, yshift=1em] {$y$}  (c2);
+  \draw [*->, lcnorm] (t3.east) -| (c2) |- (t5.west);
+\path (t3.south) to node [near start, xshift=1em] {$n$} (p2);
+  \draw [o->, lcnorm] (t3.south) -- (p2);
+\path (t4.south) to node [near start, xshift=1em] {$y$} (m1);
+  \draw [*->, lcnorm] (t4.south) -- (m1);
+\path (t4.east) to node [near start, yshift=-1em] {$n$} (c3);
+  \draw [o->, lcnorm] (t4.east) -- (c3) |- (c4) -- (m2);
+\path (t5.east) to node [near start, yshift=1em] {whole} (c6);
+\path (t5.south) to node [near start, xshift=2em] {partly} (p5);
+  \draw [o->, lcnorm] (t5.east) -- (c6) |- (p1);
+  \draw [*->, lcnorm] (t5.south) -- (p5);
+\path (t6.south) to node [near start, xshift=1em] {$y$} (p4);
+\path (t6.west) to node [near start, yshift=1em] {$n$} (c8);
+  \draw [o->, lcnorm] (t6.west) -| (c8); 
+  \draw [*->, lcnorm] (t6.south) -- (p4);
+  \draw [->, lcnorm] (p4.east) -| (c6);
 \end{tikzpicture}
