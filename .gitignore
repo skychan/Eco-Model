@@ -36,3 +36,4 @@
 *.fls
 !/figures/*.pdf
 *.~*
+/figures/flow_head.pdf

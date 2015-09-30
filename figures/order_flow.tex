@@ -1,4 +1,4 @@
-% !TEX root = flow_head.tex
+% !TEX root = Eco-Model.tex
 \begin{tikzpicture}[%
     >=triangle 60,              % Nice arrows; your taste may be different
     start chain=going below,    % General flow is top-to-bottom
@@ -35,7 +35,7 @@
 \node [test]        (t2)  {Task Remain?};
 \node [test]        (t3)  {Outsourcing?};
 \node [proc]        (p2)  {Process Task and Submit Result};
-\node [test, join]  (t4)  {Order Finish?};
+\node [test, join]  (t4)  {Order Finished?};
 \node [term]        (m1)  {End Smothly};
 
 \node [sky, right=of p1] (c5) {};%\cmark{5}

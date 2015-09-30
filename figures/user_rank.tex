@@ -1,0 +1,66 @@
+% !TEX root = flow_head.tex
+\begin{tikzpicture}[%
+    >=triangle 60,              % Nice arrows; your taste may be different
+    start chain=going below,    % General flow is top-to-bottom
+    node distance=6mm and 60mm, % Global setup of box spacing
+    every join/.style={norm},   % Default linetype for connecting boxes
+    ]
+% ------------------------------------------------- 
+% A few box styles 
+% <on chain> *and* <on grid> reduce the need for manual relative
+% positioning of nodes
+\tikzset{
+  base/.style={draw, on chain, on grid, align=center, minimum height=4ex},
+  proc/.style={base, rectangle, text width=8em},
+  test/.style={base, diamond, aspect=2, text width=5em},
+  term/.style={proc, rounded corners},
+  % coord node style is used for placing corners of connecting lines
+  coord/.style={coordinate, on chain, on grid, node distance=6mm and 25mm},
+  % nmark node style is used for coordinate debugging marks
+  nmark/.style={draw, cyan, circle, font={\sffamily\bfseries}},
+  % -------------------------------------------------
+  % Connector line styles for different parts of the diagram
+  norm/.style={->, draw, lcnorm},
+  free/.style={->, draw, lcfree},
+  cong/.style={->, draw, lccong},
+  it/.style={font={\small\itshape}}
+}
+% -------------------------------------------------
+% Start by placing the nodes
+\node [term]              (m1)  {Be Introduced};
+\node [proc, join]        (p8)  {Get Initial Rank $R$};
+\node [coord, yshift=2mm] (c1)  {}; \cmark{1}
+\node [test, yshift=2mm]  (t1)  {Transact?};
+\node [proc, yshift=-3mm] (p1)  {Increase $R$};
+
+
+\node [proc, right=of t1] (p4)  {Wait};
+\node [proc]              (p5)  {Compete to Get Task};
+\node [test, join]        (t5)  {Make it?};
+\node [coord, yshift=2mm] (c3)  {}; \cmark{3}
+
+\node [test, yshift=2mm]  (t6)  {Outsourcing?};
+\node [test]              (t7)  {Partly or Whole?};
+\node [proc]              (p6)  {Submit Outsourcing Request};
+\node [proc]              (p7)  {Decrease $R$};
+\node [test, join]        (t8)  {$R < R_{base}$?};
+\node [term]              (m2)  {Eliminate};
+
+\node [test, left=of c3]  (t2)  {All Tasks Accomplished?};
+\node [proc]              (p2)  {Process Task};
+\node [test]              (t3)  {Accepted?};
+\node [proc]              (p3)  {Pass the Outsouring Task};
+\node [test]              (t4)  {Task Accomplished?};
+
+\node [coord, left=of p1](c2)  {}; \cmark{2}
+
+\draw [->, lcnorm] (p4) |- (c1);
+\draw [->, lcnorm] (p8) -- (t1);
+\draw [->, lcnorm] (p1) --(c2) |- (c1);
+
+\path (t1.east)   to node [near start, yshift=1em] {$n$} (p4);
+\path (t1.south) to node [near start, xshift=1em] {$y$} (p1);
+  \draw [o->, lcnorm] (t1.east) -- (p4);
+  \draw [*->, lcnorm] (t1.south) |- (p5);
+
+\end{tikzpicture}
