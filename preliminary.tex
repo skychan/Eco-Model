@@ -1,5 +1,6 @@
 % !TEX root = Eco-Model.tex
 \section{Preliminaries} % (fold)
+ 
 \subsection{Services and Tasks}
 Resources and Services, Orders and Tasks,
 Similary to the relation of service and resource, order and task 
@@ -35,38 +36,46 @@ Before the emendation of the roles, some related standard name should be taken:
     \end{tabularx}%
   \label{tab:categoryuser}%
 \end{table}%
-As defined above, Enterprise User is the special case of the User(short for Generalized User) that purely provides manufacturing servicesa and the Customer User is similarly defined.
+As defined above, Enterprise User is the special case of the User(short for Generalized User) that purely provides manufacturing services and the Customer User is similarly defined.
 
 Hence, there is only two roles in the Ecosystem worth to be studied: User and Administrator, the proportion of user type could be adjusted as the runtime of the system goes by.
 
 \subsection{Operation Mode of Ecosystem}
-The style the Cloud Manufacturing Ecosystem appears mainly depends on the way the operation mode takes, therefore, research on features and issues in the Ecosystem would be taken within the scope of operation mode we are going to set up. As shown in xxx, the struct of Ecosystem can be described like a tree ,  xiabibi...
+The style the Cloud Manufacturing Ecosystem appears mainly depends on the way the operation mode takes, therefore, research on features and issues in the Ecosystem would be taken within the scope of operation mode we are going to set up. As shown in \figref{fig:platformstruct}, the principal struct of Ecosystem can be described into four main branch, how these branches grow determines how the Operation Mode will come out, and it will be easy to figure out the specified mode we make with some flow charts.
 
 \begin{figure}[!h]
 \centering
-\resizebox{0.7\textwidth}{!}{\input{figures/platformstruct}}
+%\resizebox{0.7\textwidth}{!}{\input{figures/platformstruct}}
 \caption{Principal Struct of Cloud Manufacturing Ecosystem}
+\label{fig:platformstruct}
 \end{figure}
-Because the metioned system is too complex to analyse in every detail, we focus on two important parts -- Order flow and User status -- to help illustrate the Operation Mode.
+
+Because the metioned system is too complex to analyse in every detail, we focus on two important operation flows -- Order Flow and User Rank -- to help illustrate the Operation Mode. 
 
 \subsubsection{Order Flow}
-simple order flow 
+Each manufacturing order (order for short) appears when Users make transaction in the platform, it might then go through some different modules and a simple version of its flow was shown on \figref{fig:orderflow}.
 
-\subsubsection{User Rank}
-simple user rank
-
-for these will be described detail in the simulation module.
+If an order accomplished smoothly, it will be constructed into tasks pieces in order to match the appropriate manufacturing services usually, similar to a large dataset processed with MapReduce\cite{Dean2008} schema. Then each piece could be processed by distributed resources with the outsourcing strategy User makes.
 
 \begin{figure}[!h]
 \centering\small
-\subfloat[Order Flow]{\resizebox{0.45\textwidth}{!}{
-\input{figures/order_flow}}\label{fig:orderflow}} \hspace{0.09\textwidth}
-\subfloat[User Rank]{\resizebox{0.45\textwidth}{!}{
-\input{figures/user_rank}}\label{fig:userrank}}
-\caption{Flow Chart of Order and User}
+%\subfloat[Order Flow]{\resizebox{0.45\textwidth}{!}{\input{figures/order_flow}}\label{fig:orderflow}} \hspace{0.09\textwidth}
+%\subfloat[User Rank]{\resizebox{0.45\textwidth}{!}{\input{figures/user_rank}}\label{fig:userrank}}
+\caption{ Primary Flow Chart of Order and User}
 \end{figure}
-\subsubsection{Platform}
+\subsubsection{User Rank}
+Apart from the above mentioned order related behavior, User can also submit resources, change standrd, make recommandation and so on, according to the permission degree the User has. User Rank provides the basis to set the permission degree, it gets the initial value when User was introduced in the system and it will increase or decrease by good or bad performance in each transaction, a simple flow of User Rank was shown on \figref{fig:userrank}.
 
+User Rank will be adjusted all the time only if the User was eliminated for a low rank value, the adjustment was based on the evalution messages, which seller and buyer would post after each transaction, basically. Introduction and elimination of User implies the evolution of the Cloud Manufacturing Ecosystem. 
+
+\subsubsection{Platform}
+Need a picture with cms run pic
+
+provide the method of order - > task , resources -> service
+gain the evalution messages for analysis
+decide to introduce or eliminate.
 
 \subsection{Data Science Tools}
+
+
 simply descript some related tools and where to use.
