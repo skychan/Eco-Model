@@ -17,7 +17,7 @@ However, the roles in real world always not go like this model, since it parted 
 
 Before the emendation of the roles, some related standard name should be taken:
 \begin{asparadesc}
-\item[User] The main role in Cloud Manufacturing, which is combined of Seller and Buyer as shown in \tabref{tab:categoryuser}, usually acts as Seller or Buyer according to the specific transaction;
+\item[User] The main role in Cloud Manufacturing, which is combined of Seller and Buyer as shown in \autoref{tab:categoryuser}, usually acts as Seller or Buyer according to the specific transaction;
 \item[Seller] The temporary role in a transaction, which provides the allocated part of manufacturing service and makes a evalution about the Buyer after the transaction;
 \item[Buyer] The temporary role in a transaction, which submits the allocated part of manufacturing task and makes a evalution about the Seller after the transaction;
 \item[Administrator] The role that gets the work for the operation and maintenance of the platform, has indirectly impact on the Ecosystem.
@@ -41,11 +41,11 @@ As defined above, Enterprise User is the special case of the User(short for Gene
 Hence, there is only two roles in the Ecosystem worth to be studied: User and Administrator, the proportion of user type could be adjusted as the runtime of the system goes by.
 
 \subsection{Operation Mode of Ecosystem}
-The style the Cloud Manufacturing Ecosystem appears mainly depends on the way the operation mode takes, therefore, research on features and issues in the Ecosystem would be taken within the scope of operation mode we are going to set up. As shown in \figref{fig:platformstruct}, the principal struct of Ecosystem can be described into four main branch, how these branches grow determines how the Operation Mode will come out, and it will be easy to figure out the specified mode we make with some flow charts.
+The style the Cloud Manufacturing Ecosystem appears mainly depends on the way the operation mode takes, therefore, research on features and issues in the Ecosystem would be taken within the scope of operation mode we are going to set up. As shown in \autoref{fig:platformstruct}, the principal struct of Ecosystem can be described into four main branch, how these branches grow determines how the Operation Mode will come out, and it will be easy to figure out the specified mode we make with some flow charts.
 
 \begin{figure}[!h]
 \centering
-%\resizebox{0.7\textwidth}{!}{\input{figures/platformstruct}}
+\resizebox{0.7\textwidth}{!}{\input{figures/platformstruct}}
 \caption{Principal Struct of Cloud Manufacturing Ecosystem}
 \label{fig:platformstruct}
 \end{figure}
@@ -53,18 +53,27 @@ The style the Cloud Manufacturing Ecosystem appears mainly depends on the way th
 Because the metioned system is too complex to analyse in every detail, we focus on two important operation flows -- Order Flow and User Rank -- to help illustrate the Operation Mode. 
 
 \subsubsection{Order Flow}
-Each manufacturing order (order for short) appears when Users make transaction in the platform, it might then go through some different modules and a simple version of its flow was shown on \figref{fig:orderflow}.
+Each manufacturing order (order for short) appears when Users make transaction in the platform, it might then go through some different modules and a simple version of its flow was shown on \autoref{fig:orderflow}.
 
 If an order accomplished smoothly, it will be constructed into tasks pieces in order to match the appropriate manufacturing services usually, similar to a large dataset processed with MapReduce\cite{Dean2008} schema. Then each piece could be processed by distributed resources with the outsourcing strategy User makes.
 
 \begin{figure}[!h]
 \centering\small
-%\subfloat[Order Flow]{\resizebox{0.45\textwidth}{!}{\input{figures/order_flow}}\label{fig:orderflow}} \hspace{0.09\textwidth}
-%\subfloat[User Rank]{\resizebox{0.45\textwidth}{!}{\input{figures/user_rank}}\label{fig:userrank}}
+\subfloat[Order Flow]{\resizebox{0.45\textwidth}{!}{\input{figures/order_flow}}\label{fig:orderflow}} \hspace{0.09\textwidth}
+\subfloat[User Rank]{\resizebox{0.45\textwidth}{!}{\input{figures/user_rank}}\label{fig:userrank}}
 \caption{ Primary Flow Chart of Order and User}
 \end{figure}
 \subsubsection{User Rank}
-Apart from the above mentioned order related behavior, User can also submit resources, change standrd, make recommandation and so on, according to the permission degree the User has. User Rank provides the basis to set the permission degree, it gets the initial value when User was introduced in the system and it will increase or decrease by good or bad performance in each transaction, a simple flow of User Rank was shown on \figref{fig:userrank}.
+Apart from the above mentioned order related behavior, User can also submit resources, change standrd, make recommandation and so on, according to the permission degree the User has. User Rank provides the basis to set the permission degree, it gets the initial value when User was introduced in the system and it will increase or decrease by good or bad performance in each transaction, the follow equation shows a simple way to evaluate the User Rank. 
+
+\begin{equation}
+  \begin{cases}
+      Rank_{[T+1]} = Rank_{[T]} + Gain - Lose, & T \geqslant 1\\
+      Rank_{[0]} = Rank_{[init]}
+  \end{cases}
+\label{equ:simplerank}
+\end{equation}
+Subscript $T$ in \eqref{equ:simplerank} counts the transaction User takes. \autoref{sub:rating_schema}
 
 User Rank will be adjusted all the time only if the User was eliminated for a low rank value, the adjustment was based on the evalution messages, which seller and buyer would post after each transaction, basically. Introduction and elimination of User implies the evolution of the Cloud Manufacturing Ecosystem. 
 
