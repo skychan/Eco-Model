@@ -42,7 +42,7 @@ The style the Cloud Manufacturing Ecosystem appears mainly depends on the way th
 
 \begin{figure}[!h]
 \centering
-%\resizebox{0.7\textwidth}{!}{\input{figures/platformstruct}}
+\resizebox{0.9\textwidth}{!}{\input{figures/platformstruct}}
 \caption{Principal Struct of Cloud Manufacturing Ecosystem}
 \label{fig:platformstruct}
 \end{figure}
@@ -50,7 +50,7 @@ The style the Cloud Manufacturing Ecosystem appears mainly depends on the way th
 Because the metioned system is too complex to analyse in every detail, we focus on two important operation flows -- Order Flow and User Rank -- to help illustrate the Operation Mode. 
 
 \subsubsection{Order Flow}
-Each manufacturing order (order for short) appears when Users make transaction in the platform, it might then go through some different modules and a simple version of its flow was shown on \autoref{fig:orderflow}.
+Each manufacturing order (order for short) appears when Users make transaction in the platform, it might then go through some different modules and a simple version of its flow was shown on \autoref{fig:simpleorderflow}.
 
 If an order accomplished smoothly, it will be constructed into tasks pieces in order to match the appropriate manufacturing services usually, similar to a large dataset processed with MapReduce\cite{Dean2008} schema. Then each piece could be processed by distributed resources with the outsourcing strategy User makes.
 
@@ -58,7 +58,9 @@ If an order accomplished smoothly, it will be constructed into tasks pieces in o
 \centering\small
 %\subfloat[Order Flow]{\resizebox{0.45\textwidth}{!}{\input{figures/order_flow}}\label{fig:orderflow}} \hspace{0.09\textwidth}
 %\subfloat[User Rank]{\resizebox{0.45\textwidth}{!}{\input{figures/user_rank}}\label{fig:userrank}}
-\caption{ Primary Flow Chart of Order and User}
+\resizebox{0.9\textwidth}{!}{\input{figures/simple_order_flow}}
+\caption{Simple Flow Chart of Order}
+\label{fig:simpleorderflow}
 \end{figure}
 \subsubsection{User Rank}
 Apart from the above mentioned order related behavior, User can also submit resources, change standrd, make recommandation and so on, according to the permission degree the User has. User Rank provides the basis to set the permission degree, it gets the initial value when User was introduced in the system and it will increase or decrease by good or bad performance in each transaction, the follow equation shows a simple way to evaluate the User Rank. 
@@ -90,7 +92,6 @@ Along with the convenience platform provides, there comes massive amounts of dat
 
 Dealing with data is the everyday life to Data Scientists, administrator of platform can use their daily tools to do the data-works. Data Science Tools can be categorized with:
 
-%\renewcommand{\labelenumi}{\theenmui}
 \begin{asparadesc}
 \item[Data Analysis] Universal data analysis include but not limited in data collection, data processing, data cleaning, exploratory data analysis, modeling and algorithms and data product, R Studio or Pandas library for Python are the most popular tools to do the data analysis.
 \item[Data Warehousing] Massive amount of structed and unstructured data would be well held and quick invoked with centralized or distributed data warehouse. 
