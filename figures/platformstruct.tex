@@ -10,9 +10,9 @@ level 3/.append style={level distance=2cm,sibling angle=60, font=\scriptsize\bf}
 level 4/.append style={level distance=1cm,sibling angle=60, font=\tiny\bf}]
 \node [root concept] {Cloud Manufacturing Ecosystem}  % root
 child [concept color = gray]{ node {Schedule}
-child { node {Recommand System}}
+child { node {Service Standardization}}
 child { node {Decision Making Support}}
-child { node {Ranking Schema}}
+child { node {Platform Assistance}}
 child { node {Match Regualtion}}
 }
 child [concept color = gray]{ node {User}
@@ -30,7 +30,10 @@ child [concept color = gray]{ node {Envolve}
     child { node {Introduce}}
     child { node {Eliminate}}
     }
-  child { node {Adjust User Proportion}}
+  child { node {Adjust User Proportion}
+    child { node {Rating}}
+    child { node {Recommand}}
+    }
   child { node {Development Guidance}}
   }
 child [concept color = gray]{ node {Platform}
@@ -41,12 +44,13 @@ child [concept color = gray]{ node {Platform}
     child { node {Task}}
     child { node {User}}
     }
-  child { node {Administrate}}
+child { node {Administrate}}
   child { node {Hub}
     child { node {Service}}
     child { node {Resource}}
     child { node {Ranking}}
     }
-  }
+  child { node {Scheduling Assistance}}
+}
 ;
 \end{tikzpicture}
