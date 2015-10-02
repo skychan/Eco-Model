@@ -70,7 +70,7 @@ Apart from the above mentioned order related behavior, User can also submit reso
   \end{cases}
 \label{equ:simplerank}
 \end{equation}
-Subscript $T$ in \eqref{equ:simplerank} counts the transaction User takes. 
+Subscript $T$ in \eqref{equ:simplerank} counts the transaction User takes, $Gain$ and $Lose$ come from evalution information to make change in rank value. 
 
 User Rank will be adjusted all the time only if the User was eliminated for a low rank value, the adjustment was based on the evalution messages, which seller and buyer would post after each transaction, basically. Moreover, the adjustment of rank will be conducted through outsourcing pipline, which was formed when a task be outsourced many times. Introduction and elimination of User implies the evolution of the Cloud Manufacturing Ecosystem. Advanced techniques will be discuessed in \autoref{sub:rating_schema}.
 
@@ -92,24 +92,11 @@ Dealing with data is the everyday life to Data Scientists, administrator of plat
 
 %\renewcommand{\labelenumi}{\theenmui}
 \begin{asparadesc}
-\item[Data Analysis] The R Project for Statistical Computing is still the most popular. I agree with William that it's best used through R Studio.
-Pandas is a set of Python libraries if you don't want to learn a new language
-The Julia Language is an upcoming alternative to R. I spent a little bit of time learning it and would like to keep track of where the project goes.
-\item[Data Warehousing] MySQL: It can comfortably handle datasets that are a few GBs. Don't prematurely go to Hive. MySQL is optimized to death and is super good at latency for running ad-hoc queries.
-CSV Files: You'd be surprised how far you can get with using these as your primary storage.
-Hive/Shark/Redshift: For when your big data is actually big. Hive can do giant joins while Redshift is better for latency but more limited in its joins.
-Data Visualization
-D3.js for pretty visualizations to put on the web
-Matplotlib for ad-hoc Python plotting
-ggplot2 for R.
-\item[Machine Learning] I'm a little rusty on this one - the state of the art is moving quickly here.
-I've mostly trained models in R and used it directly or over Hive.
-I've played around with scikit-learn in the past and it seems to be maturing.
-I've used Weka for trying out standard algorithms quickly on new datasets in the past but its hard to productionize anything with it.
-\item[Social Network Analysis] It's been a while since I've done hands-on SNA, so things might have changed recently.
-NetworkX is a pretty good Python library for SNA but isn't distributed
-Stanford Network Analysis Project
-Apache Giraph is an open-source implementation of the Google Pregel paper. 
+\item[Data Analysis] Universal data analysis include but not limited in data collection, data processing, data cleaning, exploratory data analysis, modeling and algorithms and data product, R Studio or Pandas library for Python are the most popular tools to do the data analysis.
+\item[Data Warehousing] Massive amount of structed and unstructured data would be well held and quick invoked with centralized or distributed data warehouse. 
+\item[Data Visualization] A primary goal of data visualization is to communicate information clearly and efficiently to users via the statistical graphics, plots, information graphics, tables, and charts selected.
+\item[Machine Learning] Machine learning cantains classification, clustering, filtering and so on, with the knowledge trained from well designed machine, we can apply it to make decisions or recommandations.
+\item[Social Network Analysis] Users communicated in the Ecosystem with transaction, in other words, there is a social-like manufacturing network connected users with transaction.  
 \end{asparadesc}
 
 Data Science Tools can help mine patterns, status, quality and so like of users, this latent imformation will play a important role in improving the mode of Cloud Manufacturing.
