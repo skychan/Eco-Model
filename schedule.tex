@@ -4,23 +4,15 @@
 
 In order to properly accomplish the proposed tasks with optimal allocation of the manufacturing resources, a series of methodologies were combined to assist the manufacturing services scheduling process in Cloud Manufacturing Ecosystem, since manufacturing serivices are contrusted from manufacturing resources. 
 
-===================================
+Most studies on the service scheduling issue in Cloud Manufacturing like Lartigau et al.\cite{Lartigau2012} considered the whole Cloud Manufacturing system as one giant enterprise, so that it's easy to transform the problem into the classical flexible job shop problem. However, the heteroid Users in Cloud Manufacturing always not have the consistent objects. Hence, we should take the look at personalized scheduling support in both self-oriented and platform-auxiliary scheduling. (See \autoref{sub:decision_making_support} and \ref{sub:platform_assistance} respectively)
 
-A scheduling methodology for production services is presented
-by [59]. Order decomposition into tasks, the selection of one or several
-service providers to perform them, and the scheduling of the whole
-manufacturing process is considered. In [60], a resource scheduling
-framework is proposed. On the basis of stochastic advanced Petri net,
-queue balancing cutover (QBC) strategy is put forward as a solution to
-the issue of request dispatching. The scheduling of collaborative
-design tasks is described in [61], presenting a new immune genetic
-algorithm. Improved searching diversity based on immune strategy, but
-also adaptive adjustment for probabilities of crossover and mutation
-with low time complexity are achieved with this concept.
-
-==================================
-
-Most of the related methodologies can be archived into \textbf{four} main modules, namely \textit{Service Standardization}, \textit{Decision Making Support}, \textit{Matching Regulation} and \textit{Platform Assistance} which are going to explained in detail respectively.
+Most of the related methodologies can be archived into \textbf{four} main modules, namely
+\begin{inparaenum}[1)]
+\item Service Standardization,
+\item Decision Making Support,
+\item Matching Regulation and
+\item Platform Assistance,
+\end{inparaenum} which are going to be explained in detail respectively.
 
 The scheduling effect can be estimated and observed through \textit{Service Dashboard}, which also provides the control function that will help the evolution in the Ecosystem.
 
@@ -47,7 +39,7 @@ OAS
 \label{sub:matching_regulation}
 There are two main parts, recommendation for resource matching and resource prediction, of resources recommendation module that we will discuss in \autoref{sub:recommand_system}, and the first one depicted the situation where user in buyer role will always encounter.
 
-In order to recommand poper manufacturing service with the order user submitted, service search engine should adopt a series of well designed matching regulations. Platform will collect the hit or miss data that feeded back from user, to train the classifier.
+In order to recommand poper manufacturing service with the order user submitted, Cloud Manufacturing platfrom should provide best-match solution, thus service search engine need to adopt a series of well designed matching regulations. Platform will collect the hit or miss data that feeded back from user, to train the classifier.
 % subsection matching_regulation (end)
 
 \subsection{Platform Assistance} % (fold)
