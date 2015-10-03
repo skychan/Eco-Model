@@ -19,6 +19,7 @@
   Number                   = {1},
   Pages                    = {107--113},
   Volume                   = {51},
+
   File                     = {:Cloud Computing\\MapReduce Simplified Data Processing on Large Clusters.pdf:PDF},
   Owner                    = {sky},
   Publisher                = {ACM},
@@ -72,6 +73,7 @@
   Booktitle                = {Industrial Engineering and Engineering Management (IEEM), 2011 IEEE International Conference on},
   Year                     = {2011},
   Pages                    = {1907--1911},
+
   Doi                      = {10.1109/IEEM.2011.6118247},
   File                     = {:Cloud Mfg\\制造服务\\Composable correlation mining of cloud service in cloud manufacturing.pdf:PDF},
   Owner                    = {sky},
@@ -105,8 +107,6 @@
   Booktitle                = {Industrial Engineering and Engineering Management (IEEM), 2011 IEEE International Conference on},
   Year                     = {2011},
   Pages                    = {1912--1916},
-
-  __markedentry            = {[sky:]},
   Abstract                 = {A new manufacturing paradigm, i.e. Cloud Manufacturing (CMfg) has been proposed recently. In order to satisfy high efficiency and low cost collaborative design task scheduling in CMfg, a new energy adaptive immune genetic algorithm (EAIGA) was designed. With the introduction of potential energy storage and detection, the new algorithm can not only improve searching diversity based on immune strategy, but also adaptively adjust the probabilities of crossover and mutation with low time complexity. The experimental results demonstrate that the new algorithm can effectively solving collaborative design task scheduling problem with a good balance between searching diversification and intensification.},
   Doi                      = {10.1109/IEEM.2011.6118248},
   Owner                    = {sky},
@@ -120,6 +120,7 @@
   Booktitle                = {Service Sciences (IJCSS), 2012 International Joint Conference on},
   Year                     = {2012},
   Pages                    = {34--39},
+
   Abstract                 = {Cloud Manufacturing (CMfg) is the delivery of resources control and abilities for manufacturing through the internet. It offers a personalized manufacturing service through several processes (e.g. the order decomposition into tasks, the selection of one or several providers to perform them, the scheduling of the whole manufacturing process). The current paper aims to provide an optimized methodology for task scheduling. In a first time, it identifies the background and general concept of CMfg, focuses further on the scheduling challenges and the environmental data and constraints to propose an optimized methodology for the scheduling process.},
   Doi                      = {10.1109/IJCSS.2012.19},
   File                     = {:Cloud Mfg\\资源调度\\Scheduling Methodology for Production Services in Cloud Manufacturing.pdf:PDF},
@@ -136,6 +137,7 @@
   Organization             = {Trans Tech Publ},
   Pages                    = {681--684},
   Volume                   = {201},
+
   Owner                    = {sky},
   Timestamp                = {2015.10.02}
 }
@@ -148,6 +150,7 @@
   Organization             = {Trans Tech Publ},
   Pages                    = {562--566},
   Volume                   = {58},
+
   Owner                    = {sky},
   Timestamp                = {2015.10.02}
 }
@@ -159,8 +162,45 @@
   Year                     = {2011},
   Organization             = {IEEE},
   Pages                    = {1003--1008},
+
   Owner                    = {sky},
   Timestamp                = {2015.10.02}
+}
+
+@Article{Nobibon2011,
+  Title                    = {Exact algorithms for a generalization of the order acceptance and scheduling problem in a single-machine environment},
+  Author                   = {Nobibon, Fabrice Talla and Leus, Roel},
+  Journal                  = {Computers \& Operations Research},
+  Year                     = {2011},
+  Number                   = {1},
+  Pages                    = {367--378},
+  Volume                   = {38},
+
+  __markedentry            = {[sky:6]},
+  File                     = {:OAS\\Exact algorithms for a generalization of the order acceptance and scheduling problem in a single-machine environment.pdf:PDF},
+  Owner                    = {sky},
+  Publisher                = {Elsevier},
+  Timestamp                = {2015.10.03}
+}
+
+@Article{Og˘uz2010,
+  Title                    = {Order acceptance and scheduling decisions in make-to-order systems},
+  Author                   = {O\u{g}uz, Ceyda and Sibel Salman, F. and Bilgintürk Yalçın, Zehra},
+  Journal                  = {International Journal of Production Economics},
+  Year                     = {2010},
+
+  Month                    = may,
+  Number                   = {1},
+  Pages                    = {200--211},
+  Volume                   = {125},
+
+  Abstract                 = {We examine simultaneous order acceptance and scheduling decisions where the orders are defined by their release dates, due dates, deadlines, processing times, sequence dependent setup times and revenues in a single machine environment. The objective is to maximize total revenue, where the revenue from an order is a function of its tardiness and deadline. We give an MILP formulation which can be solved to optimality up to 15 orders. We develop three heuristic algorithms to solve large sized problems. Computational tests indicate that the proposed algorithms are both computationally efficient and effective even for instances up to 300 orders.},
+  File                     = {:OAS\\order acceptance and scheduling decisions in make-to-order systems.pdf:PDF},
+  ISSN                     = {0925-5273},
+  Keywords                 = {Order acceptance, Single machine scheduling, Sequence dependent setup times, Heuristics},
+  Owner                    = {CSK},
+  Timestamp                = {2015.08.13},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S0925527310000514}
 }
 
 @Article{page1999pagerank,
@@ -177,6 +217,7 @@
   Booktitle                = {Engineering, Technology and Innovation (ICE), 2012 18th International ICE Conference on},
   Year                     = {2012},
   Pages                    = {1--10},
+
   Doi                      = {10.1109/ICE.2012.6297693},
   File                     = {:Cloud Mfg\\Resource Description\\Using manufacturing service descriptions for flexible integration of production facilities to manufacturing clouds.pdf:PDF},
   Owner                    = {sky},
@@ -192,8 +233,6 @@
   Number                   = {2},
   Pages                    = {107--194},
   Volume                   = {4},
-
-  __markedentry            = {[sky:6]},
   File                     = {:Machine Learning\\Online Learning and Online.pdf:PDF},
   Owner                    = {sky},
   Timestamp                = {2015.10.02}
@@ -259,6 +298,7 @@ inter-factory industrial control systems which could facilitate a CM environment
   Organization             = {Trans Tech Publ},
   Pages                    = {1250--1253},
   Volume                   = {143},
+
   Owner                    = {sky},
   Timestamp                = {2015.10.02}
 }
@@ -271,5 +311,22 @@ inter-factory industrial control systems which could facilitate a CM environment
   Number                   = {2},
   Pages                    = {3},
   Volume                   = {1}
+}
+
+@InProceedings{Zheng2005,
+  Title                    = {Research of architecture for grid manufacturing},
+  Author                   = {Xiao-lin Zheng and De-Ren Chen and Lin Lu},
+  Booktitle                = {Computer Supported Cooperative Work in Design, 2005. Proceedings of the Ninth International Conference on},
+  Year                     = {2005},
+  Pages                    = {345--349},
+  Volume                   = {1},
+
+  __markedentry            = {[sky:]},
+  Abstract                 = {Architecture for grid manufacturing system was provided. The evolution of manufacturing mode and the naissance of grid manufacturing were analyzed, and the typical architecture for grid was introduced, they are the layered sandglass structure and the open grid service architecture (OGSA). Then we analyzed the scheme of grid manufacturing for Shaoxing spinning region, based on which, architecture for grid manufacturing system was proposed. The manufacturing grid architecture absorbed the five-level framework of grid and the grid services idea in OGSA, and integrated many supporting toolboxes and protocols of Globus, which is a helpful exploration to the development of grid manufacturing system.},
+  Doi                      = {10.1109/CSCWD.2005.194195},
+  File                     = {:Cloud Mfg\\Resource Search\\Research of architecture for grid manufacturing.pdf:PDF},
+  Owner                    = {sky},
+  Timestamp                = {2015.10.03},
+  Url                      = {http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1504102}
 }
 
