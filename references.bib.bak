@@ -2,6 +2,22 @@
 % Encoding: UTF8
 
 
+@Article{Cesaret2012,
+  Title                    = {A tabu search algorithm for order acceptance and scheduling},
+  Author                   = {Cesaret, Bahriye and O{\u{g}}uz, Ceyda and Salman, F Sibel},
+  Journal                  = {Computers \& Operations Research},
+  Year                     = {2012},
+  Number                   = {6},
+  Pages                    = {1197--1205},
+  Volume                   = {39},
+
+  __markedentry            = {[sky:]},
+  File                     = {:OAS\\A tabu search algorithm for order acceptance and scheduling.pdf:PDF},
+  Owner                    = {sky},
+  Publisher                = {Elsevier},
+  Timestamp                = {2015.10.03}
+}
+
 @InCollection{coulom2008whole,
   Title                    = {Whole-history rating: A bayesian rating system for players of time-varying strength},
   Author                   = {Coulom, R{\'e}mi},
@@ -24,6 +40,17 @@
   Owner                    = {sky},
   Publisher                = {ACM},
   Timestamp                = {2015.09.30}
+}
+
+@Book{Elo1978,
+  Title                    = {The rating of chessplayers, past and present},
+  Author                   = {Elo, Arpad E},
+  Publisher                = {Arco Pub.},
+  Year                     = {1978},
+
+  __markedentry            = {[sky:6]},
+  Owner                    = {sky},
+  Timestamp                = {2015.10.03}
 }
 
 @Article{glickman1995glicko,
@@ -90,6 +117,31 @@
 
   Owner                    = {sky},
   Publisher                = {JSTOR}
+}
+
+@InProceedings{Koren2008,
+  Title                    = {Factorization Meets the Neighborhood: A Multifaceted Collaborative Filtering Model},
+  Author                   = {Koren, Yehuda},
+  Booktitle                = {Proceedings of the 14th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+  Year                     = {2008},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {426--434},
+  Publisher                = {ACM},
+  Series                   = {KDD '08},
+
+  __markedentry            = {[CSK:2]},
+  Abstract                 = {Recommender systems provide users with personalized suggestions for products or services. These systems often rely on Collaborating Filtering (CF), where past transactions are analyzed in order to establish connections between users and products. The two more successful approaches to CF are latent factor models, which directly profile both users and products, and neighborhood models, which analyze similarities between products or users. In this work we introduce some innovations to both approaches. The factor and neighborhood models can now be smoothly merged, thereby building a more accurate combined model. Further accuracy improvements are achieved by extending the models to exploit both explicit and implicit feedback by the users. The methods are tested on the Netflix data. Results are better than those previously published on that dataset. In addition, we suggest a new evaluation metric, which highlights the differences among methods, based on their performance at a top-K recommendation task.},
+  Acmid                    = {1401944},
+  Doi                      = {10.1145/1401890.1401944},
+  File                     = {:Rating System\\Factorization Meets the Neighborhood a Multifaceted Collaborative Filtering Model.pdf:PDF},
+  ISBN                     = {978-1-60558-193-4},
+  Keywords                 = {collaborative filtering, recommender systems},
+  Location                 = {Las Vegas, Nevada, USA},
+  Numpages                 = {9},
+  Owner                    = {CSK},
+  Timestamp                = {2015.07.08},
+  Url                      = {http://doi.acm.org/10.1145/1401890.1401944}
 }
 
 @InProceedings{koren2008factorization,
@@ -175,8 +227,6 @@
   Number                   = {1},
   Pages                    = {367--378},
   Volume                   = {38},
-
-  __markedentry            = {[sky:6]},
   File                     = {:OAS\\Exact algorithms for a generalization of the order acceptance and scheduling problem in a single-machine environment.pdf:PDF},
   Owner                    = {sky},
   Publisher                = {Elsevier},
@@ -320,8 +370,6 @@ inter-factory industrial control systems which could facilitate a CM environment
   Year                     = {2005},
   Pages                    = {345--349},
   Volume                   = {1},
-
-  __markedentry            = {[sky:]},
   Abstract                 = {Architecture for grid manufacturing system was provided. The evolution of manufacturing mode and the naissance of grid manufacturing were analyzed, and the typical architecture for grid was introduced, they are the layered sandglass structure and the open grid service architecture (OGSA). Then we analyzed the scheme of grid manufacturing for Shaoxing spinning region, based on which, architecture for grid manufacturing system was proposed. The manufacturing grid architecture absorbed the five-level framework of grid and the grid services idea in OGSA, and integrated many supporting toolboxes and protocols of Globus, which is a helpful exploration to the development of grid manufacturing system.},
   Doi                      = {10.1109/CSCWD.2005.194195},
   File                     = {:Cloud Mfg\\Resource Search\\Research of architecture for grid manufacturing.pdf:PDF},

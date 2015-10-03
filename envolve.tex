@@ -1,35 +1,63 @@
 % !TEX root = Eco-Model.tex
 \section{Manufacturing Ecosystem Envolving} % (fold)
 \label{sec:envolve}
-The factors of evolving/ howto evolving
-
-\subsection{Envolving Aim} % (fold)
+\subsection{Envolving Aim and Main Factors} % (fold)
 \label{sub:envolving_aim}
-
-% subsection envolving_aim (end)
-\subsection{Main Factors} % (fold)
-\label{sub:main_factors}
-
-% subsection main_factors (end)
+The aim of envolving in the Ecosystem is to optimize the utilize of manufacturing resources, find the adaptive operation mode for enterprises and filter out the underisable enterprises. In the process of envolving related 
+main factors including:
+\begin{inparaenum}[1)]
+\item Rating Schema;
+\item Recommand System and
+\item Criterion of User Introduction and Elimination
+\end{inparaenum}
 
 \subsection{Rating Schema} % (fold)
 \label{sub:rating_schema}
-Elo rating system
+Rating user's rank is the base of Recommand System, from the time users were introduced in the system, their rank changing flow can be viewed like \autoref{fig:userrank}, 
 \begin{figure}[!h]
 \centering\small
-%\resizebox{0.6\textwidth}{!}{\input{figures/user_rank}}
+\resizebox{0.6\textwidth}{!}{\input{figures/user_rank}}
 \caption{Primary Flow of User Rank}
 \label{fig:userrank}
 \end{figure}
+rating schema will be developed via the flow.
+
+Elo Rating System\cite{Elo1978} is a classic rating system for the ranking of chessplayer, most modern rating systems are derived from Elo's model:
+
+\begin{numcases}{}
+E_A = \frac{1}{1+10^{\frac{R_B-R_A}{400}}} \label{equ:elo1}\\
+R_A := R_A + K(S_A - E_A) \label{equ:elo2} \\
+E_B = \frac{1}{1+10^{\frac{R_A-R_B}{400}}} \label{equ:elo3} \\
+R_B := R_B + K(S_B - E_B) \label{equ:elo4} 
+\end{numcases}
+In \eqref{equ:elo1} - \eqref{equ:elo4}, $R_A$ and $R_B$ represent the rating of user $A$ and $B$, $E_A$ and $E_B$ represent the expected score of user $A$ and $B$ while $S_A$ and $S_B$ represent the actual score of them.
+
+The assumption in the modle is that user's rank transfer from loser to winer, but there is no winner or loser in any transactions, so the modle should be reformed to suit the system.
 % subsection rating_schema (end)
 
 \subsection{Recommand System} % (fold)
 \label{sub:recommand_system}
-recommand system 
+There are two scenarios in recommendation: \begin{inparaenum}[1)]
+\item Service Searching and
+\item Platform priority setting.
+\end{inparaenum}
+The first one is familar with the common use of recommend system, which use Collaboration Filtering method widely. Without no doubt, Collaboration Filtering Algorithm is the most popular algorithm in the recommand system, this algorithm use the history data of users' translations and their rated ratings, to archive customers and items simultaneously, then to make the recommendations. Let $r_{ui}$ be the rating made by user $u$ of item $i$ and $\hat{r}_{ui}$, the Latent Factor model\cite{koren2008factorization} using Collaboration Filtering algorithm goes like:
+
+\begin{numcases}{}
+\min_{p_*,q_*,b_*}\sum_{(u,i)\in\kappa}\left(r_{ui} -\mu - b_u - b_i - p^T_uq_i \right)^2 + \lambda_3 \left( \|p_u\|^2 + \|q_i\|^2 + b_u^2 + b_i^2 \right)
+\label{equ:latent1}\\
+\hat{r}_{ui} = b_{ui} + p^T_uq_i \label{equ:latent2}\\
+b_{ui} = \mu + b_u + b_i \label{equ:latent3} \\
+\kappa =\{(u,i)|r_{ui}\text{is known}\} \label{equ:latent4}
+\end{numcases}
+This model \eqref{equ:latent1} - \eqref{equ:elo4}, $b_u$ and $b_i$ indicate the observed deviations of user $u$ and item $i$, respectively from the average, $\mu$ is the overall rating average, set $\kappa$ represent all the translations has been made yet. \eqref{equ:latent2} use the technique called Singular Value Decomposition that evaluate a matrix of preference value by the product of each one's parameters vector. This model can be solved by Gradient Descent method and $p_*,q_*,b_*$ are the optimal value. 
+
+The second one is also commonly used in nowadays business mode like Uber, administrator in platform analysed the resource load and other information of resource situation, made high priority of newly or low loaded resources by bonus to buysers.
+
 % subsection recommand_system (end)
 
-\subsection{Control of The Chain} % (fold)
+\subsection{User Introduction and Elimination} % (fold)
 \label{sub:control}
-
+Finally, administrators make the strategy for introduction and elimination of users, they can easily set a baseline and assess the user to make the decision.  
 % subsection control (end)
 % section envolve (end)
