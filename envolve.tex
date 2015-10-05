@@ -50,7 +50,7 @@ The first one is familar with the common use of recommend system, which use Coll
 b_{ui} = \mu + b_u + b_i \label{equ:latent3} \\
 \kappa =\{(u,i)|r_{ui}\text{is known}\} \label{equ:latent4}
 \end{numcases}
-This model \eqref{equ:latent1} - \eqref{equ:elo4}, $b_u$ and $b_i$ indicate the observed deviations of user $u$ and item $i$, respectively from the average, $\mu$ is the overall rating average, set $\kappa$ represent all the translations has been made yet. \eqref{equ:latent2} use the technique called Singular Value Decomposition that evaluate a matrix of preference value by the product of each one's parameters vector. This model can be solved by Gradient Descent method and $p_*,q_*,b_*$ are the optimal value. 
+This model \eqref{equ:latent1} - \eqref{equ:latent4}, $b_u$ and $b_i$ indicate the observed deviations of user $u$ and item $i$, respectively from the average, $\mu$ is the overall rating average, set $\kappa$ represent all the translations has been made yet. \eqref{equ:latent2} use the technique called Singular Value Decomposition that evaluate a matrix of preference value by the product of each one's parameters vector. This model can be solved by Gradient Descent method and $p_*,q_*,b_*$ are the optimal value. 
 
 The second one is also commonly used in nowadays business mode like Uber, administrator in platform analysed the resource load and other information of resource situation, made high priority of newly or low loaded resources by bonus to buysers.
 
