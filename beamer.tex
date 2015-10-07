@@ -25,7 +25,7 @@
 %\usetheme{AnnArbor}
 %\usetheme{Antibes}
 %\usetheme{Bergen}
-\usetheme{Berkeley}
+\usetheme[hideothersubsections]{Berkeley}
 %\usetheme{Berlin}
 %\usetheme{Boadilla}
 %\usetheme{boxes}
@@ -67,6 +67,14 @@
   \vskip0pt%
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% sidebar 字体大小的调整。
+%\setbeamerfont{section in sidebar}{size=\fontsize{2}{4}\selectfont}
+%\setbeamerfont{subsection in sidebar}{size=\fontsize{2}{4}\selectfont}
+%\setbeamerfont{subsubsection in sidebar}{size=\fontsize{2}{4}\selectfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \title{Cloud Manufacturing Ecosystem}
 
@@ -119,7 +127,9 @@
 \AtBeginSubsection[]
 {
   \begin{frame}<beamer>{Outline}
+    \begin{multicols}{2}
     \tableofcontents[currentsection,currentsubsection]
+    \end{multicols}
   \end{frame}
   \addtocounter{framenumber}{-1}
 }
@@ -140,8 +150,9 @@
 
 % Section and subsections will appear in the presentation overview
 % and table of contents.
-\input{beamer/intro}
-\input{./beamer/preliminary}
+\input{beamer/intro.tex}
+\input{beamer/schedule.tex}
+\input{beamer/envolve.tex}
 \input{beamer/summary.tex}
 
 % All of the following is optional and typically not needed. 
