@@ -1,19 +1,159 @@
 % !TEX root = ../beamer.tex
 \section{Preliminary}
 
-\subsection{Another Subsection}
-
-\begin{frame}{Blocks}
-\begin{block}{Block Title}
-You can also highlight sections of your presentation in a block, with it's own title
-\end{block}
-\begin{theorem}
-There are separate environments for theorems, examples, definitions and proofs.
-\end{theorem}
-\begin{example}
-Here is an example of an example block.
-\end{example}
+\subsection{Cloud Manufacturing}
+\begin{frame}{Ecosystem Main Struct}{Cloud Manufacturing}
+\only<1>{
+	\begin{figure}
+	\centering
+	\includegraphics[height=0.82\textheight]{figures/platformstruct.pdf}
+	\caption{Princiapl Struct of Cloud Manufacturing Ecosystem}
+	\end{figure}
+}
+\only<2>{
+	\begin{figure}
+	\centering
+	\includegraphics[height=0.82\textheight,viewport=40 0 450 250,clip=true]{figures/platformstruct.pdf}
+	\end{figure}
+}
+\only<3>{
+	\begin{figure}
+	\centering
+	\includegraphics[height=0.82\textheight,viewport=0 160 500 450,clip=true]{figures/platformstruct.pdf}
+	\end{figure}
+}
 \end{frame}
+
+\begin{frame}{Standardization \& Decomposition}{Service \& Task}
+\onslide<+->{
+	Cloud Manufacturing Ecosystem provides a platform which distributed manufacturing resources/orders gathered as resources/orders hub. 
+}
+\onslide<+->{
+	\begin{block}{Related Methods}
+	\begin{itemize}
+	\item Resource Virtualization
+	\item Construct Virtual Resource into Service Unit
+	\item Service Standardization
+	\item Order Decomposition into Tasks
+	\end{itemize}
+	\end{block}
+}
+\end{frame}
+
+\subsection{Roles}
+\begin{frame}{Usual Names}{Roles}
+\onslide<+->{\small
+	\begin{description}
+	\item[User] The main role in Cloud Manufacturing, usually acts as Seller or Buyer;
+	\item[Seller] The temporary role in a transaction, which provides the allocated part of manufacturing service;
+	\item[Buyer] The temporary role in a transaction, which submits the allocated part of manufacturing task;
+	\item[Administrator] The role that gets the work for the operation and maintenance of the platform.
+	\end{description}
+}
+\onslide<+->{
+\begin{table}[htbp]
+  \centering\scriptsize
+    \begin{tabular}{lcc}
+    \toprule
+        &  Seller & Buyer  \\
+    \midrule
+    Generalized User & $\surd$ & $\surd$  \\
+    Enterprise User & $\surd$ &  \\
+    Customer User& & $\surd$ \\
+    \bottomrule
+    \end{tabular}%
+\end{table}
+}
+\end{frame}
+
+\subsection{Operating Model}
+\begin{frame}{Overview}{Operating Model}
+\only<1>{The style the Cloud Manufacturing Ecosystem appears mainly depends on the way the operating model takes, therefore, research on features and issues in the Ecosystem would be taken within the scope of operating model we are going to set up in:
+\begin{block}{Operating Model Components}
+\begin{itemize}
+\item Order Flow
+\item User Rank
+\item Platform
+\end{itemize}
+\end{block}}
+\only<2>{\begin{figure}
+\tiny\centering\resizebox{\textwidth}{!}{
+\input{figures/operatingmodel.tex}}
+\caption{Overview of the Operating Model}
+\end{figure}}
+\end{frame}
+
+\begin{frame}{Order Flow}{Operating Model}
+\only<1>{Each order appears when Users make transaction in the platform, it might then go through different paths:
+\begin{figure}
+\tiny\centering
+\resizebox{\textwidth}{!}{\input{figures/simple_order_flow.tex}}
+\caption{Simple Flow Chart of Order}
+\end{figure}
+}
+\end{frame}
+
+\begin{frame}{User Rank}{Operating Model}
+\onslide<+->{User Rank provides the basis to make the recommandation and to get more permission, the rank will increase or decrease by good or bad performance in each transaction}
+\onslide<+->{
+\begin{equation}
+  \begin{cases}
+      Rank_{[T+1]} = Rank_{[T]} + Gain - Lose, & T \geqslant 1\\
+      Rank_{[0]} = Rank_{[init]}
+  \end{cases}
+\end{equation}
+}
+\end{frame}
+
+\begin{frame}{Platform}{Operating Model}
+\onslide<+->{
+	Cloud Manufacturing Platform is mantained by Administrators with:
+}
+\onslide<+->{
+	\begin{block}{Platform Maintenances}
+	\begin{itemize}
+	\item Decompose Orders into Tasks
+	\item Construct Standard Services
+	\item Introduce/Eliminate Users
+	\item Distribute Permissions
+	\item Adjust Resource Useage by Recommandations and Bonus
+	\end{itemize}
+	\end{block}
+}
+\end{frame}
+
+\subsection{Data Science Tools}
+\begin{frame}{Data Science Tools}
+\onslide<+->{In such Cloud Manufacturing Operating Model, there comes massive amount of data:\begin{itemize}
+  \item Transaction histroy;
+  \item Ranking histroy;
+  \item Status of resources, services, orders and tasks;
+  \item Decision pattern and so on.
+\end{itemize}}
+\onslide<+->{
+	A bunch of Data Science Tools can be helpful:
+	\begin{block}{Useful Data Science Tools}
+	\begin{itemize}
+	\item Data Analysis (collection, cleaning, modeling\&algorithms)
+	\item Data Warehousing
+	\item Machine Learning
+	\item Social Network Anaysis
+	\end{itemize}
+	\end{block}
+}
+\end{frame}
+
+%\begin{frame}{Blocks}
+%\begin{block}{Block Title}
+%You can also highlight sections of your presentation in a block, with it's own title
+%\end{block}
+%\begin{theorem}
+%There are separate environments for theorems, examples, definitions and proofs.
+%\end{theorem}
+%\begin{example}
+%Here is an example of an example block.
+%\end{example}
+%\end{frame}
 
 % Placing a * after \section means it will not show in the
 % outline or table of contents.

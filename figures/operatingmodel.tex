@@ -1,0 +1,108 @@
+% !TEX root = flow_head.tex
+\begin{tikzpicture}[
+ >=triangle 60,              % Nice arrows; your taste may be different
+ start chain=going right,    % General flow is top-to-bottom
+ node distance=12em and 3em, % Global setup of box spacing
+ every join/.style={norm},   % Default linetype for connecting boxes
+]
+% ------------------------------------------------- 
+% A few box styles 
+% <on chain> *and* <on grid> reduce the need for manual relative
+% positioning of nodes
+\tikzset{
+  every node/.style={rectangle split, rectangle split parts=2, rectangle split horizontal, rectangle split part fill={lccong!25, yellow!10}, draw, anchor=center, minimum height=9em, on chain, on grid, text width=2em},
+  base/.style={draw, on chain, on grid, align=center, minimum height=4ex},
+  proc/.style={base, rectangle, text width=8em},
+  Arrow/.style={thick, decoration={markings,mark=at position
+   1 with {\arrow[semithick]{open triangle 60}}},
+   double distance=1.4pt, shorten >= 5.5pt,
+   preaction = {decorate},
+   postaction = {draw,line width=1.4pt, white,shorten >= 4.5pt},fill = lcnorm!25},
+  test/.style={base, diamond, aspect=2, text width=5em},
+  term/.style={proc, rounded corners},
+  % coord node style is used for placing corners of connecting lines
+  coord/.style={coordinate, on chain, on grid, node distance=6mm and 25mm},
+  % nmark node style is used for coordinate debugging marks
+  nmark/.style={draw, cyan, circle, font={\sffamily\bfseries}},
+  % -------------------------------------------------
+  % Connector line styles for different parts of the diagram
+  norm/.style={->, draw, lcnorm, thick},
+  free/.style={->, draw, lcfree},
+  cong/.style={->, draw, lccong},
+  it/.style={font={\small\itshape}},
+  tw/.style={text width=9.5em},
+  th/.style={text width=2em}
+}
+
+\newcommand{\one}[1]{\nodepart[th]{one}\rotatebox{90}{\bf\shortstack{#1}}}
+\newcommand{\two}{\nodepart[tw]{two}}
+
+\node (n1)
+{	
+	\one{Submit\\ Order}
+	\two
+	\begin{inparaenum}
+	\item 1.Original\\
+	\item 2.Outsourcing\\
+	\item 3.Platform Coupon
+	\end{inparaenum}
+};
+
+\node[join] (n2) 
+{
+	\one{Standard\\ Construct}
+	\two
+	\begin{inparaenum}
+	\item 1.Order $\to$ Task\\
+	\item 2.Sercice Bundle\\
+	\item 3.Task Position
+	\end{inparaenum}
+};
+
+\node[join] (n3)
+{
+	\one{Match\\ Service}
+	\two
+	\begin{inparaenum}
+	\item 1.Recommandation\\
+	\item 2.Service Status\\
+	\item 3.Bonus\\
+	\item 4.Seller Rank
+	\end{inparaenum}
+};
+
+\node[below=of n3,join] (n4)
+{
+	\one{Confirm\\ by Other}
+	\two
+	\begin{inparaenum}
+	\item 1.Accept Tasks\\
+	\item 2.Check Due-date\\
+	\item 3.Buyer Rank
+	\end{inparaenum}
+};
+
+\node[below=of n2,join] (n5)
+{
+	\one{Manufacture\\
+	\& Delivery}
+	\two
+	\begin{inparaenum}
+	\item 1.Finish Job\\
+	\item 2.Outsourcing\\
+	\item 3.Pieces $\to$ Product
+	\end{inparaenum}
+};
+
+\node[below=of n1,join] (n6)
+{
+	\one{Mutual\\ Rating}
+	\two
+	\begin{inparaenum}
+	\item 1.Rate Seller\\
+	\item 2.Rate Buyer\\
+	\item 3.Change Rank\\
+	\item 4.Affect Recommand
+	\end{inparaenum}
+};
+\end{tikzpicture}

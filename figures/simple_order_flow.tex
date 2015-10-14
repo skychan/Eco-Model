@@ -2,7 +2,7 @@
 \begin{tikzpicture}[%
     >=triangle 60,              % Nice arrows; your taste may be different
     start chain=going right,    % General flow is top-to-bottom
-    node distance=6mm and 10mm, % Global setup of box spacing
+    node distance=1.6em and 2.5em, % Global setup of box spacing
     every join/.style={norm},   % Default linetype for connecting boxes
     ]
 % ------------------------------------------------- 
@@ -35,14 +35,14 @@
 \node [term, xshift = 12mm] (oc) {Order Check};
 \node [term, join=by cong, fill = lccong!25]  {Submit};
 
-\node [gathe, right=of d,yshift=5mm, xshift= 15mm] (g1) {};
-\node [term, below=of d, yshift=15.5mm] (u1) {User 1};
+\node [gathe, right=of d,yshift=5mm, xshift= 4em] (g1) {};
+\node [term, below=of d, yshift=4.1em] (u1) {User 1};
 \node [term, below=of u1] (u2) {User 2};
 \node [below=-1mm of u2] (u3) {$\vdots$};
 \node [term,below=of u3, yshift=-1mm] (u4) {User n};
 \node [below=of u4,yshift=2.6mm] {User Cluster};
 \node [gathe, below=of g1] (g2) {};
-\node [coord, above=of g1, yshift=8mm] (c1) {};
+\node [coord, above=of g1, yshift=2em] (c1) {};
 
 \draw [->, lccong] (g2) -- (oc.west);
 \draw [->, lcnorm] (p1) -- (u1.west);
@@ -56,6 +56,6 @@
 \draw [->, lcnorm] (u4.east) -- (g1.west);
 \draw [->, lccong] (u4.east) -- (g2.west);
 \draw [->, lcnorm] (g1) -- (c1) -- node [black, near end, yshift=0.75em, it]
-    {(Outsourcing)} ++(-3.5cm,0) -| (p1) ;
+    {(Outsourcing)} ++(-9em,0) -| (p1) ;
 
 \end{tikzpicture}

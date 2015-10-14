@@ -1,21 +1,83 @@
 % !TEX root = ../beamer.tex
 \section{Manufacturing Ecosystem Envolving}
 \subsection{Envolving Aim \& Main Factors}
-\begin{frame}{Manufacturing Ecosystem Envolving}{Envolving Aim \& Main Factors}
-
+\begin{frame}{Envolving Aim \& Main Factors}{Manufacturing Ecosystem Envolving}
+\onslide<+->{The aim of envolving in the Ecosystem is to: \begin{itemize}
+\item optimize the utilize of manufacturing resources
+\item find the adaptive operating model for enterprises
+\item filter out the underisable enterprises.
+\end{itemize}}
+\onslide<+->{
+\begin{block}{Main Factors for Envolving}
+\begin{itemize}
+\item Rating Schema;
+\item Recommand System and
+\item Criterion of User Introduction and Elimination
+\end{itemize}
+\end{block}}
 \end{frame}
 
 \subsection{Rating Schema}
-\begin{frame}{Manufacturing Ecosystem Envolving}{Rating Schema}
-
+\begin{frame}{Rating Schema}{Manufacturing Ecosystem Envolving}
+\onslide<+->{Rating user's rank is the base of Recommand System, so the rating schema should be designed. Most modern rating systems are derived from Elo's model:}
+\onslide<+->{\begin{numcases}{}
+E_A = \frac{1}{1+10^{\frac{R_B-R_A}{400}}} \\
+R_A := R_A + K(S_A - E_A) \\
+E_B = \frac{1}{1+10^{\frac{R_A-R_B}{400}}} \\
+R_B := R_B + K(S_B - E_B)
+\end{numcases}}
 \end{frame}
 
 \subsection{Recommand System}
-\begin{frame}{Manufacturing Ecosystem Envolving}{Recommand System}
-
+\begin{frame}{Recommand System}{Manufacturing Ecosystem Envolving}
+\onslide<+->{There are two scenarios in recommendation:
+\begin{itemize}
+\item Service Searching
+\item Platform priority setting
+\end{itemize}
+}
+\onslide<+->{
+	Collaboration Filtering is popular method used in recommand system:
+	\begin{equation}
+	\begin{split}
+	\min_{p_*,q_*,b_*} & \sum_{(u,i)\in\kappa}\left(r_{ui} -\mu - b_u - b_i - p^T_uq_i \right)^2 \\
+		& + \lambda_3 \left( \|p_u\|^2 + \|q_i\|^2 + b_u^2 + b_i^2 \right)
+	\end{split}
+	\end{equation}
+	\begin{numcases}{}
+	\hat{r}_{ui} = b_{ui} + p^T_uq_i \\
+	b_{ui} = \mu + b_u + b_i  \\
+	\kappa =\{(u,i)|r_{ui} \text{is known}\} 
+	\end{numcases}
+}
 \end{frame}
 
 \subsection{User Introduction \& Elimination}
-\begin{frame}{Manufacturing Ecosystem Envolving}{User Introduction \& Elimination}
+\begin{frame}{User Introduction \& Elimination}{Manufacturing Ecosystem Envolving}
+\onslide<+->{
+	Ecosystem envolving need a good user introduction and elimination method with:
+}
+\onslide<+->{
+	\begin{block}{Envolving}
+	\begin{itemize}
+	\item Reinforcement Learning
+	\item Control
+	\end{itemize}
+	\end{block}
+}
+\end{frame}
 
+\subsection{Envision of the Ecosystem}
+\begin{frame}{Envision}{After a long running time and the system seems stable}
+\onslide<+->{
+	With poper scheduling and envolving, Cloud Manufacturing Ecosystem running with a stable mode:
+	\begin{block}{Stable System Envision}
+	\begin{itemize}
+		\item Less-Popular manufacturing services are utilized instead of idleness with Coupon
+		\item Products are manufactured with appropriate resource
+		\item High rank users in different type of manufacturing resource lead the industrial chain
+		\item Good operating models appear and being refined with time goes by
+	\end{itemize}
+	\end{block}
+}
 \end{frame}

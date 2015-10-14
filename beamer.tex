@@ -11,11 +11,38 @@
 % modify this file as you see fit and even to delete this copyright
 % notice. 
 
-\documentclass{beamer}
+\documentclass[x11names]{beamer}
 \usepackage{multicol}
 %\usepackage[colorlinks=false]{hyperref}
 \graphicspath{{figures/}}
 \bibliographystyle{apalike}
+\usepackage{paralist}
+\usepackage{cases}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{overpic}
+\usetikzlibrary{mindmap,shapes,arrows,chains,shadows,decorations.markings}
+%\usepackage{verbatim}
+%\usepackage[active,tightpage]{preview}
+%\PreviewEnvironment{tikzpicture}
+%\setlength\PreviewBorder{5mm}%
+\colorlet{lcfree}{Green3}
+\colorlet{lcnorm}{Blue3}
+\colorlet{lccong}{Red3}
+% -------------------------------------------------
+% Set up a new layer for the debugging marks, and make sure it is on
+% top
+\pgfdeclarelayer{marx}
+\pgfsetlayers{main,marx}
+% A macro for marking coordinates (specific to the coordinate naming
+% scheme used here). Swap the following 2 definitions to deactivate
+% marks.
+\providecommand{\cmark}[2][]{%
+  \begin{pgfonlayer}{marx}
+    \node [nmark] at (c#2#1) {#2};
+  \end{pgfonlayer}{marx}
+  } 
+\providecommand{\cmark}[2][]{\relax} 
 
 % There are many different themes available for Beamer. A comprehensive
 % list with examples is given here:
@@ -79,7 +106,7 @@
 \title{Cloud Manufacturing Ecosystem}
 
 % A subtitle is optional and this may be deleted
-\subtitle{Scheduling And Evolving}
+\subtitle{Scheduling and Evolving}
 
 \author{\href{mailto:42@zju.edu.cn}{Chen Shengkai}} %\inst{1} 
   %\and S.~Another\inst{2}
@@ -124,6 +151,7 @@
 
 % Delete this, if you do not want the table of contents to pop up at
 % the beginning of each subsection:
+\iffalse
 \AtBeginSubsection[]
 {
   \begin{frame}<beamer>{Outline}
@@ -133,7 +161,7 @@
   \end{frame}
   \addtocounter{framenumber}{-1}
 }
-
+\fi
 % Let's get started
 \begin{document}
 
@@ -151,9 +179,10 @@
 % Section and subsections will appear in the presentation overview
 % and table of contents.
 \input{beamer/intro.tex}
+\input{beamer/preliminary.tex}
 \input{beamer/schedule.tex}
 \input{beamer/envolve.tex}
-\input{beamer/summary.tex}
+%\input{beamer/summary.tex}
 
 % All of the following is optional and typically not needed. 
 \appendix

@@ -15,9 +15,15 @@
 % Author: Brent Longborough
 \documentclass[x11names]{article}
 \usepackage{tikz}
-\usetikzlibrary{mindmap,shapes,arrows,chains,shadows}
+\usetikzlibrary{mindmap,shapes,arrows,chains,shadows,decorations.markings,spy}
 %%%<
 \usepackage{verbatim}
+\usepackage{paralist}
+%\usepackage{geometry}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength{\PreviewBorder}{4bp}
+%\setlength{\paperwidth}{400mm}
 %%%>
 \begin{comment}
 :Title: Easy-maintenance flowchart
@@ -64,7 +70,7 @@
 \providecommand{\cmark}[2][]{\relax} 
 % -------------------------------------------------
 % Start the picture
-\input{simple_order_flow}
+\input{platformstruct.tex}
 
 
 % =================================================
