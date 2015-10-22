@@ -151,17 +151,17 @@
 
 % Delete this, if you do not want the table of contents to pop up at
 % the beginning of each subsection:
-%\iffalse
+\iffalse
 \AtBeginSubsection[]
-{
+  {
   \begin{frame}<beamer>{Outline}
     \begin{multicols}{2}
     \tableofcontents[currentsection,currentsubsection]
     \end{multicols}
   \end{frame}
   \addtocounter{framenumber}{-1}
-}
-%\fi
+  }
+\fi
 % Let's get started
 \begin{document}
 
@@ -185,17 +185,18 @@
 %\input{beamer/summary.tex}
 
 % All of the following is optional and typically not needed. 
-\appendix
-\section<presentation>*{\appendixname}
-\subsection<presentation>*{bibliography}
+\iffalse
+  \appendix
+  \section<presentation>*{\appendixname}
+  \subsection<presentation>*{bibliography}
 
-\begin{frame}[allowframebreaks]
-  \tiny
-  \frametitle<presentation>{bibliography}
-\nocite{*}    
-\bibliography{references}
-\end{frame}
-
+  \begin{frame}[allowframebreaks]
+    \tiny
+    \frametitle<presentation>{bibliography}
+    \nocite{*}    
+    \bibliography{references}
+  \end{frame}
+\fi
 \end{document}
 
 

@@ -2,18 +2,19 @@
 \section{Preliminary}
 
 \subsection{Cloud Manufacturing}
-\begin{frame}{Ecosystem Main Struct}{Cloud Manufacturing}
+\begin{frame}{Ecosystem Main Structure}{Cloud Manufacturing}
 \only<1>{
 	\begin{figure}
 	\centering
 	\includegraphics[height=0.82\textheight]{figures/platformstruct.pdf}
-	\caption{Princiapl Struct of Cloud Manufacturing Ecosystem}
+	\caption{Princiapl Structure of Cloud Manufacturing Ecosystem}
 	\end{figure}
 }
+\iffalse
 \only<2>{
 	\begin{figure}
 	\centering
-	\includegraphics[height=0.82\textheight,viewport=40 0 450 250,clip=true]{figures/platformstruct.pdf}
+	\includegraphics[height=0.82\textheight,viewport=40 0 500 250,clip=true]{figures/platformstruct.pdf}
 	\end{figure}
 }
 \only<3>{
@@ -22,9 +23,16 @@
 	\includegraphics[height=0.82\textheight,viewport=0 160 500 450,clip=true]{figures/platformstruct.pdf}
 	\end{figure}
 }
+\fi
 \end{frame}
 
-\begin{frame}{Standardization \& Decomposition}{Service \& Task}
+\begin{frame}{Service Standardization}{Cloud Manufacturing}
+\begin{figure}
+\centering
+\includegraphics[height=0.85\textheight]{figures/boss.pdf}
+\caption{Standard Service Tree Illustration}
+\end{figure}
+\iffalse
 \onslide<+->{
 	Cloud Manufacturing Ecosystem provides a platform which distributed manufacturing resources/orders gathered as resources/orders hub. 
 }
@@ -38,6 +46,7 @@
 	\end{itemize}
 	\end{block}
 }
+\fi
 \end{frame}
 
 \subsection{Roles}
@@ -78,8 +87,13 @@
 \end{block}}
 \only<2>{\begin{figure}
 \tiny\centering\resizebox{\textwidth}{!}{
-\input{figures/operatingmodel.tex}}
-\caption{Overview of the Operating Model}
+\input{figures/sellerflow.tex}}
+\caption{Seller Flow in Operating Model}
+\end{figure}}
+\only<3>{\begin{figure}
+\tiny\centering\resizebox{\textwidth}{!}{
+\input{figures/buyerflow.tex}}
+\caption{Buyer Flow in Operating Model}
 \end{figure}}
 \end{frame}
 
@@ -87,7 +101,9 @@
 \only<1>{Each order appears when Users make transaction in the platform, it might then go through different paths:
 \begin{figure}
 \tiny\centering
-\resizebox{\textwidth}{!}{\input{figures/simple_order_flow.tex}}
+%\resizebox{\textwidth}{!}{\input{figures/order_flow.tex}
+\includegraphics[height=0.9\textheight,angle=90]{figures/orderflow.pdf}
+%}
 \caption{Simple Flow Chart of Order}
 \end{figure}
 }

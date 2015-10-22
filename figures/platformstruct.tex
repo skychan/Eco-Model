@@ -16,12 +16,20 @@ child { node {Platform Assistance}}
 child { node {Match Regualtion}}
 }
 child [concept color = gray]{ node {User}
-  child { node {Submit Order}}
-  child { node {Provide Resource}}
-  child { node {Make Transaction}}
-  child { node {Evalute Others}}
+  child { node {Seller}
+    child { node {Provide Resources}}
+    child { node {Schedule Orders}}
+    child { node {Outsource Orders}}
+    child { node {Evaluate Buyer}}
   }
-child [concept color = gray]{ node {Envolve}
+  child
+  child { node {Buyer}
+    child { node {Submit Order}}
+    child { node {Choose Seller}}
+    child { node {Evaluate Seller}}
+  }
+  }
+child [concept color = gray]{ node {Evolve}
   child { node {Optimization}
     child { node {Manufacturing}}
     child { node {Industrial Chain}}
