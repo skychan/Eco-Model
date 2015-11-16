@@ -9,7 +9,7 @@
 % template and not specifically distribute it as part of a another
 % package/program, I grant the extra permission to freely copy and
 % modify this file as you see fit and even to delete this copyright
-% notice. 
+% notice.
 
 \documentclass[x11names]{beamer}
 \usepackage{multicol}
@@ -41,8 +41,8 @@
   \begin{pgfonlayer}{marx}
     \node [nmark] at (c#2#1) {#2};
   \end{pgfonlayer}{marx}
-  } 
-\providecommand{\cmark}[2][]{\relax} 
+  }
+\providecommand{\cmark}[2][]{\relax}
 
 % There are many different themes available for Beamer. A comprehensive
 % list with examples is given here:
@@ -108,7 +108,7 @@
 % A subtitle is optional and this may be deleted
 \subtitle{Scheduling and Evolving}
 
-\author{\href{mailto:42@zju.edu.cn}{Chen Shengkai}} %\inst{1} 
+\author{\href{mailto:42@zju.edu.cn}{Chen Shengkai }} %\inst{1}
   %\and S.~Another\inst{2}
 
 % - Give the names in the same order as the appear in the paper.
@@ -140,7 +140,7 @@
 
 \subject{Cloud Manufacturing}
 % This is only inserted into the PDF information catalog. Can be left
-% out. 
+% out.
 
 % If you have a file called "university-logo-filename.xxx", where xxx
 % is a graphic format that can be processed by latex or pdflatex,
@@ -151,7 +151,7 @@
 
 % Delete this, if you do not want the table of contents to pop up at
 % the beginning of each subsection:
-\iffalse
+%\iffalse
 \AtBeginSubsection[]
   {
   \begin{frame}<beamer>{Outline}
@@ -161,7 +161,7 @@
   \end{frame}
   \addtocounter{framenumber}{-1}
   }
-\fi
+%\fi
 % Let's get started
 \begin{document}
 
@@ -182,9 +182,15 @@
 \input{beamer/preliminary.tex}
 \input{beamer/schedule.tex}
 \input{beamer/envolve.tex}
+\section*{}
+\begin{frame}
+\centering
+\Large
+Thank You
+\end{frame}
 %\input{beamer/summary.tex}
 
-% All of the following is optional and typically not needed. 
+% All of the following is optional and typically not needed.
 \iffalse
   \appendix
   \section<presentation>*{\appendixname}
@@ -193,10 +199,8 @@
   \begin{frame}[allowframebreaks]
     \tiny
     \frametitle<presentation>{bibliography}
-    \nocite{*}    
+    \nocite{*}
     \bibliography{references}
   \end{frame}
 \fi
 \end{document}
-
-
