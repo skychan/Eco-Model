@@ -30,15 +30,6 @@
   Timestamp                = {2015.10.03}
 }
 
-@InCollection{coulom2008whole,
-  Title                    = {Whole-history rating: A bayesian rating system for players of time-varying strength},
-  Author                   = {Coulom, R{\'e}mi},
-  Booktitle                = {Computers and games},
-  Publisher                = {Springer},
-  Year                     = {2008},
-  Pages                    = {113--124}
-}
-
 @Article{Dean2008,
   Title                    = {MapReduce: simplified data processing on large clusters},
   Author                   = {Dean, Jeffrey and Ghemawat, Sanjay},
@@ -63,25 +54,6 @@
   __markedentry            = {[sky:]},
   Owner                    = {sky},
   Timestamp                = {2015.10.03}
-}
-
-@Article{glickman1995glicko,
-  Title                    = {The glicko system},
-  Author                   = {Glickman, Mark E},
-  Journal                  = {Boston University},
-  Year                     = {1995}
-}
-
-@Article{glickman1999rating,
-  Title                    = {Rating the chess rating system},
-  Author                   = {Glickman, Mark E and Jones, Albyn C},
-  Journal                  = {CHANCE-BERLIN THEN NEW YORK-},
-  Year                     = {1999},
-  Pages                    = {21--28},
-  Volume                   = {12},
-
-  Owner                    = {sky},
-  Publisher                = {SPRINGER INTERNATIONAL}
 }
 
 @Article{Guerrero1988,
@@ -341,16 +313,6 @@ inter-factory industrial control systems which could facilitate a CM environment
 
   Owner                    = {sky},
   Timestamp                = {2015.10.02}
-}
-
-@Article{zhang2004optimality,
-  Title                    = {The optimality of naive Bayes},
-  Author                   = {Zhang, Harry},
-  Journal                  = {AA},
-  Year                     = {2004},
-  Number                   = {2},
-  Pages                    = {3},
-  Volume                   = {1}
 }
 
 @InProceedings{Zheng2005,
