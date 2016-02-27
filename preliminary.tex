@@ -1,103 +1,120 @@
 % !TEX root = Eco-Model.tex
 \section{Preliminaries} % (fold)
+
+\subsection{Problem Background} % (fold)
+\label{sub:problem_background}
+
+\subsubsection{Cloud Mfg}
+
+\subsubsection{SD}
+
+\subsubsection{Mfg Ecosystem}
+
+% subsection problem_background (end)
  
-\subsection{Services and Tasks}
-Cloud Manufacturing Ecosystem provides a platform which distributed manufacturing resources/orders gathered as resources/orders hub. In order to complete orders precisely, order will be splited into tasks. Similarly, resources will be bundled into services for the quick searhing.
 
-\subsection{Roles}
-Most recent studies like Wu et al.\cite{Wu2013} described the roles in Cloud Manufacturing as a tri-group model with:\begin{inparaenum}[1)]
-\item Users/Customers,
-\item Application providers and
-\item Physical resource providers.
-\end{inparaenum}
-However, the roles in real world always not go like this model, since it parted roles only by their functions. While, users could get different function roles depend on what transaction they take, we should make some modifiacations on this model.
+\subsection{Literature Review} % (fold)
+\label{sub:literature_review}
 
-Before the emendation of the roles, some related standard name should be taken:
-\begin{asparadesc}
-\item[User] The main role in Cloud Manufacturing, which is combined of Seller and Buyer as shown in \autoref{tab:categoryuser}, usually acts as Seller or Buyer according to the specific transaction;
-\item[Seller] The temporary role in a transaction, which provides the allocated part of manufacturing service and makes a evalution about the Buyer after the transaction;
-\item[Buyer] The temporary role in a transaction, which submits the allocated part of manufacturing task and makes a evalution about the Seller after the transaction;
-\item[Administrator] The role that gets the work for the operation and maintenance of the platform, has indirectly impact on the Ecosystem.
-\end{asparadesc}
-\begin{table}[htbp]
-  \centering\small
-  \caption{Category of Users}
-    \begin{tabularx}{\textwidth}{llccX}
-    \toprule
-        &  & Seller & Buyer & Description \\
-    \midrule
-    Generalized & User & $\surd$ & $\surd$ & Act as Seller or Buyer according to the specific transaction. \\
-    Enterprise & User & $\surd$ & &  Provides the allocated part of manufacturing services and makes a evalution about the Buyer after the transaction. \\
-    Customer & User& & $\surd$ &  Submits the allocated part of manufacturing tasks and makes a evalution about the Seller after the transaction.\\
-    \bottomrule
-    \end{tabularx}%
-  \label{tab:categoryuser}%
-\end{table}%
-As defined above, Enterprise User is the special case of the User(short for Generalized User) that purely provides manufacturing services and the Customer User is similarly defined.
+% subsection literature_review (end)
 
-Hence, there is only two roles in the Ecosystem worth to be studied: User and Administrator, the proportion of user type could be adjusted as the runtime of the system goes by.
+% \subsection{Services and Tasks}
+% Cloud Manufacturing Ecosystem provides a platform which distributed manufacturing resources/orders gathered as resources/orders hub. In order to complete orders precisely, order will be splited into tasks. Similarly, resources will be bundled into services for the quick searhing.
 
-\subsection{Operating Mode of Ecosystem}
-The style the Cloud Manufacturing Ecosystem appears mainly depends on the way the operating model takes, therefore, research on features and issues in the Ecosystem would be taken within the scope of operating model we are going to set up. As shown in \autoref{fig:platformstruct}, the principal struct of Ecosystem can be described into four main branch, how these branches grow determines how the Operating Model will come out, and it will be easy to figure out the specified mode we make with some flow charts.
+% \subsection{Roles}
+% Most recent studies like Wu et al.\cite{Wu2013} described the roles in Cloud Manufacturing as a tri-group model with:\begin{inparaenum}[1)]
+% \item Users/Customers,
+% \item Application providers and
+% \item Physical resource providers.
+% \end{inparaenum}
+% However, the roles in real world always not go like this model, since it parted roles only by their functions. While, users could get different function roles depend on what transaction they take, we should make some modifiacations on this model.
 
-\begin{figure}[!h]
-\centering
-\resizebox{0.9\textwidth}{!}{\input{figures/platformstruct}}
-\caption{Principal Struct of Cloud Manufacturing Ecosystem}
-\label{fig:platformstruct}
-\end{figure}
+% Before the emendation of the roles, some related standard name should be taken:
+% \begin{asparadesc}
+% \item[User] The main role in Cloud Manufacturing, which is combined of Seller and Buyer as shown in \autoref{tab:categoryuser}, usually acts as Seller or Buyer according to the specific transaction;
+% \item[Seller] The temporary role in a transaction, which provides the allocated part of manufacturing service and makes a evalution about the Buyer after the transaction;
+% \item[Buyer] The temporary role in a transaction, which submits the allocated part of manufacturing task and makes a evalution about the Seller after the transaction;
+% \item[Administrator] The role that gets the work for the operation and maintenance of the platform, has indirectly impact on the Ecosystem.
+% \end{asparadesc}
+% \begin{table}[htbp]
+%   \centering\small
+%   \caption{Category of Users}
+%     \begin{tabularx}{\textwidth}{llccX}
+%     \toprule
+%         &  & Seller & Buyer & Description \\
+%     \midrule
+%     Generalized & User & $\surd$ & $\surd$ & Act as Seller or Buyer according to the specific transaction. \\
+%     Enterprise & User & $\surd$ & &  Provides the allocated part of manufacturing services and makes a evalution about the Buyer after the transaction. \\
+%     Customer & User& & $\surd$ &  Submits the allocated part of manufacturing tasks and makes a evalution about the Seller after the transaction.\\
+%     \bottomrule
+%     \end{tabularx}%
+%   \label{tab:categoryuser}%
+% \end{table}%
+% As defined above, Enterprise User is the special case of the User(short for Generalized User) that purely provides manufacturing services and the Customer User is similarly defined.
 
-Because the metioned system is too complex to analyse in every detail, we focus on two important operation flows -- Order Flow and User Rank -- to help illustrate the Operating Model. 
+% Hence, there is only two roles in the Ecosystem worth to be studied: User and Administrator, the proportion of user type could be adjusted as the runtime of the system goes by.
 
-\subsubsection{Order Flow}
-Each manufacturing order (order for short) appears when Users make transaction in the platform, it might then go through some different modules and a simple version of its flow was shown on \autoref{fig:simpleorderflow}.
+% \subsection{Operating Mode of Ecosystem}
+% The style the Cloud Manufacturing Ecosystem appears mainly depends on the way the operating model takes, therefore, research on features and issues in the Ecosystem would be taken within the scope of operating model we are going to set up. As shown in \autoref{fig:platformstruct}, the principal struct of Ecosystem can be described into four main branch, how these branches grow determines how the Operating Model will come out, and it will be easy to figure out the specified mode we make with some flow charts.
 
-If an order accomplished smoothly, it will be constructed into tasks pieces in order to match the appropriate manufacturing services usually, similar to a large dataset processed with MapReduce\cite{Dean2008} schema. Then each piece could be processed by distributed resources with the outsourcing strategy User makes.
+% \begin{figure}[!h]
+% \centering
+% \resizebox{0.9\textwidth}{!}{\input{figures/platformstruct}}
+% \caption{Principal Struct of Cloud Manufacturing Ecosystem}
+% \label{fig:platformstruct}
+% \end{figure}
 
-\begin{figure}[!h]
-\centering\small
-%\subfloat[Order Flow]{\resizebox{0.45\textwidth}{!}{\input{figures/order_flow}}\label{fig:orderflow}} \hspace{0.09\textwidth}
-%\subfloat[User Rank]{\resizebox{0.45\textwidth}{!}{\input{figures/user_rank}}\label{fig:userrank}}
-\resizebox{0.9\textwidth}{!}{\input{figures/simple_order_flow}}
-\caption{Simple Flow Chart of Order}
-\label{fig:simpleorderflow}
-\end{figure}
-\subsubsection{User Rank}
-Apart from the above mentioned order related behavior, User can also submit resources, change standrd, make recommandation and so on, according to the permission degree the User has. User Rank provides the basis to set the permission degree, it gets the initial value when User was introduced in the system and it will increase or decrease by good or bad performance in each transaction, the follow equation shows a simple way to evaluate the User Rank. 
+% Because the metioned system is too complex to analyse in every detail, we focus on two important operation flows -- Order Flow and User Rank -- to help illustrate the Operating Model. 
 
-\begin{equation}
-  \begin{cases}
-      Rank_{[T+1]} = Rank_{[T]} + Gain - Lose, & T \geqslant 1\\
-      Rank_{[0]} = Rank_{[init]}
-  \end{cases}
-\label{equ:simplerank}
-\end{equation}
-Subscript $T$ in \eqref{equ:simplerank} counts the transaction User takes, $Gain$ and $Lose$ come from evalution information to make change in rank value. 
+% \subsubsection{Order Flow}
+% Each manufacturing order (order for short) appears when Users make transaction in the platform, it might then go through some different modules and a simple version of its flow was shown on \autoref{fig:simpleorderflow}.
 
-User Rank will be adjusted all the time only if the User was eliminated for a low rank value, the adjustment was based on the evalution messages, which seller and buyer would post after each transaction, basically. Moreover, the adjustment of rank will be conducted through outsourcing pipline, which was formed when a task be outsourced many times. Introduction and elimination of User implies the evolution of the Cloud Manufacturing Ecosystem. Advanced techniques will be discuessed in \autoref{sub:rating_schema}.
+% If an order accomplished smoothly, it will be constructed into tasks pieces in order to match the appropriate manufacturing services usually, similar to a large dataset processed with MapReduce\cite{Dean2008} schema. Then each piece could be processed by distributed resources with the outsourcing strategy User makes.
 
-\subsubsection{Platform}
-As related roles mentioned above, Administrators are different for all the actions they can take are limited within the platform. Administrators help maintain the platform with main functions like reforme orders/resources into tasks/service, introduce/eliminate Users, give permissions to Users, hold resources search/recommand engine and so on.
+% \begin{figure}[!h]
+% \centering\small
+% %\subfloat[Order Flow]{\resizebox{0.45\textwidth}{!}{\input{figures/order_flow}}\label{fig:orderflow}} \hspace{0.09\textwidth}
+% %\subfloat[User Rank]{\resizebox{0.45\textwidth}{!}{\input{figures/user_rank}}\label{fig:userrank}}
+% \resizebox{0.9\textwidth}{!}{\input{figures/simple_order_flow}}
+% \caption{Simple Flow Chart of Order}
+% \label{fig:simpleorderflow}
+% \end{figure}
+% \subsubsection{User Rank}
+% Apart from the above mentioned order related behavior, User can also submit resources, change standrd, make recommandation and so on, according to the permission degree the User has. User Rank provides the basis to set the permission degree, it gets the initial value when User was introduced in the system and it will increase or decrease by good or bad performance in each transaction, the follow equation shows a simple way to evaluate the User Rank. 
 
-Platform itself can be viewed as a control pannel that administrator can tune permissions according to user's rank to assist the scheduling of manufacturing services. 
+% \begin{equation}
+%   \begin{cases}
+%       Rank_{[T+1]} = Rank_{[T]} + Gain - Lose, & T \geqslant 1\\
+%       Rank_{[0]} = Rank_{[init]}
+%   \end{cases}
+% \label{equ:simplerank}
+% \end{equation}
+% Subscript $T$ in \eqref{equ:simplerank} counts the transaction User takes, $Gain$ and $Lose$ come from evalution information to make change in rank value. 
 
-\subsection{Data Science Tools}
-Along with the convenience platform provides, there comes massive amount of data Administrators must to deal with, like:
-\begin{inparaenum}[1)]
-  \item Transaction histroy;
-  \item Ranking histroy;
-  \item Status of resources, services, orders and tasks;
-  \item Decision pattern and so on.
-\end{inparaenum}
+% User Rank will be adjusted all the time only if the User was eliminated for a low rank value, the adjustment was based on the evalution messages, which seller and buyer would post after each transaction, basically. Moreover, the adjustment of rank will be conducted through outsourcing pipline, which was formed when a task be outsourced many times. Introduction and elimination of User implies the evolution of the Cloud Manufacturing Ecosystem. Advanced techniques will be discuessed in \autoref{sub:rating_schema}.
 
-Dealing with data is the everyday life to Data Scientists, administrator of platform can use their daily tools to do the data-works. Data Science Tools can be categorized with:
+% \subsubsection{Platform}
+% As related roles mentioned above, Administrators are different for all the actions they can take are limited within the platform. Administrators help maintain the platform with main functions like reforme orders/resources into tasks/service, introduce/eliminate Users, give permissions to Users, hold resources search/recommand engine and so on.
 
-\begin{asparadesc}
-\item[Data Analysis] Universal data analysis include but not limited in data collection, data processing, data cleaning, exploratory data analysis, modeling and algorithms and data product, R Studio or Pandas library for Python are the most popular tools to do the data analysis.
-\item[Data Warehousing] Massive amount of structed and unstructured data would be well held and quick invoked with centralized or distributed data warehouse. 
-\item[Data Visualization] A primary goal of data visualization is to communicate information clearly and efficiently to users via the statistical graphics, plots, information graphics, tables, and charts selected.
-\item[Machine Learning] Machine learning cantains classification, clustering, filtering and so on, with the knowledge trained from well designed machine, we can apply it to make decisions or recommandations.
-\item[Social Network Analysis] Users communicated in the Ecosystem with transaction, in other words, there is a social-like manufacturing network connected users with transaction.  
-\end{asparadesc}
+% Platform itself can be viewed as a control pannel that administrator can tune permissions according to user's rank to assist the scheduling of manufacturing services. 
 
-Data Science Tools can help mine patterns, status, quality and so like of users, this latent imformation will play a important role in improving the mode of Cloud Manufacturing.
+% \subsection{Data Science Tools}
+% Along with the convenience platform provides, there comes massive amount of data Administrators must to deal with, like:
+% \begin{inparaenum}[1)]
+%   \item Transaction histroy;
+%   \item Ranking histroy;
+%   \item Status of resources, services, orders and tasks;
+%   \item Decision pattern and so on.
+% \end{inparaenum}
+
+% Dealing with data is the everyday life to Data Scientists, administrator of platform can use their daily tools to do the data-works. Data Science Tools can be categorized with:
+
+% \begin{asparadesc}
+% \item[Data Analysis] Universal data analysis include but not limited in data collection, data processing, data cleaning, exploratory data analysis, modeling and algorithms and data product, R Studio or Pandas library for Python are the most popular tools to do the data analysis.
+% \item[Data Warehousing] Massive amount of structed and unstructured data would be well held and quick invoked with centralized or distributed data warehouse. 
+% \item[Data Visualization] A primary goal of data visualization is to communicate information clearly and efficiently to users via the statistical graphics, plots, information graphics, tables, and charts selected.
+% \item[Machine Learning] Machine learning cantains classification, clustering, filtering and so on, with the knowledge trained from well designed machine, we can apply it to make decisions or recommandations.
+% \item[Social Network Analysis] Users communicated in the Ecosystem with transaction, in other words, there is a social-like manufacturing network connected users with transaction.  
+% \end{asparadesc}
+
+% Data Science Tools can help mine patterns, status, quality and so like of users, this latent imformation will play a important role in improving the mode of Cloud Manufacturing.
