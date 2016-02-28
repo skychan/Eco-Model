@@ -38,3 +38,4 @@
 !/figures/*.pdf
 *.~*
 /figures/flow_head.pdf
+*.bak
