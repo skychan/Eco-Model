@@ -1,14 +1,14 @@
 % !TEX root = Eco-Model.tex
-\section{Methodological Approach} % (fold)
+\section{Methodological approach} % (fold)
 \label{sec:methodological_approach}
 
 \subsection{Modeling} % (fold)
 \label{sub:modeling}
 
-\subsubsection{Assumptions and Notation}
+\subsubsection{Assumptions and notation}
 
 Ecosystem application model including:
-\subsubsection{Enterprise Model}
+\subsubsection{Enterprise model}
 
 The Model can be described with two main parts, namely object itself(attribute) and the interaction with other enterprises(function or method)
 
@@ -21,6 +21,9 @@ Enterprise can be described as the object with attributes like
 	\item Capbility
 	\item Processing Status
 \end{itemize}
+
+\subsubsection{Main modules design}
+\label{subsub:main_modules}
 
 
 \subsubsection{System Model}
@@ -39,22 +42,35 @@ Coevolution consist of:
 	\item Feedback processes that carry the long-term consequences of coevolution
 \end{itemize}
 
-\subsubsection{Management Model}
-
 % subsection modeling (end)
 
-\subsection{Mathematical Formulation} % (fold)
-\label{sub:mathematical_formulation}
-\subsubsection{Comprehended Model}
-% subsection mathematical_formulation (end)
+% \subsection{Mathematical Formulation} % (fold)
+% \label{sub:mathematical_formulation}
+% \subsubsection{Comprehended Model}
+% % subsection mathematical_formulation (end)
 
-\subsection{Verification and Validation} % (fold)
-\label{sub:verification_and_validation}
+% \subsection{Verification and Validation} % (fold)
+% \label{sub:verification_and_validation}
 
-% subsection verification_and_validation (end)
+% % subsection verification_and_validation (end)
 
-\subsection{Simulation} % (fold)
-\label{sub:simulation}
+\subsection{Agent-based modeling and simulation} % (fold)
+\label{sub:agent_based_modeling_and_simulation}
+\subsubsection{Agent design}
 
-% subsection simulation (end)
+\subsubsection{Logical process}
+\begin{figure}[htbp]
+\centering\small
+\subfloat[Order Flow]{\resizebox{0.45\textwidth}{!}{\input{figures/order_flow}}\label{fig:orderflow}} \hspace{0.09\textwidth}
+\subfloat[User Rank]{\resizebox{0.45\textwidth}{!}{\input{figures/user_rank}}\label{fig:userrank}}
+% \resizebox{0.9\textwidth}{!}{\input{figures/simple_order_flow}}
+\caption{Simple Flow Chart of Order}
+% \label{fig:simpleorderflow}
+\end{figure}
+
+\subsubsection{Interaction among agents}
+some mathematical formulation display here to describe the whole ecosystem wide phenomenon, like Little formulation.
+
+\subsubsection{Verification and validation}
+% subsection agent_based_model_and_simulation (end)
 % section methodological_approach (end)
