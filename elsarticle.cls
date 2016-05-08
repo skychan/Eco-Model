@@ -1,1 +1,0 @@
-\input{../templates/Elsevier/elsarticle.cls}
