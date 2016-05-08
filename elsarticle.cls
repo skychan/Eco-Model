@@ -1,1 +1,1 @@
-../templates/Elsevier/elsarticle.cls
+\input{../templates/Elsevier/elsarticle.cls}
