@@ -1,0 +1,1 @@
+../templates/Elsevier/elsarticle.cls
