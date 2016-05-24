@@ -6,11 +6,24 @@ As an application of networked manufacturing, cloud manufacturing proposed by ..
 
 (problems background to form the ecosystem)
 
+\subsection{List of basic terminology} % (fold)
+\label{sub:list_of_basic_terminology}
+here we goes the terminology that will use in the following subsections within this section. all the related basic terms will in italics fonts.
+\begin{itemize}
+	\item order
+	\item task
+	\item resource
+	\item capacity
+	\item service
+	\item 
+\end{itemize}
+% subsection list_of_basic_terminology (end)
+
 \subsection{Cloud manufacturing} % (fold)
 \label{sub:cloud_manufacturing}
 
 \subsubsection{Cloud manufacturing architecture}
-
+\label{subs:cloud manufacturing architecture}
 Combined with the background of the research problem and other scholars' previous study in cloud manufacturing, we proposed an improved framework that suits for cloud manufacturing environment as shown in \autoref{fig:structure}.
 \begin{figure}[htbp]
 \centering
@@ -25,7 +38,7 @@ The architecture of cloud manufacturing is mainly composed of three parts, namel
 \item physical base
 \end{inparaenum}, that are connected by material or information flows. A simple version of conception for cloud manufacturing architecture we study here can be described as follows:
 \begin{compactdesc}
-\item [User] part describes the generalized role who takes part in the trading activities in the cloud manufacturing system, such as manufacturing service provider and manufacturing service demander, whom can be called as provider and demander for short respectively, from the functional point of view. Meanwhile, these part can also be classified into enterprise user and customer, from the practical point of view. In addition, it's possible for user to act as both demander and provider simultaneously if administrator give the authority to the user, so we can categorize the user in 3 basic types as described in \autoref{fig:usertype} and \autoref{tab:usertype}. Both functional and practical are important perspective for later analysis in following sections.
+\item [User] part describes the generalized role who takes part in the trading activities in the cloud manufacturing system, basic role of user are manufacturing service provider and manufacturing service demander, whom can be called as \textit{provider} and \textit{demander} for short respectively, from the functional point of view. Meanwhile, these part can also be classified into enterprise user and customer, from the practical point of view. In addition, it's possible for user to act as both demander and provider simultaneously if administrator give the authority to the user, so we can categorize the user in 3 basic types as described in \autoref{fig:usertype} and \autoref{tab:usertype}. Both functional and practical are important perspective for later analysis in following sections.
 \item [Platform] is operating with the control of administrator and this part consists of 3 main layers namely
 	\begin{inparaenum}[1)]
 	\item application/interface layer,
@@ -103,49 +116,68 @@ Platform carries most of the activities illustrated in \autoref{fig:supplementar
 
 \subsubsection{Operation model of users}
 \label{subs:Operation model of users}
-business model is emerging as a new unit of analysis; business models emphasize a system-level, holistic approach to explaining how firms do business; firm activities play an important role in the various conceptualizations of business models that have been proposed; business models seek to explain how value is created, not just how it is captured.
+The \textit{demander} mentioned in \autoref{subs:cloud manufacturing architecture} publishes its demand as order that can be decomposed into tasks by \textit{task decomposer} module in platform, while the \textit{provider} mentioned in \autoref{subs:cloud manufacturing architecture} publishes its resource as capacity that can be packaged into services by \textit{service packager} module in Platform. In order to do more accurate study on users, we classified users into 3 basic types as shown in \autoref{fig:usertype}. With concise explanation in \autoref{tab:usertype}, we can illustrate the operation model in \autoref{fig:useroperation}.
+
 \begin{figure}[htbp]
 \centering
-\subfloat[Demander]{\includegraphics[width=0.8\textwidth]{figures/demander_main_process}\label{fig:demanderprocess}}\\
-\subfloat[Provider]{\includegraphics[width=0.8\textwidth]{figures/provider_main_process}\label{fig:providerprocess}}
+\subfloat[Pure demander]{\includegraphics[width=0.75\textwidth]{demander_main_process}\label{fig:demanderprocess}}\\
+\subfloat[Complex user]{\includegraphics[width=0.75\textwidth]{complex_main_process}\label{fig:complexprocess}}\\
+\subfloat[Pure Provider]{\includegraphics[width=0.75\textwidth]{provider_main_process}\label{fig:providerprocess}}
 \caption{Main operational processes}
+\label{fig:useroperation}
 \end{figure}
 
-\begin{figure}[!h]
-\centering\small
-% \subfloat[Order Flow]{\resizebox{0.45\textwidth}{!}{\input{figures/order_flow}}\label{fig:orderflow}} \hspace{0.09\textwidth}
-% \subfloat[User Rank]{\resizebox{0.45\textwidth}{!}{\input{figures/user_rank}}\label{fig:userrank}}
-\resizebox{0.9\textwidth}{!}{\input{figures/simple_order_flow}}
-\caption{Simple Flow Chart of Order}
-\label{fig:simpleorderflow}
-\end{figure}
+The main operational process of pure demander(\autoref{fig:demanderprocess}) starts with its decomposed task. Then, with the help of \textit{recommender} module, pure demander search and select appropriate service, trade with the one or multi service provider according to the \textit{task decomposer}, receive the product delivered by the provider at due date and commit the review of the product. The committed review will affect the authority value of the provider, that good review raise the value and vise versa.
 
+The main operational process of pure provider(\autoref{fig:providerprocess}) starts with a task call, then pure provider process the task with its resource. After the accomplishment of the task, pure provider deliver products to demander from the call. It will also commit the review of the demander and make a modification of its service area. By the way, this modification of provider's service area play key role in the evolution of user we will discuss in \autoref{ssub:microscopic_evolution}.  
 
-% subsection cloud_manufacturing(end)
-
-% \subsection{Main complexity concepts} % (fold)
-% \label{sub:main_complexity_concepts}
-
-% \subsubsection{Self-organization}
-
-% \subsubsection{Emergence}
-
-% \subsubsection{Co-evolution}
-
-% \subsubsection{Adaption}
-% % subsection main_complexity_concepts (end)
+The main operational process of complex user(\autoref{fig:complexprocess}) combines the two above process with additional decision step. This decision split the task into two parts, that one of them will be processed by itself as a provider user and the other one will be processed by other provider as if the complex user act as a demander. This operational process relies heavily on the service area of the complex user, so the modification of service area is the key to the study.
 
 \subsection{The evolution of manufacturing ecosystem} % (fold)
 \label{sub:the_evolution_of_manufacturing_ecosystem}
-Before the realization of the operation model mentioned above(\autoref{subs:Operation model of users}), we will analyze the evolution path in both macro and micro view of manufacturing ecosystem w.r.t. the domain in cloud manufacturing..
-\subsubsection{Macroscopic evolution} % (fold)
-\label{ssub:macroscopic_evolution}
+Before the realization of the operation model mentioned above(\autoref{subs:Operation model of users}), we will analyze the evolution path in both micro and macro view of manufacturing ecosystem w.r.t. the domain in cloud manufacturing. 
 
-% subsubsection microscopic_evolution (end)
 \subsubsection{Microscopic evolution} % (fold)
 \label{ssub:microscopic_evolution}
 
+User is the basic activity unit in the manufacturing ecosystem, the interaction between users will change their \begin{inparaenum}[1)]
+\item type,
+\item status and 
+\item niche width
+\end{inparaenum}, 
+all these changes contribute to microscopic evolution of the ecosystem. More specifically, type change describes the change of user's type among pure demander, pure provider and complex user; status change describes weather a user in the ecosystem or not; niche width change describes the importance or condition of the user, especially the provider and we will only discuss the provider's niche width in this paper. \autoref{tab:userchange} concludes the appearances that we will study in this paper.
+
+\begin{table}[htbp]
+	\caption{Users' changes}
+	\label{tab:userchange}
+	\centering
+	\begin{tabularx}{\textwidth}{llX}
+	\toprule
+	\textbf{Change} & \multicolumn{2}{l}{\textbf{Appearance with concise description}}\\
+	\midrule
+	\multirow{3}*{Type}			& Complex user $\to$ Pure demander: & User stop provide its resource\\
+								& Complex user $\to$ Pure provider: & User shrink service area that only contains its own service \\
+								& Pure provider $\to$ Complex user: & User extend service area that starts to contain service from others' \\
+	\midrule
+	\multirow{4}*{Status} 		& Pure demander enter ecosystem: &	One pure demander starts to publish orders\\
+								& Pure demander exit ecosystem: & One pure demander be banned to publish orders\\
+								& Pure provider enter ecosystem: & Administrator introduces one provider into the ecosystem\\
+								& Pure provider exit ecosystem: & Administrator eliminates one provider form the ecosystem\\
+	\midrule
+	\multirow{2}*{Niche width} 	& Widen: & One provider extends its service area\\
+								& Narrow down:  & One provider shrinks its service area\\
+	\bottomrule
+	\end{tabularx}
+\end{table}
+
 % subsubsection macroscopic_evolution (end)
+
+\subsubsection{Macroscopic evolution} % (fold)
+\label{ssub:macroscopic_evolution}
+
+
+
+% subsubsection microscopic_evolution (end)
 
 \subsection{Main topics and their academic importance}
 % 提一下云制造生态环境中的应用、模块，主要强调这些模块之间的交互，会产生怎样的作用。 目前云制造缺乏相关运作式的讨论，而商业模式中的不同行为会影响、改变、涌现。
