@@ -11,24 +11,19 @@ In Cloud Manufacturing, provider publish manufacturing resource as service on th
 However, in the manufacturing ecosystem constructed with the platform, provider, demander and other components came along with, the heterogeneity of resource's attribute like type, quality, price, processing velocity, leads tough taxonomy of these resources, and the chaotic operating model makes it hard to meet demander's need.
 Thus the way that each provider transforms his/her resource into product with servitization and optimization, constitutes a central issue in such manufacturing ecosystem, all these servitization and optimization activities brings the transition to the provider, and gradually, these individual transitions will brings the evolution to the ecosystem.
 
-In this paper,
-(study the resource servitization in the transitions way)
-(propose a operation model for user to describe the transitions in the system) 
-(in the god view as evolution to see the service pattern in a statistic view)
-(simulate all this in an agent-bade method)
-(evaluate which service pattern is effective for the resource user and environment friendly)
-(make a proper explanation of all the emergency of the evolution)
+In this paper, we proposed an operation model for users to support their transitions in the manufacturing ecosystem, and we also proposed an adjustment method to guide these transitions to make a manufacturing service pattern evolution. 
+With the help of Repast Simphony, we designed an agent-based model to simulate the ecosystem. As the simulation output, the emergence resource servitization and optimization pattern implies the effectiveness and validity of the proposed operation model and adjustment method that can be adopted in the real Cloud Manufacturing world.
 
 
-% æå‡ºäº† Cloud Manufacturing Ecosystem æ¦‚å¿µï¼Œå»ºç«‹ç›¸åº”çš„ç”Ÿæ€ç³»ç»Ÿæ¨¡å‹ï¼Œä»ç³»ç»Ÿä¸­çš„å„ä¸ªè§’è‰²ï¼Œï¼ˆéœ€è¦ä¸€ä¸ªæŒ‡æ ‡ï¼‰å»ºç«‹ç³»ç»ŸåŠ¨åŠ›å­¦æ–¹ç¨‹ã€‚é€šè¿‡ä»¿çœŸæ‰‹æ®µéªŒè¯æ¨¡å‹ï¼Œç»“åˆå·²æœ‰çš„äº‘å¹³å°åŸå‹ç³»ç»Ÿï¼Œç»™å‡ºç›¸å…³åº”ç”¨ã€‚
-% äº‘åˆ¶é€ çš„å®æ–½å’Œåº”ç”¨æä¾›äº†ä¸€ç§å…¨æ–°çš„åˆ¶é€ ä¸šç”Ÿæ€ç³»ç»Ÿï¼Œè¯¥ç”Ÿæ€ç³»ç»Ÿç”±æˆå‘˜ï¼ˆä¼ä¸šç”¨æˆ·ã€ç®¡ç†å‘˜ï¼‰åŠç¯å¢ƒï¼ˆï¼‰ç»„æˆã€‚ä¸ºäº†æ¢ç©¶ç”Ÿæ€ç³»ç»Ÿä¸­ï¼Œåˆ¶é€ ä¸šçš„è¿ä½œæ¨¡å¼ï¼ˆç›¸å…³å†³ç­–ï¼‰ï¼Œä¼˜åŒ–äº§ä¸šé“¾ï¼Œå½¢æˆè‰¯æ€§å‘å±•çš„åˆ¶é€ ç”Ÿæ€ï¼Œé€šè¿‡åŸºäºAgent çš„å»ºæ¨¡ï¼Œæ¥åˆ»ç”»è¯¥ç³»ç»Ÿä¸­çš„ä¸ªä½“è¡Œä¸ºï¼Œå¹¶é€šè¿‡ä»¿çœŸæŠ€æœ¯ï¼Œæ¨¡æ‹Ÿæ¼”åŒ–è§„å¾‹ã€‚
+% Ìá³öÁË Cloud Manufacturing Ecosystem ¸ÅÄî£¬½¨Á¢ÏàÓ¦µÄÉúÌ¬ÏµÍ³Ä£ĞÍ£¬´ÓÏµÍ³ÖĞµÄ¸÷¸ö½ÇÉ«£¬£¨ĞèÒªÒ»¸öÖ¸±ê£©½¨Á¢ÏµÍ³¶¯Á¦Ñ§·½³Ì¡£Í¨¹ı·ÂÕæÊÖ¶ÎÑéÖ¤Ä£ĞÍ£¬½áºÏÒÑÓĞµÄÔÆÆ½Ì¨Ô­ĞÍÏµÍ³£¬¸ø³öÏà¹ØÓ¦ÓÃ¡£
+% ÔÆÖÆÔìµÄÊµÊ©ºÍÓ¦ÓÃÌá¹©ÁËÒ»ÖÖÈ«ĞÂµÄÖÆÔìÒµÉúÌ¬ÏµÍ³£¬¸ÃÉúÌ¬ÏµÍ³ÓÉ³ÉÔ±£¨ÆóÒµÓÃ»§¡¢¹ÜÀíÔ±£©¼°»·¾³£¨£©×é³É¡£ÎªÁËÌ½¾¿ÉúÌ¬ÏµÍ³ÖĞ£¬ÖÆÔìÒµµÄÔË×÷Ä£Ê½£¨Ïà¹Ø¾ö²ß£©£¬ÓÅ»¯²úÒµÁ´£¬ĞÎ³ÉÁ¼ĞÔ·¢Õ¹µÄÖÆÔìÉúÌ¬£¬Í¨¹ı»ùÓÚAgent µÄ½¨Ä££¬À´¿Ì»­¸ÃÏµÍ³ÖĞµÄ¸öÌåĞĞÎª£¬²¢Í¨¹ı·ÂÕæ¼¼Êõ£¬Ä£ÄâÑİ»¯¹æÂÉ¡£
 
-% äº‘åˆ¶é€ ç”Ÿæ€ç³»ç»Ÿä¸­ï¼Œä¸åŒçš„ä¼ä¸šå…·æœ‰ä¸åŒçš„ç”Ÿæ€ä½
-% è¯¥ç³»ç»Ÿçš„è¾“å…¥
-% è¾“å‡º
-% è°ƒæ§æ–¹å¼
+% ÔÆÖÆÔìÉúÌ¬ÏµÍ³ÖĞ£¬²»Í¬µÄÆóÒµ¾ßÓĞ²»Í¬µÄÉúÌ¬Î»
+% ¸ÃÏµÍ³µÄÊäÈë
+% Êä³ö
+% µ÷¿Ø·½Ê½
 
-% é€šè¿‡ä»¿çœŸï¼Œæˆ‘ä»¬å‘ç°ã€‚ã€‚ã€‚
+% Í¨¹ı·ÂÕæ£¬ÎÒÃÇ·¢ÏÖ¡£¡£¡£
 
 % highlight the novel aspects of the work, indicating the relevance of the paper to the conference topics
 
@@ -42,7 +37,7 @@ In this paper,
 
 
 
- % Supplier evaluation and selection constitutes a central issue in supply chain management (SCM). How- ever, the data on which to base the corresponding choices in real life problems are often imprecise or vague, which has led to the introduction of fuzzy approaches. Predictive intelligent-based techniques, such as Artificial Neural Network (ANN) and Adaptive Neuro Fuzzy Inference System (ANFIS), have been recently applied in different research fields to model fuzzy multi-criteria decision processes where the understanding and learning of the relationships between the input and output data are the key to select suitable solutions. In this paper, a hybrid ANFIS-ANN model is proposed to assist managers in their sup- plier evaluation process. After aggregating the data set through the Analytical Hierarchy Process (AHP), the most influential criteria on the suppliersâ€™ performance are determined by ANFIS. Then, Multi-Layer Perceptron (MLP) is used to predict and rank the suppliersâ€™ performance based on the most effective criteria. A case study is presented to illustrate the main steps of the model and show its accuracy in prediction. A battery of parametric tests and sensitivity analyses has been implemented to evaluate the overall performance of several models based on different effective criteria combinations.
+ % Supplier evaluation and selection constitutes a central issue in supply chain management (SCM). How- ever, the data on which to base the corresponding choices in real life problems are often imprecise or vague, which has led to the introduction of fuzzy approaches. Predictive intelligent-based techniques, such as Artificial Neural Network (ANN) and Adaptive Neuro Fuzzy Inference System (ANFIS), have been recently applied in different research fields to model fuzzy multi-criteria decision processes where the understanding and learning of the relationships between the input and output data are the key to select suitable solutions. In this paper, a hybrid ANFIS-ANN model is proposed to assist managers in their sup- plier evaluation process. After aggregating the data set through the Analytical Hierarchy Process (AHP), the most influential criteria on the suppliers¡¯ performance are determined by ANFIS. Then, Multi-Layer Perceptron (MLP) is used to predict and rank the suppliers¡¯ performance based on the most effective criteria. A case study is presented to illustrate the main steps of the model and show its accuracy in prediction. A battery of parametric tests and sensitivity analyses has been implemented to evaluate the overall performance of several models based on different effective criteria combinations.
 
 
 
@@ -59,7 +54,7 @@ In this paper, ....
 
 
 % The research was conducted in three steps: (1) existing concepts and models for industrial sustainability were reviewed and environmental practices in manufacturing were collected and analysed; (2) gaps in knowledge and practice were identified; (3) the outcome is a manufacturing ecosystem model based on industrial ecology (IE)
-% å…³é”®æ˜¯ç³»ç»ŸåŠ¨åŠ›å­¦æ¨¡å‹çš„å»ºç«‹ã€‚
+% ¹Ø¼üÊÇÏµÍ³¶¯Á¦Ñ§Ä£ĞÍµÄ½¨Á¢¡£
 
 
 \end{abstract}
