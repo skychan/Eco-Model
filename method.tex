@@ -22,7 +22,9 @@ core of the paper: agent simulation, decision making.
 
 \subsubsection{Assumptions and notation}
 \begin{itemize}
-    \item one provider can publish only one order at one time
+    \item one provider can publish only one order at one time;
+    \item service quality give the initial rank, the product quality depends on the service quality, review depends on the service quality, and the rank depends on the review;
+    \item when it comes to rank value, we refer two different rank values: user rank(provider) and service rank, their relationship should be determined.
 \end{itemize}
 
 
@@ -36,14 +38,26 @@ Using UML
 is a decision maker
 % subsubsection meta_agent (end)
 
-\subsubsection{User agent} % (fold)
-\label{ssub:user_agent}
+\subsubsection{Demander agent} % (fold)
+\label{ssub:demander_agent}
+After pricing, chose the provider and the amount considering the time limit of the project and the budget.
+% subsubsection demander_agent (end)
 
-% subsubsection user_agent (end)
+\subsubsection{Provider agent} % (fold)
+\label{ssub:provider_agent}
+Pricing function specify two main parts:
+unit cost and
+provided amount
+% subsubsection provider_agent (end)
+
+\subsubsection{Complex user agent} % (fold)
+\label{ssub:complex_user_agent}
+
+% subsubsection complex_user_agent (end)
 
 \subsubsection{Platform agent} % (fold)
 \label{ssub:platform_agent}
-
+matching the 
 % subsubsection platform_agent (end)
 
 
