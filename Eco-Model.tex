@@ -1,5 +1,5 @@
 % !Mode:: "TeX:UTF-8"
-% !TEX program = xelatex
+
 %%
 %% Copyright 2007, 2008, 2009 Elsevier Ltd
 %%
@@ -26,8 +26,96 @@
 %% $Id: elsarticle-template-num.tex 4 2009-10-24 08:22:58Z rishi $
 %%
 %%
-\documentclass[preprint,12pt,x11names,3p]{../templates/Elsevier/elsarticle}
+\documentclass[twocolumn,twoside,times,x11names,3p]{elsarticle}
+%3p,times,procedia,twocolumn,twoside
 \graphicspath{{figures/}}
+\usepackage{geometry}
+\geometry{twoside,
+    paperwidth=210mm,
+    paperheight=297mm,
+    textheight=730pt,
+    textwidth=43.5pc,
+    lmargin=15mm,
+    tmargin=68.18pt,
+    headheight=10pt,
+    headsep=12pt,
+    footskip=12pt,
+    footnotesep=24pt,
+    columnsep=1.5pc
+}
+
+\usepackage[unicode,
+    pdfstartview=FitH,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    colorlinks=true,
+    citecolor=black,
+    linkcolor=black,
+    anchorcolor=black,
+    urlcolor=black,
+    %draft,
+    breaklinks=true]{hyperref}
+\renewcommand\figureautorefname{Fig.}
+\renewcommand\tableautorefname{Tab.}
+\renewcommand\sectionautorefname{Sec.}
+\renewcommand\subsectionautorefname{Sec.}
+\renewcommand\subsubsectionautorefname{Sec.}
+\newcommand{\subfigureautorefname}{\figureautorefname}
+
+\usepackage{tabularx}                               % 自动设置表格的列宽
+\usepackage[caption=false]{subfig}
+\usepackage{bm,amsmath,amssymb,amsthm}
+%\usepackage[amsmath,thmmarks,hyperref]{ntheorem}    % 定理类环境宏包，其中 amsmath 选项用来兼容 AMS LaTeX 的宏包
+\usepackage{cases}      % 括号宏包
+\usepackage{paralist}   % 列表宏包
+\usepackage{mdwlist}    % 提供suspend 暂停列表功能的宏包
+
+\usepackage{multirow,bigstrut}      % 使用Multirow宏包，使得表格可以合并多个row格
+\usepackage{booktabs}               % 表格，横的粗线；\specialrule{1pt}{0pt}{0pt}
+\usepackage{supertabular}           % 超表格环境
+% \usepackage{caption}
+\usepackage{rotating}               % 旋转图表
+\usepackage{floatrow}
+\usepackage{pifont}                 % 列表符号宏包
+\floatsetup[table]{style=Plaintop}
+
+
+%% 乱七八糟字体编码
+\usepackage[T1]{fontenc}
+
+%%% tikz 绘图
+\usepackage{tikz}
+\usetikzlibrary{mindmap,shapes,arrows,chains,shadows,decorations.markings}
+%\usepackage{verbatim}
+%\usepackage[active,tightpage]{preview}
+%\PreviewEnvironment{tikzpicture}
+%\setlength\PreviewBorder{5mm}%
+\colorlet{lcfree}{Green3}
+\colorlet{lcnorm}{Blue3}
+\colorlet{lccong}{Red3}
+% -------------------------------------------------
+% Set up a new layer for the debugging marks, and make sure it is on
+% top
+\pgfdeclarelayer{marx}
+\pgfsetlayers{main,marx}
+% A macro for marking coordinates (specific to the coordinate naming
+% scheme used here). Swap the following 2 definitions to deactivate
+% marks.
+\providecommand{\cmark}[2][]{%
+  \begin{pgfonlayer}{marx}
+    \node [nmark] at (c#2#1) {#2};
+  \end{pgfonlayer}{marx}
+  } 
+\providecommand{\cmark}[2][]{\relax} 
+\usepackage{pgf-umlcd}
+
+%\usepackage{rotfloat}
+%\usepackage[all,pdf]{xy}
+\usepackage{listings} %插入代码
+%\usepackage[dvipsnames]{xcolor} %代码高亮
+
+
+
 
 % \usepackage[utf8]{inputenc}
 %% Use the option review to obtain double line spacing
