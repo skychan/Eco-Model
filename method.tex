@@ -58,6 +58,17 @@ provided amount
 \subsubsection{Platform agent} % (fold)
 \label{ssub:platform_agent}
 matching the 
+\begin{figure}
+
+\begin{tikzpicture}
+\begin{class}[text width=8cm]{Job}{0,0}
+    \attribute{needCapacity : Map}
+    \operation{lala(haha): void}
+\end{class}
+\end{tikzpicture}
+\caption{Test UML Diagram}
+
+\end{figure}
 % subsubsection platform_agent (end)
 
 
@@ -65,6 +76,19 @@ matching the
 \label{sub:ecosystem model}
 
 % subsection model_realization (end)
+
+\subsubsection{Main flow design} % (fold)
+\label{ssub:main_flow_design}
+\begin{itemize}
+    \item generate provider and demander
+    \item generate order (with task)
+    \item generate resources
+    \item process tasks (with only resource)
+    \item organize service
+    \item process task (plus service)
+    \item Review and elimination of provider and service
+\end{itemize}
+% subsubsection main_flow_design (end)
 
 \subsubsection{Main modules design}
 \label{subsub:main_modules}
