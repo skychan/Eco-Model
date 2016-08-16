@@ -39,3 +39,4 @@
 *.~*
 /figures/flow_head.pdf
 *.bak
+.DS_Store
