@@ -1,0 +1,13 @@
+% !TEX root = flow_head.tex
+
+\begin{class}[text width=8cm]{Resource}{0,0}
+	\attribute{+ available: int}
+	\attribute{+ capacity: int}
+	\attribute{+ master: Map}
+	\attribute{+ needCap: Map}
+	\attribute{+ sourceable: int}
+	\operation{+ Resource()}
+	\operation{+ addMaster(ser: Service, amonut: int): void}
+	\operation{+ Assign(sc: ServiceCall, amount: int): void}
+	\operation{+ Response(watchedAgent: ServiceCall): void}
+\end{class}

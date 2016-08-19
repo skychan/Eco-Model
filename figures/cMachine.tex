@@ -1,0 +1,19 @@
+% !TEX root = flow_head.tex
+
+\begin{class}[text width=8cm]{Machine}{0,0}
+	\attribute{+ assignBehavior: AssignBehavior}
+	\attribute{+ buffer: List}
+	\attribute{+ competeList: List}
+	\attribute{+ jobList: List}
+	\attribute{+ owner: Provider}
+	\attribute{+ releaseBehavior: ReleaseBehavior}
+	\attribute{+ responseBehavior: ResponseBehavior}
+	\attribute{+ responseList: List}
+	\attribute{+ type: String}
+	\operation{+ Assign(t: Task): void}
+	\operation{+ Release(j: Job): void}
+	\operation{+ Reply(watchedAgent: Job): void}
+	\operation{+ Response(watchedAgent: Task): void}
+	\operation{+ Review(j: Job):void}
+\end{class}
+

@@ -1,0 +1,15 @@
+% !TEX root = flow_head.tex
+
+\begin{class}[text width=8cm]{Task}{0,0}
+	\attribute{+ master: Order}
+	\attribute{+ owner: Map}
+	\attribute{+ pause: boolean}
+	\attribute{+ processingTime: int}
+	\attribute{+ remainingTime: int}
+	\attribute{+ type: Strihng}
+	\operation{+ Task()}
+	\operation{+ addOwner(user: User, p: int): void}
+	\operation{+ CheckStatus(): void}
+	\operation{+ Process(watchedAgent: Task): void}
+	\operation{+ setParameters(taskData: Map): void}
+\end{class}

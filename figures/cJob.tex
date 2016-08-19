@@ -1,0 +1,19 @@
+% !TEX root = flow_head.tex
+
+\begin{class}[text width=8cm]{Job}{0,0}
+	\attribute{+ allocated: boolean}
+	\attribute{+ allocation: Map}
+	\attribute{+ candidates: Map}
+	\attribute{+ inNeed: boolean}
+	\attribute{+ needResourceCapacity: Map}
+	\attribute{+ predecessor: Set}
+	\attribute{+ prepareStatus: Map}
+	\attribute{- processBehavior: ProcessBehavior}
+	\attribute{- selectBehavior: SelectBehavior}
+	\operation{+ addCandidates(competitor: Machine): void}
+	\operation{+ CheckStatus(): void}
+	\operation{+ Need(): void}
+	\operation{+ Review(m: Machine): void}
+	\operation{+ Select(watchedAgent: Job): void}
+\end{class}
+

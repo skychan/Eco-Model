@@ -1,0 +1,13 @@
+% !TEX root = flow_head.tex
+
+\begin{class}[text width=8cm]{Provider}{0,0}
+	\attribute{+ candidates: List}
+	\attribute{+ rank: double}
+	\attribute{+ resourceList: List}
+	\attribute{+ serviceList: List}
+	\operation{+ GenerateResource(): void}
+	\operation{+ GenerateService(serviceData: List): void}
+	\operation{+ GenerateServiceCall(): void}
+	\operation{+ RemoveServiceCall(sc: ServiceCall): void}
+	
+\end{class}
