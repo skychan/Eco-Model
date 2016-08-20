@@ -1,0 +1,42 @@
+% !TEX root = Eco-Model.tex
+\section{Design of the ecosystem} % (fold)
+\label{sec:design_of_the_ecosystem}
+\subsection{Preliminaries} % (fold)
+\label{sub:preliminaries}
+The manufacturing ecosystem we proposed in this paper consists of the structure of cloud manufacturing, the operation mode and the controlling rules. Before the detailed interpretation for these parts, we describe some basic settings as follows.
+
+\subsubsection{Master plan} % (fold)
+\label{ssub:master_plam}
+A single order($o_i$) consists of a set $\mathcal{T}_i = \left\{ t_{i1},t_{i2},\dots,t_{in}\right\}$ of tasks which have to be processed. The tasks are interrelated by kinds of constraints. First, precedence constraints force task $t_{ij}$ not to be started before all its immediate predecessors, how to construct the predecessor will be explained later. Second, performing the tasks requires resources with limited capacities. Third, resources cooperation transmits and enhances these constraints.
+A single resource($r_k$) belongs to one type in set $\mathcal{A} = \left\{1,2,\dots\,A\right\}$given by the platform. While being processed via resource cooperation, task $t_{ij}$ requires $q_{k,ij}$ units of the resources with every type in $\mathcal{A}_{ij}\subset\mathcal{A}$ during every period of its non-preemptable duration $p_{ij}$. Each resource $r_k$ has a limited capacity of $C_k$ at any point in time.
+A single service($s_l$) is a composition of all resources in set $R_l$ with their partial capacities, it can only process certain task with matched resource configuration($\mathcal{A}_{ij}=\mathcal{A}_l$,$Q_{k,ij}=Q_l$) without resource coordinating any more. While being processed via one matched service, task can be suspended then outsourced to other matched service or resource cooperation.
+Resource comes along with provider when it enter the ecosystem, however, service doesn't, service is generated after a period of time, the prototype of a service is another type of job, we call it the service-call.
+A single service-call($sc_l$) comes out after the finish of one frequent task, so it have the same resource configuration the frequent task. Service-call can only be performed via resource cooperation with duration $p_l$, because the identity of resource, the capacity cannot be return to the resource after the finish of service-call, so the service-call brings new constrains to the related resources.  
+% subsubsection master_plan (end)
+
+\subsubsection{Assumptions, nomenclature} % (fold)
+\label{ssub:assumptions_nomenclature}
+
+% subsubsection assumptions_nomenclature (end)
+% subsection preliminaries (end)
+
+\subsection{Operation mode} % (fold)
+\label{sub:operation_mode}
+
+% subsection operation_mode (end)
+
+\subsection{Interactions and decisions} % (fold)
+\label{sub:interactions_and_decisions}
+
+% subsection interactions_and_decisions (end)
+
+\subsection{Controlling rules} % (fold)
+\label{sub:controlling_rules}
+
+% subsection controlling_rules (end)
+
+\subsection{Tricky problems} % (fold)
+\label{sub:tricky_problems}
+
+% subsection tricky_problems (end)
+% section design_of_the_ecosystem (end)
