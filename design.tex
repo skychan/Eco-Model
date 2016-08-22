@@ -298,26 +298,35 @@ f^{(s)}_h \le f_j^{(s)} - p_j & $h\in\mathcal{P}_j$,$j\in L^{(s)}$\\
 G^{(s)} = \left\{j' | t_{j'}\in \mathcal{G}_{k,\tau_0}\right\} & \\
 f^{(s)}_j =  \tau_0 + re_j & $j\in G^{(s)}$ \\
 \sum_{j\in\left\{  j' |t_{j'} \in\mathcal{G}_{k,\tau}\right\}} q_j \le A_{k,\tau}& $\tau \ge \tau_0$ \\
-% \bm{f}^{(s)} = \left[f_1^{(s)}, f_2^{(s)},\dots,f^{s}_{\abs{\mathcal{L}^{(s)}_{k,\tau_0}}}\right] & \\
 f^{(s)}_j \ge \tau_0 + p_j & $j\in L^{(s)}$
 \end{numcases}
-\resume{asparaenum}
-\item Schedule the task in $\mathcal{L}_{l,\tau}$
-\suspend{asparaenum}
 
+Like the RCPSP
 
 
 \resume{asparaenum}
-\item Outsource the task in $\mathcal{L}_{l,
-\tau}$ and $\mathcal{P}_{l,\tau}$
+\item Outsource the task in both active and inactive status.
 \end{asparaenum}
 
+Since only matched task can be assigned and processed in the certain service, the decision making about schedule tasks in service $ms_l$ is a simple problem that it is similar to 1 machine scheduling problem, so we will not discuss the situation about schedule the task in $\mathcal{L}_{l,\tau}$ here. However, service can perform task in a flexible mode, provider can outsource the task in both active and inactive status.
+
+For each single task $t_j\in\mathcal{L}_{l,\tau}\cup\mathcal{G}_{l,\tau}$, the only condition to make the outsource decision is that if the maximum delay($f_j-p_j-r_j$) of task in both status will decrease. This decision highly depends on the estimate of performance status in other resources and services.
 
 % subsection operation_mode (end)
 
 \subsection{Controlling rules} % (fold)
 \label{sub:controlling_rules}
-Platform control the provider by the rank value and the review module
+The decision makings explained above are controlled by review and ranking mechanism provided by platform, the provider who have higher rank value will be safer to stay in the ecosystem, have more chance to succeed in generating services, his services and resources will get more preference. Hence, here we will explain the setting and changing in the rank value:
+\begin{asparaenum}
+\item Rank value setting
+\suspend{asparaenum}
+
+
+\resume{asparaenum} 
+\item Rank value changing
+\end{asparaenum}
+
+
 % subsection controlling_rules (end)
 
 \subsection{Tricky problems} % (fold)
