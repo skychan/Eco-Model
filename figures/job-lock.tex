@@ -1,0 +1,13 @@
+% !TEX root = flow_head.tex
+\begin{tikzpicture}
+
+\fill[blue!20!,yshift=1.5cm] (3cm,0) rectangle (4cm,1cm);
+\fill[blue!20!] (2cm,0) rectangle (3cm,1cm);
+\draw[thick,yshift=1.5cm] (0,0) rectangle (4cm,1cm) (6.5cm,0) rectangle (11.5cm,1cm) (3cm,0) rectangle (4cm,1cm);
+\draw[yshift=2cm] (-5mm,0) node{$mr_1$} (1.5cm,0) node{$t_{i1}$} (9cm,0) node{$t_{i2}$} (6cm,0) node{$\cdots$} (12cm,0) node{$\cdots$};
+\draw[thick,dotted,xshift=5cm] (0,-5mm) -- (0,3.5cm);
+\draw[thick] (0,0) rectangle (3cm,1cm) (6.5cm,0) rectangle (10.5cm,1cm) (2cm,0) rectangle (3cm,1cm);
+\draw[yshift=0.5cm] (-5mm,0) node{$mr_2$}  (1cm,0) node{$t_{i2}$} (8.5cm,0) node{$t_{i1}$} (6cm,0) node{$\cdots$} (11cm,0) node{$\cdots$};
+\draw[yshift=3cm] (2cm,0) node{active} (9.5cm,0) node{inactive};
+
+\end{tikzpicture}

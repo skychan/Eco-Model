@@ -81,12 +81,13 @@ schedule and outsource are event driven decision making
 	$\mathcal{T}_i$ & Task set of $o_i$ \\
 	$t_{ij}$ & Task belongs to $o_i$, $t_{ij}\in\mathcal{T}_i$ \\
 	$p_{ij}$ & Process duration of $t_{ij}$\\
+	$\gamma_{ij}$ & Expect quality of product after the finish of $t_{ij}$\\
 	$r_i$ & Release time of $o_i$\\
 	$f_{ij}$ & Actual finish time of $t_{ij}$ \\
 	$f_{i}$ & Finish time of $o_i$\\
 	$\mathcal{P}_{ij}$ & The set of predecessor of $t_{ij}$\\
 	$mr_k$ & Resource that come with provider \\
-	$\delta_k$ & Quality of resource $mr_k$ \\
+	$\delta_k$ & Product quality produced via resource $mr_k$ \\
 	$C_{k,\tau}$ & Capacity of $mr_k$ at time $\tau$\\
 	$A_{k,\tau}$ & Available capacity of $mr_k$ at time $\tau$\\
 	$\mathcal{L}_{k,\tau}$ & The list of job queue of $mr_k$ at $\tau$ with sequence\\
@@ -102,7 +103,7 @@ schedule and outsource are event driven decision making
 	$\mathcal{P}_{l}$ & The set of predecessor of $sc_{l}$\\
 	$\mathcal{A}_l$ & Resource type subset required and provided by $sc_l$ and $ms_l$ respectively, $\mathcal{A}_l\subset\mathcal{A}$\\
 	$ms_l$ & Service that generated after the finish of $sc_l$\\
-	$\Delta_l$ & Overall quality of servicev $ms_l$\\
+	$\Delta_l$ & Product quality produced via service $ms_l$\\
 	$\bm{mr}_l$ & Resource member set of $ms_l$\\
 	$\bm{q}_l$ & Resource member's capacity contribution set of $ms_l$\\
 	$\mathcal{L}_{l,\tau}$ & The list of job queue of $ms_l$ at $\tau$ with sequence\\
@@ -114,7 +115,7 @@ schedule and outsource are event driven decision making
 	$\mathcal{B}_{l,\tau}$ & Resource candidate types set for $sc_l$\\
 	$R(\cdot)$ & Rank inquire function about provider\\
 	$F(\cdot)$ & Owner inquire function about resource or service\\
-	$P(\cdot)$ & Type inquire function about resource\\
+	$P(\cdot)$ & Type inquire function about resource type\\
 	$\bm{x}$ & Bold font of the variable($x$) means the temp set of a bunch of these variables\\
     \hline
 \end{tabularx}
@@ -256,7 +257,7 @@ With the select decision of $t_{ij}$ to assign on $mr_k$ at $\tau$, the first th
 \end{equation}
 Then, the provider will add $t_{ij}$ to queue or process buffer according to:
 \begin{numcases}{}
-\mathcal{G}_{k,\tau} := \mathcal{G}_{k,\tau} \cup \{t_{ij}\} & if $\abs{\mathcal{L}_{k,\tau}}=0$ and $A_{k,\tau}\ge q_{\alpha,ij}$ \\
+\mathcal{G}_{k,\tau} := \mathcal{G}_{k,\tau} \cup \{t_{ij}\} & if $\abs{\mathcal{L}_{k,\tau}}=0,A_{k,\tau}\ge q_{\alpha,ij}$ \\
 \mathcal{L}_{k,\tau} := \mathcal{L}_{k,\tau} \cup \{t_{ij}\} & otherwise
 \end{numcases}
 
@@ -316,27 +317,49 @@ For each single task $t_j\in\mathcal{L}_{l,\tau}\cup\mathcal{G}_{l,\tau}$, the o
 
 \subsection{Controlling rules} % (fold)
 \label{sub:controlling_rules}
-The decision makings explained above are controlled by review and ranking mechanism provided by platform, the provider who have higher rank value will be safer to stay in the ecosystem, have more chance to succeed in generating services, his services and resources will get more preference. Hence, here we will explain the setting and changing in the rank value:
+The decision makings explained above are controlled by review and ranking mechanism provided by platform, the provider who have higher rank value will be safer to stay in the ecosystem, have more chance to succeed in generating services, his services and resources will get more preference. Hence, here we will explain some controlling rules related to the rank value changing:
 \begin{asparaenum}
-\item Rank value setting
+\item Review from demander when his task $t_{ij}$ was finished by resource cooperation $mr_{\bm{k}}$:
 \suspend{asparaenum}
 
+We will ignore resource type subscript $\alpha$ here for the reason that resources perform the task already meet the type needs. With the assumption given above, higher resource occupation($p_{ij}\cdot q_{ij}$), lower delay($f_{ij} - p_{ij} - r_{ij}$), larger difference between actual and expected product quality($\delta_{ij}-\gamma_{ij}$), will turn out higher rank value($rank$) changing:
+\begin{numcases}{}
+rank := rank +
+\frac{\left( p_{ij}\cdot q_{ij} \right) \left( \delta_{ij}-\gamma_{ij} \right)}{e^{\left(f_{ij} - p_{ij} -r_{ij}\right)}} & $k\in\bm{k}$\\
+\delta_{ij} = \min_{k\in\bm{k}}\left\{ \delta_k \right\} &\\
+\delta_k \sim \mathcal{N}\left(\mu_k,\sigma_k^2 \right) & $k\in\bm{k}$
+\end{numcases} 
 
 \resume{asparaenum} 
-\item Rank value changing
+\item Review from demander when his task $t_{ij}$ was finished by service $ms_l$:
+\suspend{asparaenum}
+Rank value changing with regard to service can be determined easier:
+\begin{equation}
+	rank := rank + \frac{ \left(\sum_{q\in\bm{q}_l}p_{ij}\cdot q \right)\left( \Delta_l -\gamma_{ij}\right) }{ e^{\left( f_{ij} - p_{ji} -r_{ij} \right)} }
+\end{equation}
+
+\resume{asparaenum}
+\item Eliminate resource or service on the platform
 \end{asparaenum}
 
-
+This decision making is a control method for platform to keep the performance of tasks with content quality and efficiency. We denote the list of all resources with type $\alpha$ as $\bm{mr}_\alpha$ and the list of all services as $\bm{ms}$ at time $\tau$, after the sort these lists according to the scarcity and quality, the unqualified resources and services. Scarcity can be defined as:
+\begin{numcases}{}
+\sum_{k\in\{k|mr_k\in\bm{mr}_\alpha\}}\abs{\mathcal{L}_{k,\tau} }& $\alpha\in\mathcal{A}$\\
+\abs{\mathcal{L}_{l,\tau}}
+\end{numcases}
 % subsection controlling_rules (end)
 
 \subsection{Tricky problems} % (fold)
 \label{sub:tricky_problems}
-The job lock
+Even though the schedule mode exclude the interference of service-call, one tricky problem will occur that it will block some tasks from being processed. Suppose that $t_{i1}$ and $t_{i2}$ both need resource $mr_1$ and $mr_2$, as shown in \autoref{fig:joblock}, 
+\begin{figure}[htbp]
+	\centering
+	\resizebox{.85\textwidth}{!}{\input{figures/job-lock}}
+	\caption{Simple illustration of job lock problem}
+	\label{fig:joblock}
+\end{figure}
+$t_{i2}$ is active in $mr_2$ and inactive in $mr_1$, while $t_{i1}$ is active in $mr_1$ and inactive in $mr_2$, because of the capacity limit, there is no more space for inactive tasks to stack in, so no matter how long the resource will wait, $t_{i1}$ and $t_i2$ will not be processed and will they will block the other tasks from being processed.
 
-add predecessor job when sc in to job queue,
-
-after the finish of all the job in job queue to start the performance of sc
-
-make the task which was prepared in one resource ahead to other jobs in the cooperated resources 
+The method to solve the job-lock problem is to add the status changed task to the predecessor set of all the other tasks in the same inactive queue list.
 % subsection tricky_problems (end)
 % section design_of_the_ecosystem (end)
