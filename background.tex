@@ -50,28 +50,28 @@ Service is the core concept in cloud manufacturing, so service layer is the core
 \end{compactdesc}
 
 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=.7\textwidth]{usertype.pdf}
-	\caption{Simple explanation of user type}
-	\label{fig:usertype}
-\end{figure}
+% \begin{figure}[htbp]
+% 	\centering
+% 	\includegraphics[width=.7\textwidth]{usertype.pdf}
+% 	\caption{Simple explanation of user type}
+% 	\label{fig:usertype}
+% \end{figure}
 
-\begin{table}[htbp]
-	\caption{Simple explanation of user type}
-	\label{tab:usertype}
-	\centering
-	\tiny
-	\begin{tabularx}{\textwidth}{llX}
-	\toprule
-	\textbf{Type} & \textbf{Name} &  \textbf{Concise Description}\\
-	\midrule
-	I			& Pure demander &  Submit manufacturing tasks and make evaluation of provider.\\
-	II 			& Complex user 	&  Usually a pure provider submit part of its task, it becomes the complex user and changes the operation model of the user.\\
-	III 		& Pure provider &  Provide manufacturing services and makes evaluation demander.\\
-	\bottomrule
-	\end{tabularx}
-\end{table}
+% \begin{table}[htbp]
+% 	\caption{Simple explanation of user type}
+% 	\label{tab:usertype}
+% 	\centering
+% 	\tiny
+% 	\begin{tabularx}{\textwidth}{llX}
+% 	\toprule
+% 	\textbf{Type} & \textbf{Name} &  \textbf{Concise Description}\\
+% 	\midrule
+% 	I			& Pure demander &  Submit manufacturing tasks and make evaluation of provider.\\
+% 	II 			& Complex user 	&  Usually a pure provider submit part of its task, it becomes the complex user and changes the operation model of the user.\\
+% 	III 		& Pure provider &  Provide manufacturing services and makes evaluation demander.\\
+% 	\bottomrule
+% 	\end{tabularx}
+% \end{table}
 % Before the emendation of the roles, some related standard name should be taken:
 
 As defined above, Enterprise User is the special case of the User(short for Generalized User) that purely provides manufacturing services and the Customer User is similarly defined.
@@ -120,14 +120,14 @@ platform model is about the part of decision making	agent of platform.
 \label{subs:Operation model of users}
 The \textit{demander} mentioned in \autoref{subs:cloud manufacturing architecture} publishes its demand as order that can be decomposed into tasks by \textit{task decomposer} module in platform, while the \textit{provider} mentioned in \autoref{subs:cloud manufacturing architecture} publishes its resource as capacity that can be packaged into services by \textit{service packager} module in Platform. In order to do more accurate study on users, we classified users into 3 basic types as shown in \autoref{fig:usertype}. With concise explanation in \autoref{tab:usertype}, we can illustrate the operation model in \autoref{fig:useroperation}.
 
-\begin{figure}[htbp]
-\centering
-\subfloat[Pure demander]{\includegraphics[width=0.75\textwidth]{demander_main_process}\label{fig:demanderprocess}}\\
-\subfloat[Complex user]{\includegraphics[width=0.75\textwidth]{complex_main_process}\label{fig:complexprocess}}\\
-\subfloat[Pure Provider]{\includegraphics[width=0.75\textwidth]{provider_main_process}\label{fig:providerprocess}}
-\caption{Main operational processes}
-\label{fig:useroperation}
-\end{figure}
+% \begin{figure}[htbp]
+% \centering
+% \subfloat[Pure demander]{\includegraphics[width=0.75\textwidth]{demander_main_process}\label{fig:demanderprocess}}\\
+% \subfloat[Complex user]{\includegraphics[width=0.75\textwidth]{complex_main_process}\label{fig:complexprocess}}\\
+% \subfloat[Pure Provider]{\includegraphics[width=0.75\textwidth]{provider_main_process}\label{fig:providerprocess}}
+% \caption{Main operational processes}
+% \label{fig:useroperation}
+% \end{figure}
 
 The main operational process of pure demander(\autoref{fig:demanderprocess}) starts with its decomposed task. Then, with the help of \textit{recommender} module, pure demander search and select appropriate service, trade with the one or multi service provider according to the \textit{task decomposer}, receive the product delivered by the provider at due date and commit the review of the product. The committed review will affect the authority value of the provider, that good review raise the value and vise versa.
 
@@ -162,29 +162,29 @@ User is the basic activity individual in the manufacturing ecosystem, and their 
 \end{inparaenum} will be changed by the decision they've made. 
 All these changes contribute to microscopic evolution of the ecosystem. More specifically, type change describes the change of user's type among pure demander, pure provider and complex user; status change describes weather a user in the ecosystem or not; niche width change describes the importance or condition of the user, especially the provider and we will only discuss the provider's niche width in this paper. \autoref{tab:userchange} concludes the appearances that we will study in this paper.
 
-\begin{table}[htbp]
-	\caption{Users' changes}
-	\label{tab:userchange}
-	\centering
-	\scriptsize
-	\begin{tabularx}{\textwidth}{llX}
-	\toprule
-	\textbf{Change} & \multicolumn{2}{l}{\textbf{Appearance with concise description}}\\
-	\midrule
-	\multirow{3}*{Type}			& Complex user $\to$ Pure demander: & User stop provide its resource\\
-								& Complex user $\to$ Pure provider: & User shrink service area that only contains its own service \\
-								& Pure provider $\to$ Complex user: & User extend service area that starts to contain service from others' \\
-	\midrule
-	\multirow{4}*{Status} 		& Pure demander enter ecosystem: &	One pure demander starts to publish orders\\
-								& Pure demander exit ecosystem: & One pure demander be banned to publish orders\\
-								& Pure provider enter ecosystem: & Administrator introduces one provider into the ecosystem\\
-								& Pure provider exit ecosystem: & Administrator eliminates one provider form the ecosystem\\
-	\midrule
-	\multirow{2}*{Niche width} 	& Widen: & One provider extends its service area\\
-								& Narrow down:  & One provider shrinks its service area\\
-	\bottomrule
-	\end{tabularx}
-\end{table}
+% \begin{table}[htbp]
+% 	\caption{Users' changes}
+% 	\label{tab:userchange}
+% 	\centering
+% 	\scriptsize
+% 	\begin{tabularx}{\textwidth}{llX}
+% 	\toprule
+% 	\textbf{Change} & \multicolumn{2}{l}{\textbf{Appearance with concise description}}\\
+% 	\midrule
+% 	\multirow{3}*{Type}			& Complex user $\to$ Pure demander: & User stop provide its resource\\
+% 								& Complex user $\to$ Pure provider: & User shrink service area that only contains its own service \\
+% 								& Pure provider $\to$ Complex user: & User extend service area that starts to contain service from others' \\
+% 	\midrule
+% 	\multirow{4}*{Status} 		& Pure demander enter ecosystem: &	One pure demander starts to publish orders\\
+% 								& Pure demander exit ecosystem: & One pure demander be banned to publish orders\\
+% 								& Pure provider enter ecosystem: & Administrator introduces one provider into the ecosystem\\
+% 								& Pure provider exit ecosystem: & Administrator eliminates one provider form the ecosystem\\
+% 	\midrule
+% 	\multirow{2}*{Niche width} 	& Widen: & One provider extends its service area\\
+% 								& Narrow down:  & One provider shrinks its service area\\
+% 	\bottomrule
+% 	\end{tabularx}
+% \end{table}
 
 
 
