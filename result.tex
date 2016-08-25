@@ -2,9 +2,15 @@
 \section{Experiment and result Analysis} % (fold)
 \label{sec:Experiment_results}
 
+Entities in the manufacturing ecosystem we designed above have these traits, they are: \begin{inparaenum}
+\item autonomous and self-directed, 
+\item social, interacting with other entities, 
+\item controlled by the environment, 
+\item self-contained.
+\end{inparaenum} They optimize their multi-objective decision makings to interact with others and the environment, hence, agent-based modeling and simulation(ABMS) technique\cite{Macal2009,north2007managing} is suitable for the study of the complex system. With the help of Repast Simphony\cite{North2013} package, we realized the ecosystem model and performed some experiments on it.
 \subsection{Agent-based modeling and simulation design} % (fold)
 \label{sub:agent_based_modeling_and_simulation}
-\subsubsection{Agent Classes}
+\subsubsection{Model realization}
 % \begin{asparaenum}
 % \item Platform
 % \suspend{asparaenum}
@@ -141,17 +147,35 @@
 %     \label{fig:selectinterface}
 % \end{figure}
 
-\subsection{Case study} % (fold)
+\subsection{Experiments} % (fold)
 \label{ssub:case_design}
-design the case example, we use the RanGen\cite{Demeulemeester2003,Vanhoucke2008} to generate the orders
+We use the RanGen\cite{Demeulemeester2003,Vanhoucke2008} to generate the order data in the well-known Patterson format with the parameters setting listed in tab..., the control parameters are .... we design these experiments to validate service-incubate mode, outsource mode and metabolism mode \autoref{tab:grouping}
+
+\begin{table}[htbp]
+  \centering
+  \scriptsize
+  \caption{Experiments grouping}
+    \begin{tabular}{llcc}
+    \toprule
+          &       & With metabolism & Without metabolism \\
+    \midrule
+    \multicolumn{1}{l}{\multirow{2}[0]{*}{Service-incubate}} & with outsource & Exp. 11 &Exp. 12 \\\cline{2-4}
+    \multicolumn{1}{l}{} & without outsource & Exp. 21 & Exp. 22 \\\hline
+    \multicolumn{2}{l}{Resource-only} & Exp. 31 & Exp. 32 \\
+    \bottomrule
+    \end{tabular}%
+  \label{tab:grouping}%
+\end{table}%
+
+
 % subsubsection case_design (end)
 
 \subsubsection{Parameters setting} % (fold)
 \label{ssub:parameters_setting}
-
+All the following experiments are simulated with same random seed to make no difference on the coming of order, provider and other irrelevant configuration to our validation.
 % subsubsection parameters_setting (end)
 
-\subsubsection{subsubsection name} % (fold)
-\label{ssub:subsubsection_name}
+\subsubsection{Result and analysis} % (fold)
+\label{ssub:result_and_analysis}
 
-% subsubsection subsubsection_name (end)
+% subsubsection result_and_analysis (end)
