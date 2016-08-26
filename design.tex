@@ -19,23 +19,23 @@ Resource comes along with provider when it enter the ecosystem, however, service
 
 A single service-call($sc_l$) comes out after the finish of one frequent task, so it have the same resource configuration the frequent task. Service-call can only be performed via resource cooperation with duration $p_l$, because the identity of resource, the capacity cannot be return to the resource after the finish of service-call, so the service-call brings new constrains to the related resources. Unlike the task, the amount of one type resource required in the service-call can be pieced together from more than one resource as long as they are in the same type.
 
-Specifically, a simple instance with configuration \autoref{tab:simpleresourceconfiguration}--\ref{tab:simplejobconfiguration} and schedule chart \autoref{fig:scheduleChart} will describe the setting more clearly.
-\begin{table}[htbp]
-  \centering
-  \scriptsize
-  \caption{Simple resource configuration}
-    \begin{tabular}{ccc}
-    \toprule
-    Resource & Type  & Capacity \\
-    \midrule
-    $r_1$ & 1     & 10 \\
-    $r_2$ & 2     & 10 \\
-    $r_3$ & 3     & 10 \\
-    $r_4$ & 3     & 10 \\
-    \bottomrule
-    \end{tabular}%
-  \label{tab:simpleresourceconfiguration}%
-\end{table}%
+Specifically, a simple instance with configuration \autoref{tab:simplejobconfiguration} and schedule chart \autoref{fig:scheduleChart} will describe the setting more clearly.
+% \begin{table}[htbp]
+%   \centering
+%   \scriptsize
+%   \caption{Simple resource configuration}
+%     \begin{tabular}{ccc}
+%     \toprule
+%     Resource & Type  & Capacity \\
+%     \midrule
+%     $r_1$ & 1     & 10 \\
+%     $r_2$ & 2     & 10 \\
+%     $r_3$ & 3     & 10 \\
+%     $r_4$ & 3     & 10 \\
+%     \bottomrule
+%     \end{tabular}%
+%   \label{tab:simpleresourceconfiguration}%
+% \end{table}%
 \begin{table}[htbp]
   \centering
   \scriptsize
@@ -77,6 +77,7 @@ schedule and outsource are event driven decision making
 resources are renewable
 
 \begin{table}[htbp]
+  \scriptsize
 \begin{tabularx}{\textwidth}{|lX|}
     \hline
     \multicolumn{2}{|l|}{\multirow{2}[0]{*}{\large\textbf{Nomencalture}}} \\
@@ -105,7 +106,7 @@ resources are renewable
 	$p_l$ & Process duration of $sc_l$\\
 	$r_l$ & Release time of $sc_l$\\
 	$\mathcal{P}_{l}$ & The set of predecessor of $sc_{l}$\\
-	$\mathcal{A}_l$ & Resource type subset required and provided by $sc_l$ and $ms_l$ respectively, $\mathcal{A}_l\subset\mathcal{A}$\\
+	$\mathcal{A}_l$ & Resource type subset required by $sc_l$ or provided by $ms_l$ , $\mathcal{A}_l\subset\mathcal{A}$\\
 	$ms_l$ & Service that generated after the finish of $sc_l$\\
 	$\Delta_l$ & Product quality produced via service $ms_l$\\
 	$\bm{mr}_l$ & Resource member set of $ms_l$\\
@@ -171,17 +172,17 @@ For each required resource type $\alpha$
 \item  $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij}$, while $\abs{\mathcal{S}_{ij,\tau}}>0$.
 \end{asparaenum}
 
-\begin{gather}
+\begin{equation}
 \max_{m\in\{l^*,\bm{k}^*\}} \left( \Delta_m, 
 Rank_m, \mathcal{L}_m \right) \\ 
-\text{s.t.}\notag
-\end{gather}
-\begin{numcases}{}
-q_{\alpha,ij} \le C_{k_{\alpha},\tau} & \footnotesize$\alpha\in\mathcal{A}_{ij}$\\
-R_{\alpha,\tau} = \left\{ mr| mr\in\mathcal{R}_{ij,\tau}, P(mr) = \alpha \right\} & \footnotesize$\alpha\in\mathcal{A}_{ij}$\\
-\mathcal{R}_{ij,\tau} = \bigcup_{\alpha\in\mathcal{A}_{ij}}\mathcal{R}_{\alpha,\tau} & \\
-\bm{k} = \left[k_1,\dots ,k_\alpha,\dots,k_{\abs{\mathcal{A}_{ij}}} \right]& \\
-k_\alpha \in \left\{ k | mr_k \in \mathcal{R}_{\alpha,\tau} \right\} &\footnotesize$\alpha\in\mathcal{A}_{ij}$ \\
+% \text{s.t.}\notag
+\end{equation}
+\begin{numcases}{\text{s.t.}}
+% q_{\alpha,ij} \le C_{k_{\alpha},\tau} & \footnotesize$\alpha\in\mathcal{A}_{ij}$\\
+% R_{\alpha,\tau} = \left\{ mr| mr\in\mathcal{R}_{ij,\tau}, P(mr) = \alpha \right\} & \footnotesize$\alpha\in\mathcal{A}_{ij}$\\
+% \mathcal{R}_{ij,\tau} = \bigcup_{\alpha\in\mathcal{A}_{ij}}\mathcal{R}_{\alpha,\tau} & \\
+% \bm{k} = \left[k_1,\dots ,k_\alpha,\dots,k_{\abs{\mathcal{A}_{ij}}} \right]& \\
+% k_\alpha \in \left\{ k | mr_k \in \mathcal{R}_{\alpha,\tau} \right\} &\footnotesize$\alpha\in\mathcal{A}_{ij}$ \\
 \bm{k}^* = \arg\left(\max_{\forall \bm{k}}\left( \delta_{\bm{k}}, 
 R\left( F\left( mr_{\bm{k}} \right) \right), \abs{\mathcal{L}_{\bm{k},\tau} }
 \right)\right) & \\
@@ -192,10 +193,10 @@ Rank_{\bm{k}^*} = \min_{k\in\bm{k}^*} \left\{ R\left( F\left( mr_k \right) \righ
 \sigma_{\bm{k}^*} = std\left( \bm{mr}_{\bm{k}^*} , \bm{q}_{\bm{k}^*} \right) & \\
 \bm{mr}_{\bm{k}^*} = \bigcup_{k\in\bm{k}^*}mr_k  &\\
 \bm{q}_{\bm{k}^*}  =\bigcup_{\alpha\in\mathcal{A}_{ij}}q_{\alpha,ij} & \\
-\Delta_l \sim \mathcal{N} \left(\mu_l,\sigma_l^2\right) & \\
-\mu_l = mean\left( \bm{mr}_l , \bm{q}_l \right) & \\
-\sigma_l = std\left( \bm{mr}_l , \bm{q}_l \right) & \\
-l \in \left\{l' |  ms_{l'} \in \mathcal{S}_{ij,\tau} \right\}  & \\
+% \Delta_l \sim \mathcal{N} \left(\mu_l,\sigma_l^2\right) & \\
+% \mu_l = mean\left( \bm{mr}_l , \bm{q}_l \right) & \\
+% \sigma_l = std\left( \bm{mr}_l , \bm{q}_l \right) & \\
+% l \in \left\{l' |  ms_{l'} \in \mathcal{S}_{ij,\tau} \right\}  & \\
 l^* = \arg\left( \max_{\forall l}\left(\Delta_{l}, R\left(F\left(ms_{l}\right)\right), \abs{\mathcal{L}_{l,\tau}}\right)  \right) & \\
 Rank_{l^*} = R\left( F\left( ms_{l^*} \right) \right) & \\
 \mathcal{L}_{l^*} = \abs{\mathcal{L}_{l^*,\tau}} & \\
@@ -287,7 +288,7 @@ Then, the provider will add $sc_l$ to queue or process buffer according to:
 The assignment of new service-call will not driven these decision making event because of the resource capacity consuming feature, so it's necessary to suspend service-call in inactive status until all the job before it in $\mathcal{L}_{k,\tau}$ are finished, at the meantime, all the job come after service-call should be stay in inactive status until the service-call is finished, as shown in \autoref{fig:simplejoblist}, service-call likes partition plate in $\mathcal{L}_{k,\tau}$.  
 \begin{figure}[htbp]
 	\centering
-	\resizebox{.8\textwidth}{!}{\input{figures/service-call}}
+	\resizebox{.75\textwidth}{!}{\input{figures/service-call}}
 	\caption{Simple illustration for one $\mathcal{L}_{k,\tau}$}
 	\label{fig:simplejoblist}
 \end{figure}
@@ -334,7 +335,7 @@ We will ignore resource type subscript $\alpha$ here for the reason that resourc
 \begin{subnumcases}{}
 rank := rank +
 \frac{\left( p_{ij}\cdot q_{ij} \right) \left( \delta_{ij}-\gamma_{ij} \right)}{e^{\left(f_{ij} - p_{ij} -r_{ij}\right)}} & $k\in\bm{k}$\\
-\delta_{ij} = \min_{k\in\bm{k}}\left\{ \delta_k \right\} &\\
+\delta_{ij} = \min_{k\in\bm{k}}\left\{ \delta_k \right\} & \\
 \delta_k \sim \mathcal{N}\left(\mu_k,\sigma_k^2 \right) & $k\in\bm{k}$
 \end{subnumcases} 
 
@@ -351,9 +352,10 @@ Rank value changing with regard to service can be determined easier:
 \end{asparaenum}
 
 This decision making is a control method for platform to keep the performance of tasks with content quality and efficiency. We denote the list of all resources with type $\alpha$ as $\bm{mr}_\alpha$ and the list of all services as $\bm{ms}$ at time $\tau$, after the sort these lists according to the scarcity and quality, the unqualified resources and services. Scarcity can be defined as:
+
 \begin{subnumcases}{}
 \sum_{k\in\{k|mr_k\in\bm{mr}_\alpha\}}\abs{\mathcal{L}_{k,\tau} } & $\alpha\in\mathcal{A}$ \label{eq:resourcescarcity}\\ 
-\abs{\mathcal{L}_{l,\tau}} \label{eq:servicescarcity}
+\abs{\mathcal{L}_{l,\tau}} & \label{eq:servicescarcity}
 \end{subnumcases}
 
 The scarcity of one service can be calculated with \autoref{eq:servicescarcity} while the scarcity of one type of resource can be calculated with \autoref{eq:resourcescarcity}.
@@ -364,7 +366,7 @@ The scarcity of one service can be calculated with \autoref{eq:servicescarcity} 
 Even though the schedule mode exclude the interference of service-call, one tricky problem will occur that it will block some tasks from being processed. Suppose that $t_{i1}$ and $t_{i2}$ both need resource $mr_1$ and $mr_2$, as shown in \autoref{fig:joblock}, 
 \begin{figure}[htbp]
 	\centering
-	\resizebox{.85\textwidth}{!}{\input{figures/job-lock}}
+	\resizebox{.75\textwidth}{!}{\input{figures/job-lock}}
 	\caption{Simple illustration of job lock problem}
 	\label{fig:joblock}
 \end{figure}

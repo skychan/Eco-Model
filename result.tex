@@ -11,62 +11,89 @@ Entities in the manufacturing ecosystem we designed above have these traits, the
 \subsection{Agent-based modeling and simulation design} % (fold)
 \label{sub:agent_based_modeling_and_simulation}
 \subsubsection{Model realization}
-% \begin{asparaenum}
-% \item Platform
-% \suspend{asparaenum}
+\begin{asparaenum}
+\item Main agents
+\suspend{asparaenum}
 \begin{figure}[htbp]
-	\centering
-	\tiny
-	\begin{tikzpicture}
-	\input{figures/cCloudPlatform}
-	\end{tikzpicture}
-	\caption{Cloud Platform}
-	\label{fig:platform}
-\end{figure}
-% \resume{asparaenum}
-% \item User related
-% \suspend{asparaenum}
-\begin{figure}[htbp]
-    \centering
-    \tiny
-    \begin{tikzpicture}
-    \input{figures/cUser}
-    \input{figures/cProvider}
-\input{figures/cDemander}
-    \end{tikzpicture}
-    \caption{User related classes}
-    \label{fig:userclassed}
-\end{figure}
-% \resume{asparaenum}
-% \item Job related
-% \suspend{asparaenum}
-\begin{figure}[htbp]
-    \centering
-    \tiny
-    \begin{tikzpicture}
+\centering
+\tiny
+\subfloat[Job related classes]{\begin{tikzpicture}
     \input{figures/cJob}
     \input{figures/cTask}
     \input{figures/cServiceCall}
     \end{tikzpicture}
-    \caption{Job related classes}
-    \label{fig:jobclassed}
-\end{figure}
-% \resume{asparaenum}
-% \item Machine related
-% \end{asparaenum}
-\begin{figure}[htbp]
-    \centering
-    \tiny
-    \begin{tikzpicture}
+    \label{fig:jobclassed}}\hspace{1pt}
+\subfloat[Machine related classes]{\begin{tikzpicture}
     \input{figures/cMachine}
     \input{figures/cResource}
     \input{figures/cService}
     \end{tikzpicture}
-    \caption{Machine related classes}
-    \label{fig:machineclassed}
+    \label{fig:machineclassed}}\\
+\subfloat[User related classes]{\begin{tikzpicture}
+    \input{figures/cUser}
+    \input{figures/cProvider}
+\input{figures/cDemander}
+    \end{tikzpicture}\label{fig:userclassed}}\hspace{3pt}
+\subfloat[Cloud Platform]{\begin{tikzpicture}
+	\input{figures/cCloudPlatform}
+	\end{tikzpicture}\label{fig:platform}}
 \end{figure}
 
-\subsubsection{Behavior interfaces and classes}
+
+% \begin{figure}[htbp]
+% 	\centering
+% 	\tiny
+% 	\begin{tikzpicture}
+% 	\input{figures/cCloudPlatform}
+% 	\end{tikzpicture}
+% 	\caption{Cloud Platform}
+% 	\label{fig:platform}
+% \end{figure}
+% % \resume{asparaenum}
+% % \item User related
+% % \suspend{asparaenum}
+% \begin{figure}[htbp]
+%     \centering
+%     \tiny
+%     \begin{tikzpicture}
+%     \input{figures/cUser}
+%     \input{figures/cProvider}
+% \input{figures/cDemander}
+%     \end{tikzpicture}
+%     \caption{User related classes}
+%     \label{fig:userclassed}
+% \end{figure}
+% \resume{asparaenum}
+% \item Job related
+% \suspend{asparaenum}
+% \begin{figure}[htbp]
+%     \centering
+%     \tiny
+%     \begin{tikzpicture}
+%     \input{figures/cJob}
+%     \input{figures/cTask}
+%     \input{figures/cServiceCall}
+%     \end{tikzpicture}
+%     \caption{Job related classes}
+%     \label{fig:jobclassed}
+% \end{figure}
+% \resume{asparaenum}
+% \item Machine related
+% \end{asparaenum}
+% \begin{figure}[htbp]
+%     \centering
+%     \tiny
+%     \begin{tikzpicture}
+%     \input{figures/cMachine}
+%     \input{figures/cResource}
+%     \input{figures/cService}
+%     \end{tikzpicture}
+%     \caption{Machine related classes}
+%     \label{fig:machineclassed}
+% \end{figure}
+\resume{asparaenum}
+\item Behavior interfaces and classes
+\end{asparaenum}
 % \begin{asparaenum}
 % \item Assign behavior
 % \suspend{asparaenum}
@@ -149,7 +176,32 @@ Entities in the manufacturing ecosystem we designed above have these traits, the
 
 \subsection{Experiments} % (fold)
 \label{ssub:case_design}
-We use the RanGen\cite{Demeulemeester2003,Vanhoucke2008} to generate the order data in the well-known Patterson format with the parameters setting listed in tab..., the control parameters are .... we design these experiments to validate service-incubate mode, outsource mode and metabolism mode \autoref{tab:grouping}
+We use the RanGen\cite{Demeulemeester2003} to generate the order data in the well-known Patterson format with the parameters setting listed in \autoref{tab:generalparameter}, and the control parameters in the model are
+
+\begin{table}[htbp]
+  \centering
+  \scriptsize
+	\caption{General parameters setting}
+    \begin{tabular}{ccccccc}
+    \toprule
+    Number of activities & OS & CI & Number of resources & RF & RC \\
+    \midrule
+     100  &   0.3    &  [57,61]     &   30     &  0.13     &   0.6     \\
+    \bottomrule
+    \end{tabular}%
+    {\footnotetext{\tiny The meaning of the parameters are defined in \cite{Demeulemeester2003}}}
+  \label{tab:generalparameter}%
+\end{table}%
+
+
+% subsubsection case_design (end)
+
+\subsubsection{Parameters setting} % (fold)
+\label{ssub:parameters_setting}
+We design experiments to validate service-incubate mode, outsource mode and metabolism mode \autoref{tab:grouping}
+All the following experiments are simulated with same random seed to make no difference on the coming of order, provider and other irrelevant configuration to our validation. 
+
+
 
 \begin{table}[htbp]
   \centering
@@ -166,13 +218,6 @@ We use the RanGen\cite{Demeulemeester2003,Vanhoucke2008} to generate the order d
     \end{tabular}%
   \label{tab:grouping}%
 \end{table}%
-
-
-% subsubsection case_design (end)
-
-\subsubsection{Parameters setting} % (fold)
-\label{ssub:parameters_setting}
-All the following experiments are simulated with same random seed to make no difference on the coming of order, provider and other irrelevant configuration to our validation.
 % subsubsection parameters_setting (end)
 
 \subsubsection{Result and analysis} % (fold)

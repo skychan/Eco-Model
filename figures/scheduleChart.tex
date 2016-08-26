@@ -2,31 +2,34 @@
 
 
 \begin{tikzpicture}
-\foreach \x in {0,6,12,18}
+\foreach \x in {0,6.5,13,19.5}
 	\draw [->,thick] (15.7cm,\x cm) node{t} (0,\x cm) -- +(15.5cm, 0) ;
-\foreach \x in {0,6,12,18}
+\foreach \x in {0,6.5,13,19.5}
 	\draw [->,thick] (0,\x cm) -- +(0,5.2 cm);
-\foreach \x in {0,6,12,18}
+\foreach \x in {0,6.5,13,19.5}
 	\draw[yshift=5.35cm] (0,\x cm) node{Capacity};
-\foreach \x in {1,2,3,4}
-	\draw[yshift=23.5cm] (7.5cm,-6*\x cm) node{$r_\x$};
 \foreach \x in {1,...,15}
-	\foreach \y in {0,6,12,18}
+	\foreach \y in {0,6.5,13,19.5}
 		\draw (\x cm,\y cm) -- +(0,2mm);
 \foreach \x in {1,...,15}
-	\foreach \y in {0,6,12,18}
+	\foreach \y in {0,6.5,13,19.5}
 		\draw[yshift=-2mm] (\x cm,\y cm) node{$\x$};
-\foreach \y in {0,6,12,18}
+\foreach \y in {0,6.5,13,19.5}
 	\foreach \x in {1,...,10}
 		\draw[yshift=\y cm] (0,0.5*\x cm) -- +(2mm,0) (-3mm,0.5*\x cm) node{$\x$};
 
-\fill[blue!20!,yshift=18cm] (6cm,4cm) rectangle (7cm,5cm);
-\draw[yshift=18cm] (3cm,0) rectangle (6cm,3cm) (6cm,4cm) rectangle (8cm,5cm) (8cm,0) rectangle (13cm,3.5cm) (1cm,0) rectangle (3cm,4.5cm) (3cm,3cm) rectangle (6cm,3.5cm)  (4.5cm,1.6cm) node{$t_3$} (7cm,4.5cm) node{$sc_2$} (10.5cm,1.8cm) node{$t_2$} (2cm,2.25cm) node{$t_4$} (4.5cm,3.25cm) node{$t_5$};
-\draw[dotted,yshift=18cm] (0,5cm) -- (7cm,5cm) (3cm,4cm) -- (15cm,4cm) (7cm,0) -- (7cm,5cm) (8cm,4cm) -- (8cm,3.5cm);
-\draw[yshift=12cm] (0,0) rectangle (7cm,2.5cm) (7cm,4cm) rectangle (8cm,5cm) (8cm,0) rectangle (13cm,2.5cm) (1cm,2.5cm) rectangle (3cm,3.5cm)  (3.5cm,1.35cm) node{$t_1$} (7.5cm,4.5cm) node{$sc_2$} (10.5cm, 1.35cm) node{$t_2$}  (2cm,3cm) node{$t_4$};
-\draw[dotted,yshift=12cm] (0,5cm) -- (7cm,5cm) (0,4cm) -- (15cm,4cm) (7cm,5cm) -- (7cm,0) (8cm,5cm) -- (8cm,0);
-\draw[yshift=6cm] (0,0) rectangle (7cm,3.5cm) (7cm,2cm) rectangle (8cm,5cm) (3cm,3.5cm) rectangle (6cm,5cm) (3.5cm,1.85cm) node{$t_1$} (7.5cm,3.5cm) node{$sc_2$} (4.5cm,4.25cm) node{$t_5$};
-\draw[dotted,yshift=6cm] (0,5cm) -- (7cm,5cm) (8cm,2cm) -- (15cm,2cm) (8cm,0) -- (8cm,2cm);
+\draw (7.5cm,-7mm) node{$r_4$, initial capacity = 10, type = 3};
+\draw[yshift=6.5cm] (7.5cm,-7mm) node{$r_3$, initial capacity = 10, type = 3};
+\draw[yshift=13cm] (7.5cm,-7mm) node{$r_2$, initial capacity = 10, type = 2};
+\draw[yshift=19.5cm] (7.5cm,-7mm) node{$r_1$, initial capacity = 10, type = 1};
+
+\fill[blue!20!,yshift=19.5cm] (6cm,4cm) rectangle (7cm,5cm);
+\draw[yshift=19.5cm] (3cm,0) rectangle (6cm,3cm) (6cm,4cm) rectangle (8cm,5cm) (8cm,0) rectangle (13cm,3.5cm) (1cm,0) rectangle (3cm,4.5cm) (3cm,3cm) rectangle (6cm,3.5cm)  (4.5cm,1.6cm) node{$t_3$} (7cm,4.5cm) node{$sc_2$} (10.5cm,1.8cm) node{$t_2$} (2cm,2.25cm) node{$t_4$} (4.5cm,3.25cm) node{$t_5$};
+\draw[dotted,yshift=19.5cm] (0,5cm) -- (7cm,5cm) (3cm,4cm) -- (15cm,4cm) (7cm,0) -- (7cm,5cm) (8cm,4cm) -- (8cm,3.5cm);
+\draw[yshift=13cm] (0,0) rectangle (7cm,2.5cm) (7cm,4cm) rectangle (8cm,5cm) (8cm,0) rectangle (13cm,2.5cm) (1cm,2.5cm) rectangle (3cm,3.5cm)  (3.5cm,1.35cm) node{$t_1$} (7.5cm,4.5cm) node{$sc_2$} (10.5cm, 1.35cm) node{$t_2$}  (2cm,3cm) node{$t_4$};
+\draw[dotted,yshift=13cm] (0,5cm) -- (7cm,5cm) (0,4cm) -- (15cm,4cm) (7cm,5cm) -- (7cm,0) (8cm,5cm) -- (8cm,0);
+\draw[yshift=6.5cm] (0,0) rectangle (7cm,3.5cm) (7cm,2cm) rectangle (8cm,5cm) (3cm,3.5cm) rectangle (6cm,5cm) (3.5cm,1.85cm) node{$t_1$} (7.5cm,3.5cm) node{$sc_2$} (4.5cm,4.25cm) node{$t_5$};
+\draw[dotted,yshift=6.5cm] (0,5cm) -- (7cm,5cm) (8cm,2cm) -- (15cm,2cm) (8cm,0) -- (8cm,2cm);
 \draw (0,3.5cm) rectangle (1cm,5cm) (3cm,0) rectangle (6cm,2.5cm) (8cm,0) rectangle (13cm,3.5cm) (1cm,0) rectangle (3cm,3cm) (4.5cm, 1.35cm) node {$t_3$} (0.5cm,4.3cm) node{$sc_1$} (10.5cm,1.8cm) node{$t_2$} (2cm,1.5cm) node{$t_4$};
 \draw[dotted] (0,3.5cm) -- (15cm,3.5cm) (1cm,0) -- (1cm,3.5cm);
 \end{tikzpicture}
