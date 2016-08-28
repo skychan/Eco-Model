@@ -181,10 +181,10 @@ We use the RanGen\cite{Demeulemeester2003} to generate order dataset in the well
 \begin{table}[htbp]
   \centering
   \scriptsize
-	\caption{General parameters setting}
+	\caption{Order generating parameters setting}
     \begin{tabular}{ccccccc}
     \toprule
-    Number of activities & OS & CI & Number of resources & RF & RC \\
+    \textbf{Number of activities} & \textbf{OS} & \textbf{CI} & \textbf{Number of resources} & \textbf{RF} & \textbf{RC} \\
     \midrule
      10  &   0.3    &  [2,3]     &   12     &  0.3     &   0.5     \\
     \bottomrule
@@ -198,22 +198,19 @@ We use the RanGen\cite{Demeulemeester2003} to generate order dataset in the well
 
 \subsubsection{Parameters setting} % (fold)
 \label{ssub:parameters_setting}
-We design experiments to validate service-incubate mode, outsource mode and metabolism mode \autoref{tab:grouping}, 100 datasets represent 100 types of orders, each of them contains 10 tasks with different configuration on 12 types of resources to perform with. 
-All the following experiments are simulated with same random seed to make no difference on the coming of order, provider and other irrelevant configuration to our validation. 
-
-
+We design experiments to validate service-incubate mode, outsource mode and metabolism mode \autoref{tab:grouping}, 10 datasets represent 10 types of orders, each of them contains 10 tasks with different configuration on 12 types of resources to perform with. 
 
 \begin{table}[htbp]
   \centering
   \scriptsize
-  \caption{Experiments grouping}
+  \caption{Experiments mode grouping}
     \begin{tabular}{llcc}
     \toprule
-          &       & With metabolism & Without metabolism \\
+          &       & Without metabolism & With metabolism \\
     \midrule
-    \multicolumn{1}{l}{\multirow{2}[0]{*}{Service-incubate}} & with outsource & Exp. 11 &Exp. 12 \\\cline{2-4}
-    \multicolumn{1}{l}{} & without outsource & Exp. 21 & Exp. 22 \\\hline
-    \multicolumn{2}{l}{Resource-only} & Exp. 31 & Exp. 32 \\
+    \multicolumn{2}{l}{Resource-only} & Mode 11 & Mode 12 \\\hline
+    \multicolumn{1}{l}{\multirow{2}[0]{*}{Service-incubate}} & without outsource & Mode 21 &Mode 22 \\\cline{2-4}
+    \multicolumn{1}{l}{} & with outsource & Mode 31 & Mode 32 \\
     \bottomrule
     \end{tabular}%
   \label{tab:grouping}%
@@ -222,5 +219,38 @@ All the following experiments are simulated with same random seed to make no dif
 
 \subsubsection{Result and analysis} % (fold)
 \label{ssub:result_and_analysis}
+All the experiments are simulated with same random seed to make no difference on the coming of order, provider and other irrelevant configuration to our validation. Even though different random seed makes different initialization of the simulation and different initialization will affect the simulation a lot, the universal law of the model cannot be changed if it exists. After bunch of experiments with different random seeds, we discovered some laws in operation mode. Take random seed 776189616 as example, we run the simulation for 6000 tick time and the experiment's results are displayed in \autoref{fig:out} and \autoref{tab:averagevalue},
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{Data/out.pdf}
+    \caption{Observed variable change with time}
+    \label{fig:out}
+\end{figure}
+\begin{table}[htbp]
+    \caption{Average observed values}
+    \label{tab:averagevalue}
+    \centering
+    \scriptsize
+    \begin{tabular}{lccccc}
+    \toprule
+    \textbf{Mode} & $\bar N_T$ & $\bar N_F$ & $\bar N_P$ & $\bar N_R $ & $\bar Q$\\
+    \midrule
+    Mode 11 & 1159.36 &  1644.201 &  1177.601 &  2053.727 &  8.388\\
+    Mode 21 & \textit{636.769} &  \textit{2031.215} &  \textbf{692.716} &  \textbf{1066.947} &  16.016\\
+    Mode 31 & 779.413 &  1996.021 &  \textit{782.272} &  \textit{1203.748} &  15.174\\
+    Mode 12 & 1439.831 &  1522.923 &  1797.883 &  2954.113 &  14.057\\
+    Mode 22 & \textbf{343.444} &  \textbf{2464.407} &  1316.952 &  1957.226 &  \textit{20.251}\\
+    Mode 32 & 1164.409 &  1907.011 &  1597.742 &  2428.155 &  \textbf{20.652}\\
+
+    \bottomrule
+    \end{tabular}
+\end{table}
+we find: \begin{inparaenum}[1)]
+\item Most dotted lines are above the full lines with the same series in $N_R,N_P,N_T$ means that metabolism mode need lower number of provider and resource, with the price of higher number of queue length of the tasks in resources in the system to deal with the same amount of needs, except for Mode 22, this combined mode even also need lower number of queue length. Full lines are not much above dotted lines in $N_F$ means that task processing velocity will be a little slower with the metabolism, exception also appears in Mode 22. 
+\item $L$ and $N_T$ both represent the waiting of job, triangle and square line turned lower in $L$ meas that service-incubate mode can help reduce the waiting of job, these two type of line appeared above the circle line means the service-incubate mode do accelerate the processing velocity.
+\item Triangle lines are a little above the square lines in $N_R,N_P,N_T$ means that outsource mode needs more resources to operate and can only reduce the waiting of job a little.
+\item There is no big difference among all the 6 modes. Provider in metabolism mode will get lower rank value for they cannot stay in the system forever, the longer stay in the system, the higher rank value provider will get. Provider in Mode 11 even will not promote their rank value, which means that the metabolism rate is very fast without service-incubate mode.
+\item Mode 22 is a very special mode that reached the balance of the system, although all the mentioned modes will reach balance in the long run, with the average data value shown in \autoref{tab:averagevalue}, metabolism with service-incubate but not with outsource mode is the easiest combine mode to maintain the system, resource are self configured and controlled to just meet the task need.
+\end{inparaenum}
 
 % subsubsection result_and_analysis (end)
