@@ -176,7 +176,7 @@ Entities in the manufacturing ecosystem we designed above have these traits, the
 
 \subsection{Experiments} % (fold)
 \label{ssub:case_design}
-We use the RanGen\cite{Demeulemeester2003} to generate the order data in the well-known Patterson format with the parameters setting listed in \autoref{tab:generalparameter}, and the control parameters in the model are
+We use the RanGen\cite{Demeulemeester2003} to generate order dataset in the well-known Patterson format with the parameters setting listed in \autoref{tab:generalparameter}, and the control parameters in the model are
 
 \begin{table}[htbp]
   \centering
@@ -186,7 +186,7 @@ We use the RanGen\cite{Demeulemeester2003} to generate the order data in the wel
     \toprule
     Number of activities & OS & CI & Number of resources & RF & RC \\
     \midrule
-     100  &   0.3    &  [57,61]     &   30     &  0.13     &   0.6     \\
+     10  &   0.3    &  [2,3]     &   12     &  0.3     &   0.5     \\
     \bottomrule
     \end{tabular}%
     {\footnotetext{\tiny The meaning of the parameters are defined in \cite{Demeulemeester2003}}}
@@ -198,7 +198,7 @@ We use the RanGen\cite{Demeulemeester2003} to generate the order data in the wel
 
 \subsubsection{Parameters setting} % (fold)
 \label{ssub:parameters_setting}
-We design experiments to validate service-incubate mode, outsource mode and metabolism mode \autoref{tab:grouping}
+We design experiments to validate service-incubate mode, outsource mode and metabolism mode \autoref{tab:grouping}, 100 datasets represent 100 types of orders, each of them contains 10 tasks with different configuration on 12 types of resources to perform with. 
 All the following experiments are simulated with same random seed to make no difference on the coming of order, provider and other irrelevant configuration to our validation. 
 
 
