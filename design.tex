@@ -19,49 +19,34 @@ Resource comes along with provider when it enter the ecosystem, however, service
 
 A single service-call($sc_l$) comes out after the finish of one frequent task, so it have the same resource configuration the frequent task. Service-call can only be performed via resource cooperation with duration $p_l$, because the identity of resource, the capacity cannot be return to the resource after the finish of service-call, so the service-call brings new constrains to the related resources. Unlike the task, the amount of one type resource required in the service-call can be pieced together from more than one resource as long as they are in the same type.
 
-Specifically, a simple instance with configuration \autoref{tab:simplejobconfiguration} and schedule chart \autoref{fig:scheduleChart} will describe the setting more clearly.
+% Specifically, a simple instance with configuration \autoref{tab:simplejobconfiguration} and schedule chart \autoref{fig:scheduleChart} will describe the setting more clearly.
+
 % \begin{table}[htbp]
 %   \centering
 %   \scriptsize
-%   \caption{Simple resource configuration}
-%     \begin{tabular}{ccc}
+%   \caption{Simple job configuration}
+%     \begin{tabular}{cccccc}
 %     \toprule
-%     Resource & Type  & Capacity \\
+%     \multicolumn{1}{c}{\multirow{2}[0]{*}{ Job}} & \multicolumn{3}{c}{Need Resource Capacity} & \multicolumn{1}{c}{\multirow{2}[0]{*}{Release Time}} & \multicolumn{1}{c}{\multirow{2}[0]{*}{Process Duration}} \\
+%     \multicolumn{1}{c}{} & $Type_1$ & $Type_2$ & $Type_3$ & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} \\
 %     \midrule
-%     $r_1$ & 1     & 10 \\
-%     $r_2$ & 2     & 10 \\
-%     $r_3$ & 3     & 10 \\
-%     $r_4$ & 3     & 10 \\
+%     $t_1$ & 0     & 5     & 7     & 0     & 7 \\
+%     $t_2$ & 7     & 5     & 7     & 4     & 5 \\
+%     $t_3$ & 6     & 0     & 5     & 2     & 3 \\
+%     $t_4$ & 9	 & 4  & 6 & 1 &2 \\
+%     $t_5$ & 1 & 0 & 3 & 2 & 3\\
+%     $sc_1$ & 0     & 0     & 3    & 1     & 1 \\
+%     $sc_2$ & 2     & 7     & 6     & 3     & 1 \\
 %     \bottomrule
 %     \end{tabular}%
-%   \label{tab:simpleresourceconfiguration}%
+%   \label{tab:simplejobconfiguration}%
 % \end{table}%
-\begin{table}[htbp]
-  \centering
-  \scriptsize
-  \caption{Simple job configuration}
-    \begin{tabular}{cccccc}
-    \toprule
-    \multicolumn{1}{c}{\multirow{2}[0]{*}{ Job}} & \multicolumn{3}{c}{Need Resource Capacity} & \multicolumn{1}{c}{\multirow{2}[0]{*}{Release Time}} & \multicolumn{1}{c}{\multirow{2}[0]{*}{Process Duration}} \\
-    \multicolumn{1}{c}{} & $Type_1$ & $Type_2$ & $Type_3$ & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} \\
-    \midrule
-    $t_1$ & 0     & 5     & 7     & 0     & 7 \\
-    $t_2$ & 7     & 5     & 7     & 4     & 5 \\
-    $t_3$ & 6     & 0     & 5     & 2     & 3 \\
-    $t_4$ & 9	 & 4  & 6 & 1 &2 \\
-    $t_5$ & 1 & 0 & 3 & 2 & 3\\
-    $sc_1$ & 0     & 0     & 3    & 1     & 1 \\
-    $sc_2$ & 2     & 7     & 6     & 3     & 1 \\
-    \bottomrule
-    \end{tabular}%
-  \label{tab:simplejobconfiguration}%
-\end{table}%
-\begin{figure}[htbp]
-	\centering
-	\resizebox{.8\textwidth}{!}{\input{figures/scheduleChart}}
-	\caption{Simple instance schedule chart with 4 resources}
-	\label{fig:scheduleChart}
-\end{figure}
+% \begin{figure}[htbp]
+% 	\centering
+% 	\resizebox{.8\textwidth}{!}{\input{figures/scheduleChart}}
+% 	\caption{Simple instance schedule chart with 4 resources}
+% 	\label{fig:scheduleChart}
+% \end{figure}
 This instance makes some simplification in the subscript fields in order to emphasize the resource cooperation, all the job(task and service-call) performance can only be started when the each of the related resource is ready, so the shadow in the figure is the waiting period. Horizontal dotted line constrained the available capacity of the resource for the following jobs, every performance of service-call will make the line lower and it will never get higher again unless the related service is repealed.
 
 % subsubsection master_plan (end)
