@@ -121,8 +121,8 @@ def mymean(seed,mode,file,loc):
 
 	# l = [mymean(seed,mode,'Task',0),mymean(seed,mode,'FinishCount',1),mymean(seed,mode,'Provider'，1)]#,mymean(seed,mode,'Machine',1),mymean(seed,mode,'Quality',1)]
 # mymean(seed,'11','Provider',1)
-for mode in modes:
-	# print "Mode " +mode + '\n'
-	l = [mymean(seed,mode,'Task',1),mymean(seed,mode,'Finish',1),mymean(seed,mode,'Provider',1),mymean(seed,mode,'Machine',1),mymean(seed,mode,'Quality',1)]
-	print l
+# for mode in modes:
+# 	# print "Mode " +mode + '\n'
+# 	l = [mymean(seed,mode,'Task',1),mymean(seed,mode,'Finish',1),mymean(seed,mode,'Provider',1),mymean(seed,mode,'Machine',1),mymean(seed,mode,'Quality',1)]
+# 	print l
 	# print '\n'
