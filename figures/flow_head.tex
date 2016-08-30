@@ -14,7 +14,9 @@
 % Author: Brent Longborough
 \documentclass[x11names]{article}
 \usepackage{tikz}
-\usetikzlibrary{mindmap,shapes,arrows,chains,shadows,decorations.markings,spy}
+\usetikzlibrary{arrows,decorations,backgrounds}
+% \usetikzlibrary{mindmap,shapes,arrows,chains,shadows,decorations}%,spy}
+% decorations.markings
 %%%<
 
 \usepackage{verbatim}
@@ -47,9 +49,9 @@
     alter the global distance settings, and so on, to see how well (or
     ill!) it adapts.
 \end{comment}
-\colorlet{lcfree}{Green3}
-\colorlet{lcnorm}{Blue3}
-\colorlet{lccong}{Red3}
+% \colorlet{lcfree}{Green3}
+% \colorlet{lcnorm}{Blue3}
+% \colorlet{lccong}{Red3}
 
 % =================================================
 % Set up a few colours
@@ -57,17 +59,17 @@
 % -------------------------------------------------
 % Set up a new layer for the debugging marks, and make sure it is on
 % top
-\pgfdeclarelayer{marx}
-\pgfsetlayers{main,marx}
+% \pgfdeclarelayer{marx}
+% \pgfsetlayers{main,marx}
 % A macro for marking coordinates (specific to the coordinate naming
 % scheme used here). Swap the following 2 definitions to deactivate
 % marks.
-\providecommand{\cmark}[2][]{%
-  \begin{pgfonlayer}{marx}
-    \node [nmark] at (c#2#1) {#2};
-  \end{pgfonlayer}{marx}
-  } 
-\providecommand{\cmark}[2][]{\relax} 
+% \providecommand{\cmark}[2][]{%
+%   \begin{pgfonlayer}{marx}
+%     \node [nmark] at (c#2#1) {#2};
+%   \end{pgfonlayer}{marx}
+%   } 
+% \providecommand{\cmark}[2][]{\relax} 
 
 \usepackage{pgf-umlcd}
 \begin{document}
@@ -76,6 +78,7 @@
 % -------------------------------------------------
 % Start the picture
 % \begin{tikzpicture}%[show background grid]
+% \input{order_flow}
 % \input{iAssignBehavior.tex}
 % \input{cCloudPlatform.tex}
 % \input{cDemander}
@@ -87,6 +90,9 @@
 % \input{service-call}
 % \input{job-lock}
 \input{origin_mode}
+\input{metabolism}
+\input{service-incubate}
+\input{outsource}
 % \end{tikzpicture}
 %\input{buyerflow.tex}
 

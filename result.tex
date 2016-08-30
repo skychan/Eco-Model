@@ -14,165 +14,52 @@ Entities in the manufacturing ecosystem we designed above have these traits, the
 \begin{asparaenum}
 \item Main agents
 \suspend{asparaenum}
-\begin{figure}[htbp]
-\centering
-\tiny
-\subfloat[Job related classes]{\begin{tikzpicture}
-    \input{figures/cJob}
-    \input{figures/cTask}
-    \input{figures/cServiceCall}
-    \end{tikzpicture}
-    \label{fig:jobclassed}}\hspace{1pt}
-\subfloat[Machine related classes]{\begin{tikzpicture}
-    \input{figures/cMachine}
-    \input{figures/cResource}
-    \input{figures/cService}
-    \end{tikzpicture}
-    \label{fig:machineclassed}}\\
-\subfloat[User related classes]{\begin{tikzpicture}
-    \input{figures/cUser}
-    \input{figures/cProvider}
-\input{figures/cDemander}
-    \end{tikzpicture}\label{fig:userclassed}}\hspace{3pt}
-\subfloat[Cloud Platform]{\begin{tikzpicture}
-	\input{figures/cCloudPlatform}
-	\end{tikzpicture}\label{fig:platform}}
-\end{figure}
-
-
 % \begin{figure}[htbp]
-% 	\centering
-% 	\tiny
-% 	\begin{tikzpicture}
-% 	\input{figures/cCloudPlatform}
-% 	\end{tikzpicture}
-% 	\caption{Cloud Platform}
-% 	\label{fig:platform}
-% \end{figure}
-% % \resume{asparaenum}
-% % \item User related
-% % \suspend{asparaenum}
-% \begin{figure}[htbp]
-%     \centering
-%     \tiny
-%     \begin{tikzpicture}
-%     \input{figures/cUser}
-%     \input{figures/cProvider}
-% \input{figures/cDemander}
-%     \end{tikzpicture}
-%     \caption{User related classes}
-%     \label{fig:userclassed}
-% \end{figure}
-% \resume{asparaenum}
-% \item Job related
-% \suspend{asparaenum}
-% \begin{figure}[htbp]
-%     \centering
-%     \tiny
-%     \begin{tikzpicture}
+% \centering
+% \tiny
+% \subfloat[Job related classes]{\begin{tikzpicture}
 %     \input{figures/cJob}
 %     \input{figures/cTask}
 %     \input{figures/cServiceCall}
 %     \end{tikzpicture}
-%     \caption{Job related classes}
-%     \label{fig:jobclassed}
-% \end{figure}
-% \resume{asparaenum}
-% \item Machine related
-% \end{asparaenum}
-% \begin{figure}[htbp]
-%     \centering
-%     \tiny
-%     \begin{tikzpicture}
+%     \label{fig:jobclassed}}\hspace{1pt}
+% \subfloat[Machine related classes]{\begin{tikzpicture}
 %     \input{figures/cMachine}
 %     \input{figures/cResource}
 %     \input{figures/cService}
 %     \end{tikzpicture}
-%     \caption{Machine related classes}
-%     \label{fig:machineclassed}
+%     \label{fig:machineclassed}}\\
+% \subfloat[User related classes]{\begin{tikzpicture}
+%     \input{figures/cUser}
+%     \input{figures/cProvider}
+% \input{figures/cDemander}
+%     \end{tikzpicture}\label{fig:userclassed}}\hspace{3pt}
+% \subfloat[Cloud Platform]{\begin{tikzpicture}
+% 	\input{figures/cCloudPlatform}
+% 	\end{tikzpicture}\label{fig:platform}}
 % \end{figure}
+
+
 \resume{asparaenum}
 \item Behavior interfaces and classes
 \end{asparaenum}
-% \begin{asparaenum}
-% \item Assign behavior
-% \suspend{asparaenum}
-\begin{figure}[htbp]
-    \centering
-    \tiny
-    \begin{tikzpicture}
-    \input{figures/iAssignBehavior}
-    \input{figures/iSelectBehavior}
-    \input{figures/iResponseBehavior}
-    \input{figures/iProcessBehavior}
-    \input{figures/iReleaseBehavior}
-    % \input{figures/cServiceAssign}
-    % \input{figures/cResourceAssign}
-    \end{tikzpicture}
-    \caption{Assign interface and related classes}
-    \label{fig:assigninterface}
-\end{figure}
-
-% \resume{asparaenum}
-% \item Process behavior
-% \suspend{asparaenum}
 
 % \begin{figure}[htbp]
 %     \centering
-%     \scriptsize
+%     \tiny
 %     \begin{tikzpicture}
-%     \input{figures/iProcessBehavior}
-%     \input{figures/cProcessInTask}
-%     \input{figures/cProcessInServiceCall}
-%     \end{tikzpicture}
-%     \caption{Process interface and related classes}
-%     \label{fig:processinterface}
-% \end{figure}
-% \resume{asparaenum}
-% \item Release behavior
-% \suspend{asparaenum}
-
-% \begin{figure}[htbp]
-%     \centering
-%     \scriptsize
-%     \begin{tikzpicture}
-%     \input{figures/iReleaseBehavior}
-%     \input{figures/cResourceRelease}
-%     \input{figures/cServiceRelease}
-%     \end{tikzpicture}
-%     \caption{Release interface and related classes}
-%     \label{fig:releaseinterface}
-% \end{figure}
-% \resume{asparaenum}
-% \item Response behavior
-% \suspend{asparaenum}
-
-% \begin{figure}[htbp]
-%     \centering
-%     \scriptsize
-%     \begin{tikzpicture}
-%     \input{figures/iResponseBehavior}
-%     \input{figures/cResourceResponse}
-%     \input{figures/cServiceResponse}
-%     \end{tikzpicture}
-%     \caption{Response interface and related classes}
-%     \label{fig:reponseinterface}
-% \end{figure}
-% \resume{asparaenum}
-% \item Select behavior
-% \end{asparaenum}
-
-% \begin{figure}[htbp]
-%     \centering
-%     \scriptsize
-%     \begin{tikzpicture}
+%     \input{figures/iAssignBehavior}
 %     \input{figures/iSelectBehavior}
-%     \input{figures/cSelectInTask}
-%     \input{figures/cSelectInServiceCall}
+%     \input{figures/iResponseBehavior}
+%     \input{figures/iProcessBehavior}
+%     \input{figures/iReleaseBehavior}
+%     % \input{figures/cServiceAssign}
+%     % \input{figures/cResourceAssign}
 %     \end{tikzpicture}
-%     \caption{Select interface and related classes}
-%     \label{fig:selectinterface}
+%     \caption{Assign interface and related classes}
+%     \label{fig:assigninterface}
 % \end{figure}
+
 
 \subsection{Experiments} % (fold)
 \label{ssub:case_design}
@@ -252,5 +139,7 @@ we find: \begin{inparaenum}[1)]
 \item There is no big difference among all the 6 modes. Provider in metabolism mode will get lower rank value for they cannot stay in the system forever, the longer stay in the system, the higher rank value provider will get. Provider in Mode 11 even will not promote their rank value, which means that the metabolism rate is very fast without service-incubate mode.
 \item Mode 22 is a very special mode that reached the balance of the system that the number of provider and resource changed little with time goes by and it means all the ..., theoretically all the metabolism related modes will reach balance in the long run because the coming order velocity less than the resources, but the appearance of service-call and metabolism itself is full of uncertainty and it's hard to predict when other metabolism related mode will get the balance. , with the average data value shown in \autoref{tab:averagevalue}, metabolism with service-incubate but not with outsource mode is the easiest combine mode to maintain the system, resource are self configured and controlled to just meet the task need.
 \end{inparaenum}
+
+
 
 % subsubsection result_and_analysis (end)
