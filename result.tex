@@ -2,18 +2,19 @@
 \section{Experiment and result Analysis} % (fold)
 \label{sec:Experiment_results}
 
-Entities in the manufacturing ecosystem we designed above have these traits, they are: \begin{inparaenum}
+Entities in the manufacturing ecosystem we designed above have these traits: \begin{inparaenum}[1)]
 \item autonomous and self-directed, 
 \item social, interacting with other entities, 
 \item controlled by the environment, 
 \item self-contained.
 \end{inparaenum} They optimize their multi-objective decision makings to interact with others and the environment, hence, agent-based modeling and simulation(ABMS) technique\cite{Macal2009,north2007managing} is suitable for the study of the complex system. With the help of Repast Simphony\cite{North2013} package, we realized the ecosystem model and performed some experiments on it.
-\subsection{Agent-based modeling and simulation design} % (fold)
-\label{sub:agent_based_modeling_and_simulation}
-\subsubsection{Model realization}
-\begin{asparaenum}
-\item Main agents
-\suspend{asparaenum}
+
+% \subsection{Agent-based modeling and simulation design} % (fold)
+% \label{sub:agent_based_modeling_and_simulation}
+% \subsubsection{Model realization}
+% \begin{asparaenum}
+% \item Main agents
+% \suspend{asparaenum}
 % \begin{figure}[htbp]
 % \centering
 % \tiny
@@ -40,9 +41,9 @@ Entities in the manufacturing ecosystem we designed above have these traits, the
 % \end{figure}
 
 
-\resume{asparaenum}
-\item Behavior interfaces and classes
-\end{asparaenum}
+% \resume{asparaenum}
+% \item Behavior interfaces and classes
+% \end{asparaenum}
 
 % \begin{figure}[htbp]
 %     \centering
@@ -63,29 +64,28 @@ Entities in the manufacturing ecosystem we designed above have these traits, the
 
 \subsection{Experiments} % (fold)
 \label{ssub:case_design}
-We use the RanGen\cite{Demeulemeester2003} to generate order dataset in the well-known Patterson format with the parameters setting listed in \autoref{tab:generalparameter}, and the control parameters in the model are
-
+We use the RanGen\cite{Demeulemeester2003} to generate order dataset in the well-known Patterson format with the parameters setting listed in \autoref{tab:generalparameter}. 
 \begin{table}[htbp]
   \centering
   \scriptsize
-	\caption{Order generating parameters setting}
-    \begin{tabular}{ccccccc}
+  \caption{Order generating parameters setting}
+    \begin{tabular}{cccccccccc}
     \toprule
-    \textbf{Number of activities} & \textbf{OS} & \textbf{CI} & \textbf{Number of resources} & \textbf{RF} & \textbf{RC} \\
+    \textbf{$n_a$} & \textbf{OS} & \textbf{CI} & \textbf{$n_r$} & \textbf{RF} & \textbf{RC} & \textbf{$\lambda_d$} &\textbf{$\lambda_p$} & \textbf{$C_{k,0}$}\\
     \midrule
-     10  &   0.3    &  [2,3]     &   12     &  0.3     &   0.5     \\
+     10  &   0.3    &  [2,3]     &   12     &  0.3     &   0.5  & 0.2 & 0.3  & [20,30] \\
     \bottomrule
     \end{tabular}%
-    {\footnotetext{\tiny The meaning of the parameters are defined in \cite{Demeulemeester2003}}}
+    {\footnotetext{\tiny The meaning of the first 5 parameters are defined in \cite{Demeulemeester2003}, $\lambda$ is the parameters of the arrival of user in simulation, $C_{k,0}$ is the initial capacity for $mr_k$}
+    }
   \label{tab:generalparameter}%
 \end{table}%
+We assume provider and demander are arriving as the poisson process, in order to make sure the coming need resource capacity rate will not exceed the coming resource capacity rate in average to prevent the task explosion, we make sure that:
+\begin{equation}
+\lambda_d n_a n_r \cdot RF \cdot RC < \lambda_p \bar C_{k,0} \label{eq:balance}
+\end{equation}
 
-
-% subsubsection case_design (end)
-
-\subsubsection{Parameters setting} % (fold)
-\label{ssub:parameters_setting}
-We design experiments to validate service-incubate mode, outsource mode and metabolism mode \autoref{tab:grouping}, 10 datasets represent 10 types of orders, each of them contains 10 tasks with different configuration on 12 types of resources to perform with. 
+We design experiments to validate incubation, outsourcing and metabolism mode \autoref{tab:grouping}, 10 datasets represent 10 types of orders, each of them contains 10 tasks with different configuration on 12 types of resources to perform with. 
 
 \begin{table}[htbp]
   \centering
@@ -104,9 +104,9 @@ We design experiments to validate service-incubate mode, outsource mode and meta
 \end{table}%
 % subsubsection parameters_setting (end)
 
-\subsubsection{Result and analysis} % (fold)
+\subsection{Result and analysis} % (fold)
 \label{ssub:result_and_analysis}
-All the experiments are simulated with same random seed to make no difference on the coming of order, provider and other irrelevant configuration to our validation. Even though different random seed makes different initialization of the simulation and different initialization will affect the simulation a lot, the universal law of the model cannot be changed if it exists. After bunch of experiments with different random seeds, we discovered some laws in operation mode. Take random seed 776189616 as example, we run the simulation for 6000 tick time and the experiment's results are displayed in \autoref{fig:out} and \autoref{tab:averagevalue},
+All the experiments are simulated with same random seed to make no difference on the coming of order, provider and other irrelevant configuration to our validation.  After bunch of experiments with different random seeds, we discovered some laws in operation mode. Take random seed 776189616 as example, we run the simulation for 6000 tick time and the experiment's results are displayed in \autoref{fig:out} and \autoref{tab:averagevalue},
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{Data/out.pdf}
@@ -133,13 +133,12 @@ All the experiments are simulated with same random seed to make no difference on
     \end{tabular}
 \end{table}
 we find: \begin{inparaenum}[1)]
-\item Most dotted lines are above the full lines with the same series in $N_R,N_P,N_T$ means that metabolism mode need lower number of provider and resource, with the price of higher number of queue length of the tasks in resources in the system to deal with the same amount of needs, except for Mode 22, this combined mode even also need lower number of queue length. Full lines are not much above dotted lines in $N_F$ means that task processing velocity will be a little slower with the metabolism, exception also appears in Mode 22. 
-\item $L$ and $N_T$ both represent the waiting of job, triangle and square line turned lower in $L$ meas that service-incubate mode can help reduce the waiting of job, these two type of line appeared above the circle line means the service-incubate mode do accelerate the processing velocity.
-\item Triangle lines are a little above the square lines in $N_R,N_P,N_T$ means that outsource mode needs more resources to operate and can only reduce the waiting of job a little.
-\item There is no big difference among all the 6 modes. Provider in metabolism mode will get lower rank value for they cannot stay in the system forever, the longer stay in the system, the higher rank value provider will get. Provider in Mode 11 even will not promote their rank value, which means that the metabolism rate is very fast without service-incubate mode.
-\item Mode 22 is a very special mode that reached the balance of the system that the number of provider and resource changed little with time goes by and it means all the ..., theoretically all the metabolism related modes will reach balance in the long run because the coming order velocity less than the resources, but the appearance of service-call and metabolism itself is full of uncertainty and it's hard to predict when other metabolism related mode will get the balance. , with the average data value shown in \autoref{tab:averagevalue}, metabolism with service-incubate but not with outsource mode is the easiest combine mode to maintain the system, resource are self configured and controlled to just meet the task need.
+\item Most dotted lines are above the full lines with the same series in $N_R,N_P,N_T$ means that metabolism mode need lower number of provider and resource, with the price of higher number of queue length of the tasks in resources in the system to deal with the same amount of needs, except for Mode 22. Full lines are not much above dotted lines in $N_F$ means that task processing velocity will be a little slower with the metabolism, exception also appears in Mode 22. 
+\item $L$ and $N_T$ both represent the queue length of jobs, triangle and square line turned lower in $L$ meas that incubation mode can help reduce the waiting of job, these two type of line above the circle line means the incubation mode do accelerate the processing velocity.
+\item Triangle lines are a little above the square lines in $N_R,N_P,N_T$ means that outsourcing mode needs more resources to operate and can only reduce the waiting of job a little.
+\item There is no big difference among all the 6 modes in rank change. Provider in metabolism mode will get lower rank value for they cannot stay in the system for long, the longer stay in the system, the higher rank value provider will get. Provider in Mode 11 even will not promote their rank value, which means that the metabolism rate is very fast without incubation mode.
+\item Mode 22 is a very special mode that reached the balance in 6000 ticks, that the number of provider and resource changes little with time goes by. Because our experiment setting comply \autoref{eq:balance}, the coming need capacity velocity is less than the coming capacity, Mode 12,22,32 will finally reach balance in the long run theoretically, but the appearance of service-call and metabolism itself is full of uncertainty and it's hard to predict when other metabolism related mode will get the balance.
+\item With the average data value shown in \autoref{tab:averagevalue}, metabolism with incubation but not with outsourcing mode is the easiest combine mode to maintain the system, resource will self-configured and controlled to justly meet the task need.
 \end{inparaenum}
-
-
 
 % subsubsection result_and_analysis (end)
