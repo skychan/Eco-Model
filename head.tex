@@ -4,20 +4,26 @@
 %Cloud Manufacturing Ecosystem - Scheduling And Evolving
 }
 
-\author[label1]{Shengkai Chen}
-\author[label1]{Shuiliang Fang}
+\author[add1]{Shengkai Chen}
+\author[add1,add2]{Shuiliang Fang\corref{cor1}}
+% \ead{me_fangsl@zju.edu.cn}
 % \address[label1]{ZJU}
 % \address[label1]{Address One}
-\address[label1]{Zhejiang University, Institute of manufacturing engineering and automation, Hangzhou City, Zhejiang Province, China}
+\address[add1]{Key Laboratory of Advanced Manufacturing Technology of Zhejiang Province, College of Mechanical Engineering, Zhejiang University, Hangzhou , 310027, China}
+\address[add2]{The State Key Laboratory of Fluid Power Transmission and Control, College of Mechanical Engineering, Zhejiang University, Hangzhou, 310027, China}
+% \author[a,b,*]{Third Author}
 
+% \address[a]{First affiliation, Address, City and Postcode, Country}
+% \address[b]{Second affiliation, Address, City and Postcode, Country}
 % \fntext[label4]{Small city}
 
+\cortext[cor1]{Corresponding author. Tel.: +86-135-8880-3980; Email: me\_fangsl@zju.edu.cn}
 
 \begin{abstract}
-In Cloud Manufacturing, individuals engage in manufacturing business through the well-designed platform framework, where provider provide manufacturing resource for demander to search and purchase it as product. This business model allows centralized management of distributed massive manufacturing resources, and could potentially reduce the idle rate of those resources.
-However, in the manufacturing ecosystem constructed, the heterogeneity of resource's attribute like type, quality, price, processing velocity, leads tough taxonomy of these resources, and the chaotic operating mode, makes it hard to meet demander's need. Meantime, in order to enhance the cash flow rate, provider make decisions to enhance the use rate of their own resources.
-The relationship among participants in this ecosystem become more complicated than that in normal manufacturing system, since the integrated advanced technologies within cloud environment makes it possible to let one individual make decisions depend on the surroundings and other's decisions. Hence, in this paper, we designed an original operation mode with 3 extension options for the cloud manufacturing ecosystem to support some decision makings for individuals and the platform operator.
-With the help of Repast Simphony, we designed an agent-based model and experiment to simulate these operation modes with any combinations to validate the effectiveness of them. As the experiment result, incubation mode can help reduce the waiting of job and accelerate the process velocity of resources, outsourcing mode reduce the job queue length but not as much as incubation mode and requires more resources, metabolism mode require lower resources than the other modes and will slow resource process velocity a little. The combination of incubation and metabolism mode is ideal for platform operators to maintain the manufacturing ecosystem.
+In cloud manufacturing, individuals engage in manufacturing business through the well-designed platform, where provider provide manufacturing resource for demander to search and purchase it. This business model allows platform operator to manage distributed massive manufacturing resources, which may help provider reduce the idle rate of their resources.
+However, in such manufacturing ecosystem, the heterogeneity attribute of resource makes it tough to classify them, and the chaotic operation mode makes it hard to meet demander's need.
+Cloud manufacturing ecosystem has more complicated relationship among individuals in it than that in normal manufacturing system, one individual can make decisions depend on the surroundings and others' with the help of integrated advanced technologies. Thus, in this paper, we designed an original operation mode with 3 extensions for the cloud manufacturing ecosystem to help describe some decision makings in individuals and the platform operator.
+With the help of Repast Simphony, we designed an agent-based simulation model and an experiment to validate the effectiveness of these operation modes. The experiment result shows: with incubation mode, the job queue length is reduced and the resource idle rate is declined; with outsourcing mode, the job queue length is also reduced but not as much as that with incubation mode and more resource is required; with metabolism mode, lower resource is required than that with other modes and resource idle rate just rose up a little. The combination of incubation and metabolism mode is one ideal mode to maintain the manufacturing ecosystem with.
 \end{abstract}
 
 \begin{keyword}
@@ -28,3 +34,4 @@ Manufacturing evolution\sep
 Agent-based simulation
 
 \end{keyword}
+% \belowfrontmatterskip0pt

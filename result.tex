@@ -2,12 +2,12 @@
 \section{Experiment and result Analysis} % (fold)
 \label{sec:Experiment_results}
 
-Entities in the manufacturing ecosystem we designed above have these traits: \begin{inparaenum}[1)]
+Individuals in the manufacturing ecosystem are: \begin{inparaenum}[1)]
 \item autonomous and self-directed, 
 \item social, interacting with other entities, 
 \item controlled by the environment, 
 \item self-contained.
-\end{inparaenum} They optimize their multi-objective decision makings to interact with others and the environment, hence, agent-based modeling and simulation(ABMS) technique\cite{Macal2009,north2007managing} is suitable for the study of the complex system. With the help of Repast Simphony\cite{North2013} package, we realized the ecosystem model and performed some experiments on it.
+\end{inparaenum} They optimize their multi-objective decision makings to interact with others and the environment, hence, agent-based modeling and simulation(ABMS) technique\cite{Macal2009,north2007managing} is suitable for the study in such complex system. With the help of Repast Simphony\cite{North2013} package, we realized the ecosystem model and performed some experiments with it.
 
 % \subsection{Agent-based modeling and simulation design} % (fold)
 % \label{sub:agent_based_modeling_and_simulation}
@@ -85,7 +85,7 @@ We assume provider and demander are arriving as the poisson process, in order to
 \lambda_d n_a n_r \cdot RF \cdot RC < \lambda_p \bar C_{k,0} \label{eq:balance}
 \end{equation}
 
-We design experiments to validate incubation, outsourcing and metabolism mode \autoref{tab:grouping}, 10 datasets represent 10 types of orders, each of them contains 10 tasks with different configuration on 12 types of resources to perform with. 
+We design experiments in groups to validate incubation, outsourcing and metabolism mode \autoref{tab:grouping}, 10 datasets represent 10 types of orders, each of them contains 10 tasks with different configuration on 12 types of resources to perform with. 
 
 \begin{table}[htbp]
   \centering
@@ -106,7 +106,7 @@ We design experiments to validate incubation, outsourcing and metabolism mode \a
 
 \subsection{Result and analysis} % (fold)
 \label{ssub:result_and_analysis}
-All the experiments are simulated with same random seed to make no difference on the coming of order, provider and other irrelevant configuration to our validation.  After bunch of experiments with different random seeds, we discovered some laws in operation mode. Take random seed 776189616 as example, we run the simulation for 6000 tick time and the experiment's results are displayed in \autoref{fig:out} and \autoref{tab:averagevalue},
+Experiment on each mode in one group are simulated with same random seed to make no difference on the coming of order, provider and other irrelevant configuration to our validation.  After bunch of experiments with different random seeds, take random seed 776189616 as example, we run the simulation for 6000 tick time and the experiment's results are displayed in \autoref{fig:out} and \autoref{tab:averagevalue},
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{Data/out.pdf}
@@ -132,13 +132,13 @@ All the experiments are simulated with same random seed to make no difference on
     \bottomrule
     \end{tabular}
 \end{table}
-we find: \begin{inparaenum}[1)]
-\item Most dotted lines are above the full lines with the same series in $N_R,N_P,N_T$ means that metabolism mode need lower number of provider and resource, with the price of higher number of queue length of the tasks in resources in the system to deal with the same amount of needs, except for Mode 22. Full lines are not much above dotted lines in $N_F$ means that task processing velocity will be a little slower with the metabolism, exception also appears in Mode 22. 
-\item $L$ and $N_T$ both represent the queue length of jobs, triangle and square line turned lower in $L$ meas that incubation mode can help reduce the waiting of job, these two type of line above the circle line means the incubation mode do accelerate the processing velocity.
-\item Triangle lines are a little above the square lines in $N_R,N_P,N_T$ means that outsourcing mode needs more resources to operate and can only reduce the waiting of job a little.
-\item There is no big difference among all the 6 modes in rank change. Provider in metabolism mode will get lower rank value for they cannot stay in the system for long, the longer stay in the system, the higher rank value provider will get. Provider in Mode 11 even will not promote their rank value, which means that the metabolism rate is very fast without incubation mode.
-\item Mode 22 is a very special mode that reached the balance in 6000 ticks, that the number of provider and resource changes little with time goes by. Because our experiment setting comply \autoref{eq:balance}, the coming need capacity velocity is less than the coming capacity, Mode 12,22,32 will finally reach balance in the long run theoretically, but the appearance of service-call and metabolism itself is full of uncertainty and it's hard to predict when other metabolism related mode will get the balance.
-\item With the average data value shown in \autoref{tab:averagevalue}, metabolism with incubation but not with outsourcing mode is the easiest combine mode to maintain the system, resource will self-configured and controlled to justly meet the task need.
-\end{inparaenum}
+we find: \begin{asparaenum}[1)]
+\item Most dotted lines are above the full lines with the same series in $N_R,N_P,N_T$ means that metabolism mode need lower number of provider and resource, with the price of higher number of queue length of the tasks in resources in the system to deal with the same amount of needs, except for Mode 22. Full lines are not much above dotted lines in $N_F$ means that task finish rate will be a little lower with the metabolism, exception also appears in Mode 22. 
+\item $L$ and $N_T$ both represent the job queue length, triangle and square line turned lower in $L$ meas that incubation mode can help reduce the waiting of job, these two type of line above the circle line means the incubation mode do reduce the resource idle rate.
+\item Triangle lines are a little above the square lines in $N_R,N_P,N_T$ means that outsourcing mode needs more resources to operate and can only reduce the job queue length a little.
+\item There is no big difference among all the 6 modes in rank change. Provider in metabolism mode will get lower rank value for they cannot stay in the system for a longer time to get higher rank value. Provider in Mode 11 even will not promote their rank value, which means that the metabolism rate is very fast if without incubation mode.
+\item Mode 22 is a very special mode that reached the balance within 6000 ticks, that the number of provider and resource changes little with time goes by. Because our experiment setting comply \autoref{eq:balance}, the coming need capacity rate is lower than the coming capacity rate, Mode 12,22,32 will finally reach balance in the long run theoretically, but the appearance of service-call and metabolism mode itself is full of uncertainty, thus it's hard to predict when other metabolism related mode will reach the balance.
+\item With the average data value shown in \autoref{tab:averagevalue}, metabolism with incubation but not with outsourcing mode is one ideal combine mode to maintain the system, resource will self-configured and controlled to justly meet the task need.
+\end{asparaenum}
 
 % subsubsection result_and_analysis (end)
