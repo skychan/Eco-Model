@@ -107,12 +107,6 @@ We design experiments in groups to validate incubation, outsourcing and metaboli
 \subsection{Result and analysis} % (fold)
 \label{ssub:result_and_analysis}
 Experiment on each mode in one group are simulated with same random seed to make no difference on the coming of order, provider and other irrelevant configuration to our validation.  After bunch of experiments with different random seeds, take random seed 776189616 as example, we run the simulation for 6000 tick time and the experiment's results are displayed in \autoref{fig:out} and \autoref{tab:averagevalue},
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\textwidth]{Data/out.eps}
-    \caption{Observed variable change with time}
-    \label{fig:out}
-\end{figure}
 \begin{table}[htbp]
     \caption{Average observed values}
     \label{tab:averagevalue}
@@ -140,5 +134,10 @@ we find: \begin{asparaenum}[1)]
 \item Mode 22 is a very special mode that reached the balance within 6000 ticks, that the number of provider and resource changes little with time goes by. Because our experiment setting comply \autoref{eq:balance}, the coming need capacity rate is lower than the coming capacity rate, Mode 12,22,32 will finally reach balance in the long run theoretically, but the appearance of service-call and metabolism mode itself is full of uncertainty, thus it's hard to predict when other metabolism related mode will reach the balance.
 \item With the average data value shown in \autoref{tab:averagevalue}, metabolism with incubation but not with outsourcing mode is one ideal combine mode to maintain the system, resource will self-configured and controlled to justly meet the task need.
 \end{asparaenum}
-
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{Data/out.eps}
+    \caption{Observed variable change with time}
+    \label{fig:out}
+\end{figure}
 % subsubsection result_and_analysis (end)

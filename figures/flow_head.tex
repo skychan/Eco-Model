@@ -12,43 +12,51 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Flowcharting techniques for easy maintenance
 % Author: Brent Longborough
-\documentclass[x11names]{article}
+\documentclass{article}
 \usepackage{tikz}
 \usetikzlibrary{arrows,decorations,backgrounds}
 % \usetikzlibrary{mindmap,shapes,arrows,chains,shadows,decorations}%,spy}
 % decorations.markings
 %%%<
+% \usetikzlibrary{external}
+% \tikzexternalize
 
-\usepackage{verbatim}
-\usepackage{paralist}
+% \usepackage{verbatim}
+% \usepackage{paralist}
 %\usepackage{geometry}
-\usepackage[active,tightpage]{preview}
+% \usepackage[active,tightpage]{preview}
+% \PreviewEnvironment{tikzpicture}
+% \setlength{\PreviewBorder}{4bp}
+% \setlength{\paperwidth}{400mm}
+
+\usepackage[psfixbb,graphics,tightpage,active]{preview}
+
 \PreviewEnvironment{tikzpicture}
-\setlength{\PreviewBorder}{4bp}
-%\setlength{\paperwidth}{400mm}
+\newlength{\imagewidth}
+\newlength{\imagescale}
 %%%>
-\begin{comment}
-:Title: Easy-maintenance flowchart
-:Tags: flowcharts
-:Author: Brent Longborough
-:Slug: flexible-flow-chart
+% \begin{comment}
+% :Title: Easy-maintenance flowchart
+% :Tags: flowcharts
+% :Author: Brent Longborough
+% :Slug: flexible-flow-chart
 
-  This TikZ example illustrates a number of techniques for making TikZ
-  flowcharts easier to maintain:
-    * Use of <on chain> and <on grid> to simplify positioning
-    * Use of global <node distance> options to eliminate the need to 
-      specify individual inter-node distances
-    * Use of <join> to reduce the need for references to node names
-    * Use of <join by> styles to tailor specific connectors
-    * Use of <coordinate> nodes to provide consistent layout for
-      parallel flow lines
-    * A method for consistent annotation of decision box exits
-    * A technique for marking coordinate nodes (for layout debugging)
+%   This TikZ example illustrates a number of techniques for making TikZ
+%   flowcharts easier to maintain:
+%     * Use of <on chain> and <on grid> to simplify positioning
+%     * Use of global <node distance> options to eliminate the need to 
+%       specify individual inter-node distances
+%     * Use of <join> to reduce the need for references to node names
+%     * Use of <join by> styles to tailor specific connectors
+%     * Use of <coordinate> nodes to provide consistent layout for
+%       parallel flow lines
+%     * A method for consistent annotation of decision box exits
+%     * A technique for marking coordinate nodes (for layout debugging)
 
-    I encourage you to tinker at this file - add intermediate boxes,
-    alter the global distance settings, and so on, to see how well (or
-    ill!) it adapts.
-\end{comment}
+%     I encourage you to tinker at this file - add intermediate boxes,
+%     alter the global distance settings, and so on, to see how well (or
+%     ill!) it adapts.
+% \end{comment}
 % \colorlet{lcfree}{Green3}
 % \colorlet{lcnorm}{Blue3}
 % \colorlet{lccong}{Red3}
@@ -89,10 +97,10 @@
 % \input{scheduleChart}
 % \input{service-call}
 % \input{job-lock}
-\input{origin_mode}
+% \input{origin_mode}
 \input{metabolism}
-\input{service-incubate}
-\input{outsource}
+% \input{service-incubate}
+% \input{outsource}
 % \end{tikzpicture}
 %\input{buyerflow.tex}
 
