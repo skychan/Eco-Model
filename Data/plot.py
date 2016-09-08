@@ -5,8 +5,8 @@ import pandas as pd
 import pylab as pl
 from scipy import interpolate 
 
-seed = '776189616'
-t = [(x+1)*50 for x in xrange(120)]
+seed = '1212'
+t = [(x+1)*50 for x in xrange(240)]
 
 def value(seed,mode,file,loc):
 	data = np.loadtxt(seed+ '/' + file +'_m'+ mode +'.csv',dtype='string',delimiter=',')
@@ -39,7 +39,7 @@ def myplot(x,style):
 
 styles = ['b-o','g:o','r-s','c:s','k-^','m:^']
 modes = ['11','12','21','22','31','32']
-plt.figure(figsize=(15,15))
+plt.figure(figsize=(16,15))
 # tck = interpolate.splrep(t,N_T)
 # tck_2 = interpolate.splrep(t)
 # x_bspline = interpolate.splev(t,tck)
@@ -105,7 +105,8 @@ for style in styles:
 
 plt.legend(['Mode 11','Mode 12','Mode 21','Mode 22','Mode 31','Mode 32'],loc='center')
 
-plt.savefig('out.pdf', transparent=True, bbox_inches='tight', pad_inches=0)
+plt.savefig('out_new.pdf', transparent=True, bbox_inches='tight', pad_inches=0)
+plt.savefig('out_new.eps', transparent=True, bbox_inches='tight', pad_inches=0)
 
 
 def mymean(seed,mode,file,loc):

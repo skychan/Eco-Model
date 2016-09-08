@@ -31,7 +31,7 @@ In this mode, individual executes activities that interact with others depicted 
 
 \subsubsection{Assumptions} % (fold)
 \label{ssub:assumptions_nomenclature}
-To scope our research, we make some assumptions as follows:
+To scope our research, we make some assumptions as follows for the original mode, while in other extension, some of the assumptions will be modified.
 \begin{compactitem}
 \item Each single task should be assembled by its task-parts, and these parts should be processed simultaneously;
 \item The quality of product is determined by the worst quality of the selected resource;
@@ -40,7 +40,7 @@ To scope our research, we make some assumptions as follows:
 \item Cooperate and process procedure cannot be interrupted;
 \item Provider can only schedule task-parts in inactive status. 
 \end{compactitem}
-These assumptions are suitable for the original mode, while in other extension, some of the assumptions will be modified.
+
 
 \begin{table}[htbp]
   \scriptsize
@@ -94,7 +94,7 @@ These assumptions are suitable for the original mode, while in other extension, 
 \end{tabularx}
 \end{table}
 Since demander and provider continuous arrives, there is no upper bound of the subscripts 
-$(i,j,k,l,\alpha)$. when in schedule procedure, we omit subscript $i$ for some reasons in \autoref{sub:schedule_the_jobs_in_machine}.
+$(i,j,k,l,\alpha)$. When in schedule procedure, we omit subscript $i$ for some reasons in \autoref{sub:schedule_the_jobs_in_machine}.
 % \vspace{-2.5em}
 % subsubsection assumptions_nomenclature (end)
 \subsubsection{Master plan for original mode} % (fold)
@@ -264,7 +264,7 @@ Assign $t_{ij}$ to $ms_l$ is very simple and there will be no semi-active status
 % subsubsection assign_in_selected_machine (end)
 % subsection operation_mode (end)
 
-\subsection{Provider schedule the jobs in machine} % (fold)
+\subsubsection{Provider schedule the jobs in machine} % (fold)
 \label{sub:schedule_the_jobs_in_machine}
 In order to reduce the idle rate, provider will schedule the inactive jobs on their machines. Since the schedule in service is a single machine scheduling problem that not on  what we focus in this study, we only discuss the job scheduling in resource. Since the  resource capacity dominance feature of service-call, it's necessary to suspend service-call in inactive status until all the job before it in $\mathcal{L}_{k,\tau}$ are finished, at the meantime, all the job after service-call should be stay in inactive status until the service-call is finished, as shown in \autoref{fig:simplejoblist}, service-call likes partition plate in $\mathcal{L}_{k,\tau}$.  
 \begin{figure}[htbp]
@@ -273,10 +273,10 @@ In order to reduce the idle rate, provider will schedule the inactive jobs on th
 	\caption{Simple illustration for one $\mathcal{L}_{k,\tau}$}
 	\label{fig:simplejoblist}
 \end{figure}
-Therefore, the we just need to schedule the tasks before the first service-call in $\mathcal{L}_{k,\tau}$ when one of the active job in $\mathcal{G}_{k,\tau}$ was finished at $\tau_0$, we denote the set of schedule task at this time as $\mathcal{L}^{(s)}_{k,\tau_0}$
+Therefore, we just need to schedule the tasks before the first service-call in $\mathcal{L}_{k,\tau}$ when one of the active job in $\mathcal{G}_{k,\tau}$ was finished at $\tau_0$, we denote the set of schedule task at this time as $\mathcal{L}^{(s)}_{k,\tau_0}$
 
 Specifically, a simple instance with configuration \autoref{tab:simplejobconfiguration} and schedule chart \autoref{fig:scheduleChart} will elucidate the setting.
-This instance makes some simplification in the subscript fields in order to emphasize the resource cooperation, all the job performance can only be started when all its parts are in semi-activate status, the shadow in the figure shows the waiting period between the status transition. Horizontal dotted line constrained the available capacity of the resource for the subsequent jobs. Each finish of service-call will make the horizontal dotted line lower and it will never get higher again unless the related service is repealed.
+This instance makes some simplification in the subscript fields in order to emphasize the resource cooperation, all the job performance can only be started when all its parts are in semi-activate status, the shadow in the figure shows the waiting period between the status transitions. Horizontal dotted line constrained the available capacity of the resource for the subsequent jobs. Each finish of service-call will make the horizontal dotted line lower and it will never get higher again unless the related service is repealed.
 
 \begin{table}[htbp]
   \centering
@@ -306,23 +306,23 @@ This instance makes some simplification in the subscript fields in order to emph
 	\label{fig:scheduleChart}
 \end{figure}
 
-In every single resource, a schedule is given by a vector of ideal finish times $\bm{f}^{(s)} = \left[f_1^{(s)}, f_2^{(s)},\dots,f^{s}_n\right]$,$n=\abs{\mathcal{L}^{(s)}_{k,\tau_0}\cup\mathcal{H}^{(s)}_{k,\tau_0}}$. Since the task in $\mathcal{L}^{(s)}_{k,\tau_0},\mathcal{H}^{(s)}_{k,\tau_0}$ and $\mathcal{G}_{k,\tau_0}$ may come from different orders, we here use the single uniform subscript $j$ to distinguish these tasks and their related variables, we ignore the type subscript $\alpha$ because all the job assigned here are already type matched. The schedule model is:
+% In every single resource, a schedule is given by a vector of ideal finish times $\bm{f}^{(s)} = \left[f_1^{(s)}, f_2^{(s)},\dots,f^{(s)}_n\right]$,$n=\abs{\mathcal{L}^{(s)}_{k,\tau_0}\cup\mathcal{H}^{(s)}_{k,\tau_0}}$. Since the task in $\mathcal{L}^{(s)}_{k,\tau_0},\mathcal{H}^{(s)}_{k,\tau_0}$ and $\mathcal{G}_{k,\tau_0}$ may come from different orders, we here use the single uniform subscript $j$ to distinguish these tasks and their related variables, we ignore the type subscript $\alpha$ because all the job assigned here are already type matched. The schedule model is:
 
-\begin{equation}
-\min_{\forall\bm{f}^{(s)}}\left( \max_{j\in L^{(s)}}\left\{ f_j^{(s)} - r_j - p_j \right\} \right) \label{eq:scheduleaim}
-\end{equation}
-\begin{numcases}{\text{s.t.}}
-L^{(s)} = \left\{j| t_{j}\in \mathcal{L}^{(s)}_{k,\tau_0}\cup\mathcal{H}^{(s)}_{k,\tau_0}\right\} & \label{eq:subscript}\\
-f^{(s)}_h \le f_j^{(s)} - p_j & $h\in\mathcal{P}_j$,$j\in L^{(s)}$\label{eq:subsequence}\\
-G^{(s)} = \left\{j' | t_{j'}\in \mathcal{G}_{k,\tau_0}\right\} & \label{eq:activesubscript}\\
-f^{(s)}_j =  \tau_0 + re_j & $j\in G^{(s)}$ \label{eq:alreadydefined}\\
-\sum_{j\in\left\{  j' |t_{j'} \in\mathcal{G}_{k,\tau}\right\}} q_j \le A_{k,\tau}& $\tau \ge \tau_0$ \label{eq:caplimitwithtime} \\
-f^{(s)}_j \ge \tau_0 + p_j & $j\in L^{(s)}$ \label{eq:finishconstrain}
-\end{numcases}
+% \begin{equation}
+% \min_{\forall\bm{f}^{(s)}}\left( \max_{j\in L^{(s)}}\left\{ f_j^{(s)} - r_j - p_j \right\} \right) \label{eq:scheduleaim}
+% \end{equation}
+% \begin{numcases}{\text{s.t.}}
+% L^{(s)} = \left\{j| t_{j}\in \mathcal{L}^{(s)}_{k,\tau_0}\cup\mathcal{H}^{(s)}_{k,\tau_0}\right\} & \label{eq:subscript}\\
+% f^{(s)}_h \le f_j^{(s)} - p_j & $h\in\mathcal{P}_j$,$j\in L^{(s)}$\label{eq:subsequence}\\
+% G^{(s)} = \left\{j' | t_{j'}\in \mathcal{G}_{k,\tau_0}\right\} & \label{eq:activesubscript}\\
+% f^{(s)}_j =  \tau_0 + re_j & $j\in G^{(s)}$ \label{eq:alreadydefined}\\
+% \sum_{j\in\left\{  j' |t_{j'} \in\mathcal{G}_{k,\tau}\right\}} q_j \le A_{k,\tau}& $\tau \ge \tau_0$ \label{eq:caplimitwithtime} \\
+% f^{(s)}_j \ge \tau_0 + p_j & $j\in L^{(s)}$ \label{eq:finishconstrain}
+% \end{numcases}
 
-The schedule aim for each resource \autoref{eq:scheduleaim} is to minimum the maximum delay of jobs. \autoref{eq:subsequence} makes sure that all predecessors of each job finished before the job itself. \autoref{eq:alreadydefined} means that the finish time of activate job is determined. \autoref{eq:caplimitwithtime} makes sure the capacity restriction at every time period and \autoref{eq:finishconstrain} defines the extreme situation of the finish time.
-Since \autoref{eq:caplimitwithtime} is a time dependent function, the schedule model cannot be
-solved with mixed integer programming (MIP) techniques.
+% The schedule aim for each resource \autoref{eq:scheduleaim} is to minimum the maximum delay of jobs. \autoref{eq:subsequence} makes sure that all predecessors of each job finished before the job itself. \autoref{eq:alreadydefined} means that the finish time of activate job is determined. \autoref{eq:caplimitwithtime} makes sure the capacity restriction at every time period and \autoref{eq:finishconstrain} defines the extreme situation of the finish time.
+% Since \autoref{eq:caplimitwithtime} is a time dependent function, the schedule model cannot be
+% solved with mixed integer programming (MIP) techniques.
 
 % subsection schedule_the_jobs_in_machine (end)
 
@@ -348,7 +348,7 @@ Metabolism mode is one extension on the original mode for platform operator to c
     \caption{Metabolism mode}
     \label{fig:metabolismmode}
 \end{figure}
-machine scarcity is the control variable that can be defined as $\sum_jq_{\alpha,ij} - \sum_kC_{k,\tau}$ for resource in type $\alpha$ and the sum of task minus the sum of service in each type. 
+we can define machine scarcity as $\sum_jq_{\alpha,ij} - \sum_kC_{k,\tau}$. 
 
 Platform restrict the arrival of new machine by block the registration, eliminate the current machine by their quality and owner's rank. Rank value is initialized to $0$ and will be changed by demander's review after the finish of task:
 \begin{subnumcases}{}
