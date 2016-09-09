@@ -29,8 +29,8 @@ Inspired by this model, we design the original operation mode shown in \autoref{
 \end{figure}
 In this mode, individual executes activities that interact with others depicted by object flow(full lines) and information flow(dashed lines). The demander publish order that can be described by an activity-on-node(AON) network where the node represent the task and the arc the precedence relation. Each task needs to be performed with pre-determined configuration of resources. Hence, even after response and assignment procedure, the selected resource cannot start to process the task until all of other selected resources are ready, we call this procedure as resource cooperation and what each resource actually process is the task-part, which is a virtual segmentation of one task, it just like if we run one program in cloud computing platform, we actually use some quota of provider A's DB and some quota of provider B's CPU, we can consider these as task-parts. Product, the performance result after the processing and assembly procedure, will be delivered to demander, then demander change the rank value of the selected resource owners according to the review of the product. Cooperation procedure is necessary because of resource capacity is limited, but task-parts belonging to one task should be processed simultaneously to make sure the required resource capacities are available. We call the task-part is active when being processed, semi-active when selected resource is cooperating, inactive when this part is just assigned to the job queue.
 
-\subsubsection{Assumptions} % (fold)
-\label{ssub:assumptions_nomenclature}
+% \subsubsection{Assumptions} % (fold)
+% \label{ssub:assumptions_nomenclature}
 To scope our research, we make some assumptions as follows for the original mode, while in other extension, some of the assumptions will be modified.
 \begin{compactitem}
 \item Each single task should be assembled by its task-parts, and these parts should be processed simultaneously;
