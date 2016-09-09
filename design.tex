@@ -1,21 +1,21 @@
 % !TEX root = Eco-Model.tex
 \section{Design of the ecosystem} % (fold)
 \label{sec:design_of_the_ecosystem}
-\subsection{Preliminaries} % (fold)
-\label{sub:preliminaries}
-Before the design of the ecosystem, we specify some basic concepts: 
+% \subsection{Preliminaries} % (fold)
+% \label{sub:preliminaries}
+Before introducing the design of the ecosystem, we specify some basic concepts:
 \begin{compactitem}
-	\item Provider: the individual who provide resource;
+	\item Provider: the individual who provides resource;
 	\item Resource: the basic task process object with renewable capacity and unique type;
-	\item Demander: the individual who publish order that contain bunch of tasks;
+	\item Demander: the individual who publishes orders that contain bunch of tasks;
 	\item Order: the task bundle like a project;
-	\item Task: the basic object need to be processed with certain type and capacity of resource;
+	\item Task: the basic object that needs to be processed with certain type and capacity of resource;
 	\item Task-part: virtual segmentation unit of one task;
-	\item Product: the perform result of task;
-	\item Platform: the place where individual interact with other and environment.
+	\item Product: the perform result of a task;
+	\item Platform: the place where individuals interact with other and ecosystem.
 \end{compactitem}
 
-With the cloud manufacturing platform operating, demander publish order while provider provide resource, then they make decisions to  arrange the resources to perform tasks that decomposed from order. Most recent researchers like Wu et al.\cite{Wu2013} describe this operation procedure in cloud manufacturing as a tri-group user model that contains:\begin{inparaenum}[1)]
+With the cloud manufacturing platform operating, demanders publish orders while provider provide resources, then they make decisions to  arrange the resources to perform tasks that decomposed from order. Most recent researchers e.g. Wu et al. \cite{Wu2013}, describe this operation procedure in cloud manufacturing as a tri-group user model that contains:\begin{inparaenum}[1)]
 \item users/customers,
 \item application providers and
 \item physical resource providers.
@@ -27,7 +27,7 @@ Inspired by this model, we design the original operation mode shown in \autoref{
     \caption{Original mode}
     \label{fig:originmode}
 \end{figure}
-In this mode, individual executes activities that interact with others depicted by object flow(full lines) and information flow(dashed lines). The demander publish order that can be described by an activity-on-node(AON) network where the node represent the task and the arc the precedence relation. Each task needs to be performed with pre-determined configuration of resources. Hence, even after response and assign procedure, the selected resource cannot start to process the task until all of other selected resources are ready, we call this procedure as resource cooperation and what each resource actually process is the task-part, which is a virtual segmentation of one task, it just like if we run one program in cloud computing platform, we actually use some quota of provider A's DB and some quota of provider B's CPU, we can consider these as task-parts. Product, the performance result after the process and assembly procedure, will be delivered to demander, then demander change the rank value of the selected resource owners according to the review of the product. Cooperation procedure is necessary because of resource capacity is limited, but task-parts belonging to one task should be processed simultaneously to make sure the required resource capacities are available. We call the task-part is active when being processed, semi-active when selected resource is cooperating, inactive when this part is just assigned to the job queue.
+In this mode, individual executes activities that interact with others depicted by object flow(full lines) and information flow(dashed lines). The demander publish order that can be described by an activity-on-node(AON) network where the node represent the task and the arc the precedence relation. Each task needs to be performed with pre-determined configuration of resources. Hence, even after response and assignment procedure, the selected resource cannot start to process the task until all of other selected resources are ready, we call this procedure as resource cooperation and what each resource actually process is the task-part, which is a virtual segmentation of one task, it just like if we run one program in cloud computing platform, we actually use some quota of provider A's DB and some quota of provider B's CPU, we can consider these as task-parts. Product, the performance result after the processing and assembly procedure, will be delivered to demander, then demander change the rank value of the selected resource owners according to the review of the product. Cooperation procedure is necessary because of resource capacity is limited, but task-parts belonging to one task should be processed simultaneously to make sure the required resource capacities are available. We call the task-part is active when being processed, semi-active when selected resource is cooperating, inactive when this part is just assigned to the job queue.
 
 \subsubsection{Assumptions} % (fold)
 \label{ssub:assumptions_nomenclature}
@@ -35,10 +35,10 @@ To scope our research, we make some assumptions as follows for the original mode
 \begin{compactitem}
 \item Each single task should be assembled by its task-parts, and these parts should be processed simultaneously;
 \item The quality of product is determined by the worst quality of the selected resource;
-\item Resource are renewable that the available capacity will be return to when the process procedure finished;
+\item Resource are renewable that the available capacity will be restored when the processing procedure finished;
 \item Resource quality comply normal distribution with given mean and standard deviation by provider when registered;
-\item Cooperate and process procedure cannot be interrupted;
-\item Provider can only schedule task-parts in inactive status. 
+\item Cooperate and processing procedure cannot be interrupted;
+\item Provider can only schedule task-parts in inactive status.
 \end{compactitem}
 
 
@@ -55,14 +55,14 @@ To scope our research, we make some assumptions as follows for the original mode
 	$r_i$ & Release time of all $t_{ij}\in\mathcal{T}_i$\\
 	$f_{ij}$ & Actual finish time of $t_{ij}$ \\
 	% $f_{i}$ & Finish time of $\mathcal{T}_i$\\
-	$\mathcal{P}_{ij}$ & The set of predecessor of $t_{ij}$, determined by order and some assign procedure\\
+	$\mathcal{P}_{ij}$ & The set of predecessor of $t_{ij}$, determined by order and some assignment procedure\\
 	$mr_k$ & Resource that come with provider, who can be quired by $F(\cdot)$ \\
 	$\delta_k$ & Task-part quality produced via resource $mr_k$ \\
 	$C_{k,\tau}$ & Capacity of $mr_k$ at time $\tau$\\
 	$A_{k,\tau}$ & Available capacity of $mr_k$ at time $\tau$\\
 	$\mathcal{L}_{k,\tau}$ & The list of inactive job queue of $mr_k$ at $\tau$ with sequence\\
 	$\mathcal{H}_{k,\tau}$ & The list of semi-active job of $mr_k$ at $\tau$ \\
-	$\mathcal{G}_{k,\tau}$ & The set of active job of $mr_k$ at $\tau$ \\ 
+	$\mathcal{G}_{k,\tau}$ & The set of active job of $mr_k$ at $\tau$ \\
 	$f^{(s)}_j$ & Ideal finish time of $t_j$ in $\mathcal{L}^{(s)}_{k,\tau_0}$ for schedule at $\tau_0$ . \\
 	$re_j$ & Remaining process time of $t_j$ in $\mathcal{G}_{k,\tau_0}$ for schedule at $\tau_0$. \\
 	% $\mathcal{A}$ & Resource type set \\
@@ -93,8 +93,8 @@ To scope our research, we make some assumptions as follows for the original mode
     \hline
 \end{tabularx}
 \end{table}
-Since demander and provider continuous arrives, there is no upper bound of the subscripts 
-$(i,j,k,l,\alpha)$. When in schedule procedure, we omit subscript $i$ for some reasons in \autoref{sub:schedule_the_jobs_in_machine}.
+Since demander and provider continuous arrives, there is no upper bound of the subscripts
+$(i,j,k,l,\alpha)$. When in scheduling procedure, we omit subscript $i$ for some reasons in \autoref{sub:schedule_the_jobs_in_machine}.
 % \vspace{-2.5em}
 % subsubsection assumptions_nomenclature (end)
 \subsubsection{Master plan for original mode} % (fold)
@@ -106,15 +106,15 @@ A single \textbf{resource}($mr_k$) belongs to only one type. While being process
 
 \subsection{Individual decisions in original mode} % (fold)
 \label{sub:interactions_and_decisions}
-\subsubsection{Provider response for type matched task}
+\subsubsection{Provider respond to type-matched task}
 \label{subs:Response_for_type_matched_task}
-Provider makes decision at time $\tau\ge r_i$ to response task if the belonging resource $mr_k$ was type matched with $t_{ij}$ ($P(mr_k)\in\mathcal{A}_{ij}$). If $A_{k,\tau} \ge q_{\alpha,ij}$, provider will response the task need, demander of $t_{ij}$ will add $mr_k$ to $\mathcal{R}_{ij,\tau}$ and $P(mr_k)$ to $\mathcal{B}_{ij,\tau}$. If $mr_k$ was finally selected, available capacity of $mr_k$ will change as $A_{k,\tau} := A_{k,\tau} - q_{\alpha,ij}$, the available capacity will be returned back to after the finish of $t_{ij}$ part.
+A provider makes decision at time $\tau\ge r_i$ to respond  to task if the belonging resource $mr_k$ was type-matched with $t_{ij}$ ($P(mr_k)\in\mathcal{A}_{ij}$). If $A_{k,\tau} \ge q_{\alpha,ij}$, the provider will respond to the task need, demander of $t_{ij}$ will add $mr_k$ to $\mathcal{R}_{ij,\tau}$ and $P(mr_k)$ to $\mathcal{B}_{ij,\tau}$. If $mr_k$ is finally selected, available capacity of $mr_k$ will change to $A_{k,\tau} := A_{k,\tau} - q_{\alpha,ij}$. This available capacity will be restored back to after the finish of $t_{ij}$ part.
 
 \subsubsection{Demander select from resource candidates}
 \label{subs:select_resource_candidates}
-Demander make decision about resource selection from $\mathcal{R}_{ij,\tau}$ when $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij}$. Without loss of generality, we suppose at time $\tau \ge r_i$, the decision making of demander can be described as follows:
+A demander makes decision about resource selection from $\mathcal{R}_{ij,\tau}$ when $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij}$. Without loss of generality, we suppose at time $\tau \ge r_i$, the decision-making of demander can be described as follows,
 \begin{equation}
-\max_{\forall \bm{k}}\left( \delta_{\bm{k}}, 
+\max_{\forall \bm{k}}\left( \delta_{\bm{k}},
 R\left( F\left( mr_{\bm{k}} \right) \right), \abs{\mathcal{L}_{\bm{k},\tau} }
 \right) \label{eq:selectresaim}
 \end{equation}
@@ -126,7 +126,7 @@ q_{\alpha,ij} \le C_{k_{\alpha},\tau} & $\alpha\in\mathcal{A}_{ij}$\label{eq:res
 k_\alpha \in \left\{ k | mr_k \in \mathcal{R}_{\alpha,\tau} \right\} &$\alpha\in\mathcal{A}_{ij}$ \label{eq:decisionvark}
 \end{numcases}
 
-The multi-objective in \autoref{eq:selectresaim} aims at high quality, high resource owner rank and low waiting queue length. \autoref{eq:rescaplimit} makes sure that resource capacity is capable to process the task part, \autoref{eq:restypeabstract}--\ref{eq:nrc} restrict the resource candidates' type in the task configuration, \autoref{eq:decisionvectork}--\ref{eq:decisionvark} describe decision variable, the demander should make decision to select resource in each type.
+The multi-objective in \autoref{eq:selectresaim} aims at high quality, high resource owner rank and low waiting queue length. \autoref{eq:rescaplimit} ensures that resource capacity is capable to process the task part, \autoref{eq:restypeabstract}--\ref{eq:nrc} restrict the resource candidates' type in the task configuration, \autoref{eq:decisionvectork}--\ref{eq:decisionvark} describe decision variables, the demander should make decision to select resources in each type.
 
 \subsubsection{Provider assign task-part in selected resource} % (fold)
 \label{subs:assign_in_select_resource}
@@ -141,29 +141,29 @@ If all the part of $t_{ij}$ are in semi-active status, then these providers will
 
 \subsection{Incubation mode} % (fold)
 \label{sub:incubation_mode}
-Incubation mode is one extension on the original mode, the purpose of this mode is to remove the cooperate and assembly procedure in advance by gathering types of resources with certain quota into manufacturing service, which will be incubated as shown in \autoref{fig:serviceincubatemode}.  
+Incubation mode is one extension on the original mode, the purpose of this mode is to remove the cooperation and assembly procedure in advance by gathering types of resources with certain quota into manufacturing service, which will be incubated as shown in \autoref{fig:serviceincubatemode}.
 \begin{figure}[htbp]
     \centering
     \resizebox{0.7\textwidth}{!}{\input{figures/service-incubate}}
     \caption{Incubation mode}
     \label{fig:serviceincubatemode}
 \end{figure}
-After the finish of task-part, provider record the resource configuration as task frequency, when the frequency value reached some point, provider will decide to incubate such task-specified service for the future performance.
+After the finish of task-part, provider record the resource configuration as task frequency, when the frequency value reached some point, provider will decide to incubate such a task-specified service for the future performance.
 
-The first thing of incubation is to publish a job named \textbf{service-call}, which is similar with task except for the capacity dominance feature , which means capacity of selected resource will not be returned back to after the performance of service-call. The process result of one service-call is manufacturing \textbf{service}, which is actually a set of resources that may come from selected providers in the system, it's possible for more than one resource with same type to make contribution to the formation of one service. No more cooperate and assembly procedure are part of pros of service and product quality will no more restricted to the worst quality of resources for the complementary effect, while the cons of service include that service can only perform specified task.
+The first thing of incubation is to publish a job named \textbf{service-call}, which is similar to task except for the capacity dominance feature , which means capacity of selected resource will not be restored after the performance of a service-call. The process result of one service-call is manufacturing \textbf{service}, which is actually a set of resources that may come from selected providers in the system, it's possible for more than one resources of a same type to make contributions to the formation of one service. No more cooperation and assembly procedure are one pro of service, and product quality will no longer be restricted to the worst quality of resources for the complementary effect, while the cons of service include that service can only perform specified task.
 Now we can classify task and service-call into \textbf{job}, resource and service into \textbf{machine} for the follow discuss.
 
-\subsubsection{Provider response for type matched job} % (fold)
+\subsubsection{Provider respond to type-matched job} % (fold)
 \label{ssub:response_in_type_matched_resource}
-Apart from $mr_k$ response for $t_{ij}$ as we explained in \autoref{subs:Response_for_type_matched_task}, there are 2 other cases in incubation mode:
+Apart from $mr_k$ respond to $t_{ij}$ as we explained in \autoref{subs:Response_for_type_matched_task}, there are 2 other cases in incubation mode:
 \begin{asparaenum}
-\item $mr_k$ response for $sc_l$
+\item $mr_k$ respond to $sc_l$
 \suspend{asparaenum}
-If $mr_k$ was type matched with $sc_l$ ($P(mr_k)\in\mathcal{A}_l$), as long as $C_{k,\tau}> 0$, provider of $mr_k$ will response the service-call. If $mr_k$ was finally selected, both available capacity and capacity will change as \autoref{eq:capq}--\ref{eq:cap0}, and these capacity will not be returned back even after the finish of $sc_l$ part. Provider of $sc_l$ will add $mr_k$ to $\mathcal{R}_{l,\tau}$ and $P(mr_k)$ to $\mathcal{B}_{l,\tau}$.
+If $mr_k$ was type-matched with $sc_l$ ($P(mr_k)\in\mathcal{A}_l$), as long as $C_{k,\tau}> 0$, provider of $mr_k$ will respond to the service-call. If $mr_k$ was finally selected, both available capacity and capacity will change as \autoref{eq:capq}--\ref{eq:cap0}, and these capacity will not be restored even after the finish of $sc_l$ part. Provider of $sc_l$ will add $mr_k$ to $\mathcal{R}_{l,\tau}$ and $P(mr_k)$ to $\mathcal{B}_{l,\tau}$.
 \resume{asparaenum}
-\item $ms_l$ response for $t_{ij}$
+\item $ms_l$ respond to $t_{ij}$
 \end{asparaenum}
-Service is task-oriented machine, so if type matched ($\mathcal{A}_{ij} =\mathcal{A}_l,\sum_{q\in\bm{\alpha}_l} q = q_{\alpha,ij}$), provider of it will response $t_{ij}$ as soon as possible, demander will add $ms_l$ to $\mathcal{S}_{ij,\tau}$.
+Service is task-oriented machine, so if type-matched ($\mathcal{A}_{ij} =\mathcal{A}_l,\sum_{q\in\bm{\alpha}_l} q = q_{\alpha,ij}$), provider of it will respond to $t_{ij}$ as soon as possible, demander will add $ms_l$ to $\mathcal{S}_{ij,\tau}$.
 
 % subsubsection response_in_type_matched_resource (end)
 
@@ -185,7 +185,7 @@ C_{k,\tau} := 0 & otherwise \label{eq:cap0}
 \resume{asparaenum}
 \item Select $ms_l$ for $t_{ij}$ when $\mathcal{B}_{ij,\tau}\subset\mathcal{A}_{ij},|\mathcal{S}_{ij,\tau}|>0$
 \suspend{asparaenum}
-This situation implies that the resource candidates are not enough and there exists service candidates. 
+This situation implies that the resource candidates are not enough and there exists service candidates.
 \begin{equation}
 \max_{\forall l}\left( \Delta_{l}, R\left(F\left(ms_{l}\right)\right), \abs{\mathcal{L}_{l,\tau}}\right)\label{eq:selectserviceaim}
 \end{equation}
@@ -201,10 +201,10 @@ Similar to \autoref{eq:selectresaim}, \autoref{eq:selectserviceaim} is also a mu
 \resume{asparaenum}
 \item Select machine for $t_{ij}$ when $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}>0$.
 \end{asparaenum}
-In this situation, demander of $t_{ij}$ will select ether a bunch of resources with cooperation or one single service, so the key idea here is to pre-select optimal resources and optimal service, then to compare these two optimal options to select the better one. 
+In this situation, demander of $t_{ij}$ will select ether a bunch of resources with cooperation or one single service, so the key idea here is to pre-select optimal resources and optimal service, then to compare these two optimal options to select the better one.
 \begin{equation}
-\max_{m\in\{l^*,\bm{k}^*\}} \left( \Delta_m, 
-Rank_m, \mathcal{L}_m \right) \\ \label{eq:combaim} 
+\max_{m\in\{l^*,\bm{k}^*\}} \left( \Delta_m,
+Rank_m, \mathcal{L}_m \right) \\ \label{eq:combaim}
 % \text{s.t.}\notag
 \end{equation}
 \begin{numcases}{\text{s.t.}}
@@ -213,7 +213,7 @@ Rank_m, \mathcal{L}_m \right) \\ \label{eq:combaim}
 % \mathcal{R}_{ij,\tau} = \bigcup_{\alpha\in\mathcal{A}_{ij}}\mathcal{R}_{\alpha,\tau} & \\
 % \bm{k} = \left[k_1,\dots ,k_\alpha,\dots,k_{\abs{\mathcal{A}_{ij}}} \right]& \\
 % k_\alpha \in \left\{ k | mr_k \in \mathcal{R}_{\alpha,\tau} \right\} &\footnotesize$\alpha\in\mathcal{A}_{ij}$ \\
-\bm{k}^* = \arg\left(\max_{\forall \bm{k}}\left( \delta_{\bm{k}}, 
+\bm{k}^* = \arg\left(\max_{\forall \bm{k}}\left( \delta_{\bm{k}},
 R\left( F\left( mr_{\bm{k}} \right) \right), \abs{\mathcal{L}_{\bm{k},\tau} }
 \right)\right) & \label{eq:optk}\\
 Rank_{\bm{k}^*} = \min_{k\in\bm{k}^*} \left\{ R\left( F\left( mr_k \right) \right) \right\} & \label{eq:temprank}\\
@@ -233,7 +233,7 @@ Rank_{l^*} = R\left( F\left( ms_{l^*} \right) \right) & \\
 m \in \left\{ l^*,\bm{k}^* \right\} \label{eq:newdicisionvariable}
 \end{numcases}
 
-Similar to other situations, \autoref{eq:combaim} is a multi-objective function that aims at high quality, high rank and low waiting queue length. \autoref{eq:optk} and \autoref{eq:optl} are the optimal decision in independent conditions, \autoref{eq:temprank}, \autoref{eq:templength} and \autoref{eq:tempqualitystart} are the virtual rank value, virtual queue length and virtual quality value that are set in the worst cases.\autoref{eq:tempqualitystart}--\ref{eq:tempqualityend} are the virtual quality value calculate procedure. \autoref{eq:newdicisionvariable} is the decision to choose one of these two partial optimal decision.
+Similar to other situations, \autoref{eq:combaim} is a multi-objective function that aims at high quality, high rank and low waiting queue length. \autoref{eq:optk} and \autoref{eq:optl} are the optimal decision in independent conditions, \autoref{eq:temprank}, \autoref{eq:templength} and \autoref{eq:tempqualitystart} are the virtual rank value, virtual queue length and virtual quality value that are set in the worst cases.\autoref{eq:tempqualitystart}--\ref{eq:tempqualityend} are the virtual quality value calculation procedure. \autoref{eq:newdicisionvariable} is the decision to choose one of these two partial optimal decision.
 
 % subsubsection selection_in_resource_candidates_for_service_call (end)
 
@@ -269,7 +269,7 @@ Assign $t_{ij}$ to $ms_l$ is very simple and there will be no semi-active status
 
 \subsection{Outsourcing mode} % (fold)
 \label{sub:outsource_mode}
-Outsourcing mode is one extension on the original mode and will be active when incubation mode is on that only service can perform this procedure. As shown in \autoref{fig:outsourcemode}, 
+Outsourcing mode is one extension on the original mode and will be active when incubation mode is on that only service can perform this procedure. As shown in \autoref{fig:outsourcemode},
 \begin{figure}[htbp]
     \centering
     \resizebox{0.7\textwidth}{!}{\input{figures/outsource}}
@@ -281,16 +281,16 @@ the idea of outsourcing for service is to republish active or inactive task to p
 
 \subsection{Metabolism mode} % (fold)
 \label{sub:metabolism mode}
-Metabolism mode is one extension on the original mode for platform operator to control the number of individual in the system by both restrict the arrival and eliminate the current members. As shown in \autoref{fig:metabolismmode}, 
+Metabolism mode is one extension on the original mode for platform operator to control the number of individual in the system by both restrict the arrival and eliminate the current members. As shown in \autoref{fig:metabolismmode},
 \begin{figure}[htbp]
     \centering
     \resizebox{0.85\textwidth}{!}{\input{figures/metabolism}}
     \caption{Metabolism mode}
     \label{fig:metabolismmode}
 \end{figure}
-we can define machine scarcity as $\sum_jq_{\alpha,ij} - \sum_kC_{k,\tau}$. 
+we can define machine scarcity as $\sum_jq_{\alpha,ij} - \sum_kC_{k,\tau}$.
 
-Platform restrict the arrival of new machine by block the registration, eliminate the current machine by their quality and owner's rank. 
+Platform restrict the arrival of new machine by block the registration, eliminate the current machine by their quality and owner's rank.
 
 % Rank value is initialized to $0$ and will be changed by demander's review after the finish of task:
 % \begin{subnumcases}{}
@@ -298,7 +298,7 @@ Platform restrict the arrival of new machine by block the registration, eliminat
 % \frac{\left( p_{ij}\cdot q_{ij} \right) \left( \delta_{ij}-\gamma_{ij} \right)}{e^{\left(f_{ij} - p_{ij} -r_{ij}\right)}} & $k\in\bm{k}$\\
 % \delta_{ij} = \min_{k\in\bm{k}}\left\{ \delta_k \right\} & \\
 % \delta_k \sim \mathcal{N}\left(\mu_k,\sigma_k^2 \right) & $k\in\bm{k}$
-% \end{subnumcases} 
+% \end{subnumcases}
 % The change of rank value can be determined by:
 % \begin{equation}
 % 	rank := rank + \frac{ \left(\sum_{q\in\bm{q}_l}p_{ij}\cdot q \right)\left( \Delta_l -\gamma_{ij}\right) }{ e^{\left( f_{ij} - p_{ji} -r_{ij} \right)} }
@@ -309,7 +309,7 @@ Platform restrict the arrival of new machine by block the registration, eliminat
 
 \subsection{Provider schedule the jobs in machine} % (fold)
 \label{sub:schedule_the_jobs_in_machine}
-In order to reduce the idle rate, provider will schedule the inactive jobs on their machines. Since the schedule in service is a single machine scheduling problem that not on  what we focus in this study, we only discuss the job scheduling in resource. Since the  resource capacity dominance feature of service-call, it's necessary to suspend service-call in inactive status until all the job before it in $\mathcal{L}_{k,\tau}$ are finished, at the meantime, all the job after service-call should be stay in inactive status until the service-call is finished, as shown in \autoref{fig:simplejoblist}, service-call likes partition plate in $\mathcal{L}_{k,\tau}$.  
+In order to reduce the idle rate, provider will schedule the inactive jobs on their machines. Since the schedule in service is a single machine scheduling problem that not on  what we focus in this study, we only discuss the job scheduling in resource. Since the  resource capacity dominance feature of service-call, it's necessary to suspend service-call in inactive status until all the job before it in $\mathcal{L}_{k,\tau}$ are finished, at the meantime, all the job after service-call should be stay in inactive status until the service-call is finished, as shown in \autoref{fig:simplejoblist}, service-call likes partition plate in $\mathcal{L}_{k,\tau}$.
 \begin{figure}[htbp]
 	\centering
 	\resizebox{.7\textwidth}{!}{\input{figures/service-call}}
@@ -351,7 +351,7 @@ This instance makes some simplification in the subscript fields in order to emph
 	\label{fig:scheduleChart}
 \end{figure}
 
-In every single resource, a schedule is given by a vector of ideal finish times $\bm{f}^{(s)} = \left[f_1^{(s)}, f_2^{(s)},\dots,f^{(s)}_n\right]$,$n=\abs{\mathcal{L}^{(s)}_{k,\tau_0}\cup\mathcal{H}^{(s)}_{k,\tau_0}}$. Since the task in $\mathcal{L}^{(s)}_{k,\tau_0},\mathcal{H}^{(s)}_{k,\tau_0}$ and $\mathcal{G}_{k,\tau_0}$ may come from different orders, we here use the single uniform subscript $j$ to distinguish these tasks and their related variables, we ignore the type subscript $\alpha$ because all the job assigned here are already type matched. The schedule model is:
+In every single resource, a schedule is given by a vector of ideal finish times $\bm{f}^{(s)} = \left[f_1^{(s)}, f_2^{(s)},\dots,f^{(s)}_n\right]$,$n=\abs{\mathcal{L}^{(s)}_{k,\tau_0}\cup\mathcal{H}^{(s)}_{k,\tau_0}}$. Since the task in $\mathcal{L}^{(s)}_{k,\tau_0},\mathcal{H}^{(s)}_{k,\tau_0}$ and $\mathcal{G}_{k,\tau_0}$ may come from different orders, we here use the single uniform subscript $j$ to distinguish these tasks and their related variables, we ignore the type subscript $\alpha$ because all the job assigned here are already type-matched. The schedule model is:
 
 \begin{equation}
 \min_{\forall\bm{f}^{(s)}}\left( \max_{j\in L^{(s)}}\left\{ f_j^{(s)} - r_j - p_j \right\} \right) \label{eq:scheduleaim}
@@ -373,7 +373,7 @@ solved with mixed integer programming (MIP) techniques.
 
 % \subsection{Tricky problem} % (fold)
 % \label{sub:tricky_problems}
-% Even though the schedule procedure exclude the interference of service-call, one tricky problem will occur that it will block some tasks from being processed. Suppose that $t_{i1}$ and $t_{i2}$ both need resource $mr_1$ and $mr_2$, as shown in \autoref{fig:joblock}, 
+% Even though the scheduling procedure exclude the interference of service-call, one tricky problem will occur that it will block some tasks from being processed. Suppose that $t_{i1}$ and $t_{i2}$ both need resource $mr_1$ and $mr_2$, as shown in \autoref{fig:joblock},
 % \begin{figure}[htbp]
 % 	\centering
 % 	\resizebox{.75\textwidth}{!}{\input{figures/job-lock}}

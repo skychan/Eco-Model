@@ -3,11 +3,11 @@
 \label{sec:Experiment_results}
 
 Individuals in the manufacturing ecosystem are: \begin{inparaenum}[1)]
-\item autonomous and self-directed, 
-\item social, interacting with other entities, 
-\item controlled by the environment, 
+\item autonomous and self-directed,
+\item social, interacting with other entities,
+\item controlled by the environment,
 \item self-contained.
-\end{inparaenum} They optimize their multi-objective decision makings to interact with others and the environment, hence, agent-based modeling and simulation(ABMS) technique\cite{Macal2009,north2007managing} is suitable for the study in such complex system. With the help of Repast Simphony\cite{North2013} package, we realized the ecosystem model and performed some experiments with it.
+\end{inparaenum} They optimize their multi-objective decision-makings to interact with others and the environment, hence, agent-based modeling and simulation(ABMS) technique \cite{Macal2009,north2007managing} is suitable for the study in such a complex system. With the help of Repast Simphony \cite{North2013} package was utilized in this experiment.
 
 % \subsection{Agent-based modeling and simulation design} % (fold)
 % \label{sub:agent_based_modeling_and_simulation}
@@ -64,7 +64,7 @@ Individuals in the manufacturing ecosystem are: \begin{inparaenum}[1)]
 
 \subsection{Experiments} % (fold)
 \label{ssub:case_design}
-We use the RanGen\cite{Demeulemeester2003} to generate order dataset in the well-known Patterson format with the parameters setting listed in \autoref{tab:generalparameter}. 
+RanGen \cite{Demeulemeester2003} was used to generate order dataset in the well-known Patterson format with the parameters setting listed in \autoref{tab:generalparameter}.
 \begin{table}[htbp]
   \centering
   \scriptsize
@@ -80,12 +80,12 @@ We use the RanGen\cite{Demeulemeester2003} to generate order dataset in the well
     }
   \label{tab:generalparameter}%
 \end{table}%
-We assume provider and demander are arriving as the Poisson process, in order to make sure the coming need resource capacity rate will not exceed the coming resource capacity rate in average to prevent the task explosion, and we make sure that:
+We assume that providers and demanders are arriving as the Poisson process, in order to make sure the coming need resource capacity rate will not exceed the average coming resource capacity rate in average to prevent the task explosion, and we make sure that,
 \begin{equation}
 \lambda_d n_a n_r \cdot RF \cdot RC < \lambda_p \bar C_{k,0} \label{eq:balance}
 \end{equation}
 
-We design experiments in groups to validate incubation, outsourcing and metabolism mode \autoref{tab:grouping}, 10 datasets represent 10 types of orders, and each of them contains 10 tasks with different configuration on 12 types of resources to perform with. 
+We design experiments in groups to validate incubation, outsourcing and metabolism mode \autoref{tab:grouping}, 10 datasets represent 10 types of orders, and each of them contains 10 tasks with different configuration on 12 types of resources to perform with.
 
 \begin{table}[htbp]
   \centering
@@ -127,7 +127,7 @@ Experiment on each mode in one group are simulated with same random seed to make
     \end{tabular}
 \end{table}
 we find: \begin{asparaenum}[1)]
-\item Most dotted lines are above the full lines with the same series in $N_R,N_P,N_T$ means that metabolism mode need lower number of provider and resource, with the price of higher number of queue length of the tasks in resources in the system to deal with the same amount of needs, except for Mode 22. Full lines are not much above dotted lines in $N_F$ means that task finish rate will be a little lower with the metabolism, exception also appears in Mode 22. 
+\item Most dotted lines are above the full lines with the same series in $N_R,N_P,N_T$ means that metabolism mode need lower number of provider and resource, with the price of higher number of queue length of the tasks in resources in the system to deal with the same amount of needs, except for Mode 22. Full lines are not much above dotted lines in $N_F$ means that task finish rate will be a little lower with the metabolism, exception also appears in Mode 22.
 \item $L$ and $N_T$ both represent the job queue length, triangle and square line turned lower in $L$ means that incubation mode can help reduce the waiting of job, these two type of line above the circle line means the incubation mode do reduce the resource idle rate.
 \item Triangle lines are a little above the square lines in $N_R,N_P,N_T$ means that outsourcing mode needs more resources to operate and can only reduce the job queue length a little.
 \item There is no big difference among all the 6 modes in rank change. Provider in metabolism mode will get lower rank value for they cannot stay in the system for a longer time to get higher rank value. Provider in Mode 11 even will not promote their rank value, which means that the metabolism rate is very fast if without incubation mode.
