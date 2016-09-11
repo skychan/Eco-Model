@@ -112,7 +112,7 @@ The relation of proposed extended modes is shown in \autoref{fig:modes},
     \caption{Three Extended modes}
     \label{fig:modes}
 \end{figure}
-incubation and outsourcing mode are options for provider, while metabolism mode is option for platform operator, and the outsourcing mode can only be applied if incubation mode is applied because task that processed by service can be outsourced.
+incubation and outsourcing mode are options for provider, while metabolism mode is option for platform operator, and the outsourcing mode can only be applied if incubation mode is applied because only the task that processed by service can be outsourced.
 
 % subsubsection master_plan (end)
 % subsection preliminaries (end)
@@ -162,27 +162,22 @@ If all the part of $t_{ij}$ are in semi-active status, then these providers will
 
 \subsection{Incubation mode} % (fold)
 \label{sub:incubation_mode}
-Incubation mode is one extension on the original mode, the purpose of this mode is to remove the cooperation and assembly procedure in advance by gathering types of resources with certain quota into manufacturing service, which will be incubated as shown in \autoref{fig:serviceincubatemode}.
+Incubation mode is one extension for the original mode, the purpose of this mode is to remove the cooperation and assembly procedure in advance by gathering types of resources with certain quota into manufacturing service, which will be incubated as shown in incubation part of \autoref{fig:modes}.
 % \begin{figure}[htbp]
 %     \centering
 %     \resizebox{0.7\textwidth}{!}{\input{figures/service-incubate}}
 %     \caption{Incubation mode}
 %     \label{fig:serviceincubatemode}
 % \end{figure}
-service 
-
 \begin{figure}[htbp]
     \centering
     \scriptsize
     \resizebox{.65\textwidth}{!}{\input{figures/service}}
-    \caption{Service illustration}
+    \caption{Service incubation illustration}
     \label{fig:servicefigure}
 \end{figure}
-
-After the finish of task-part, provider record the resource configuration as task frequency, when the frequency value reached some point, provider will decide to incubate such a task-specified service for the future performance.
-
-The first thing of incubation is to publish a job named \textbf{service-call}, which is similar to task except for the capacity dominance feature , which means capacity of selected resource will not be restored after the performance of a service-call. The process result of one service-call is manufacturing \textbf{service}, which is actually a set of resources that may come from selected providers in the system, it's possible for more than one resources of a same type to make contributions to the formation of one service. No more cooperation and assembly procedure are one pro of service, and product quality will no longer be restricted to the worst quality of resources for the complementary effect, while the cons of service include that service can only perform specified task.
-Now we can classify task and service-call into \textbf{job}, resource and service into \textbf{machine} for the follow discuss.
+After the finish of task-part, provider record the resource configuration as task frequency, when the frequency value reached some point, provider will decide to incubate such a task-specified service for the future performance. For example, if task $job_1$ in \autoref{tab:simplejobconfiguration} was finished, the first thing of incubation for the resource provider is to publish a job named \textbf{service-call} ($job_6$), which is similar to task except for the capacity dominance feature , which means capacity of selected resource will not be restored after the processing. The process result of one service-call is manufacturing \textbf{service} as shown in \autoref{fig:servicefigure}, which is actually a set of resources that may come from selected providers in the system, it's possible for more than one resources in a same type to make contributions to the incubation of one service. No more cooperation and assembly procedure are one pro of service, and product quality will no longer be restricted to the worst quality of resources for the complementary effect, while one con of service include that service can only perform specified task.
+Now we can generalize task and service-call into \textbf{job}, resource and service into \textbf{machine} for the follow discuss.
 
 % \subsubsection{Provider respond to type-matched job} % (fold)
 % \label{ssub:response_in_type_matched_resource}
