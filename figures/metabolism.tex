@@ -22,22 +22,25 @@ skip loop/.style={to path={-- ++(0,#1) -| (\tikztotarget)}}
 ]
 \matrix[row sep=0.5em,column sep=2em] {
 % First row:
-\node (add) {New Machine}; & \node (machinein) [square] {Arrival Restrictor}; & & & & & & &\\
-\node (origin) {Origin Scarcity}; & & \node (compare) [circle] {\Large$\times$}; & & \node (scarcity) [square] {Machine Scarcity}; & \node (metabolism) [square] {Metabolism Module}; &\node (node) [coord] {}; &\node (end) [coord] {};\\
-\node (task) {New Task}; & \node (p1) [coord] {};& & \node (p2) [coord] {}; & \node (reduce) [square] {Eliminate Machine}; & & & & \\
-& & \node (tf) {Task Finish}; &  & & & & &\\
+&&&&& & & \node (machinein) [square] {Arrival Restrictor}; & \node (add) {};  &  & &\\
+&&&&&&&&&&&\\
+&&&&&&&&&&&\\
+& & && &\node (origin2) {};  & \node (compare2) [circle] {\Large$\times$}; &  \node (scarcity) [square] {Machine Scarcity}; & \node (metabolism) [square] {Metabolism Module}; &\node (node2) [coord] {}; &\node (end2) [coord] {};\\
+&&&&&\node (task) {}; &  & \node (reduce) [square] {Eliminate Machine}; &  & & &\\
+&&&&& &  &  & & & & &&  \\
 };
-\path (add) edge[->] (machinein) (machinein.east) edge[->] (compare) (compare) edge[->] (scarcity) (scarcity) edge[->] (metabolism);
-\path (origin) edge[->] (compare);
-\path (tf) edge[->] (compare);
-\path (reduce) edge (p2) (p2) edge[->] (compare);
-\draw [->] (metabolism) -- (end) ;
-\draw [->]  (task) -- (p1) -- (compare);
-\path (node) edge[->,skip loop=5.5em] (machinein);
-\draw [->] (node) |- (reduce);
-\path (machinein.east) to node [near end,yshift=0.5em,xshift=0.5em] {$-$} (compare);
-\path (tf) to node [near end,xshift=0.5em] {$-$} (compare);
-\path (p1) to node [near end,xshift=0.8em] {$+$} (compare);
-\path (p2) to node [near end,xshift=0.5em,yshift=0.3em] {$+$} (compare);
-\path (node) to node [near end,xshift=2em,yshift=0.6em] {Decision value} (end);
+\path (add) edge[->] (machinein) (machinein.west) edge[->] (compare2) (compare2) edge[->] (scarcity) (scarcity) edge[->] (metabolism);
+\path (origin2) edge[->] (compare2);
+% \path (tf) edge[->] (compare2);
+\path (reduce.west)  edge[->] (compare2);
+\draw [->] (metabolism) -- (end2) ;
+\draw [->]  (task) -- (compare2);
+\path (node2) edge[->,skip loop=2.2em] (machinein);
+\draw [->] (node2) |- (reduce);
+\path (machinein.west) to node [near end,yshift=-0.5em,xshift=0.5em] {$-$} (compare2);
+% \path (tf) to node [near end,xshift=0.5em] {$-$} (compare2);
+\path (task) to node [near end,xshift=0.8em] {$+$} (compare2);
+\path (reduce) to node [near end,xshift=-0.6em,yshift=-0.8em] {$+$} (compare2);
+\path (node2) to node [near end,xshift=2em,yshift=0.6em] {Decision var.} (end2);
+\path (add) to node [near start, xshift=7em] {New Registered Resource}(machinein) (origin2) to node [near start,xshift=-4em]{Origin Scarcity}(compare2) (task.east) to node [near start,xshift=-3em]{New Task} (compare2);
 \end{tikzpicture}

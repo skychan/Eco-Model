@@ -22,12 +22,12 @@ skip loop/.style={to path={-- ++(0,#1) -| (\tikztotarget)}}
 ]
 \matrix[row sep=0.5em,column sep=2em] {
 % First row:
-\node (origin) {Origin Length} ; & \node (compare) [circle] {\Large$\times$}; & & \node (length) [square] {Queue Length} ; & \node (outsource) [square] {Outsourcing Module} ; & \node (node) [coord] {} ; & \node (end) [coord] {}; \\
-& & \node (p1) [coord] {} ; & \node	(out) [square] {Outsource Task} ; & & & \\
-& \node (tf) {Task Finish}; & & & & &\\
+& & &   \node	(out) [square] {Outsource Task} ; &  \node (originl) {Origin Length} ; & \\
+\node (end1) [coord] {}; & \node (node1) [coord] {} ; & \node (outsource) [square] {Outsourcing Module} ; &\node (length) [square] {Queue Length} ; & \node (compare1) [circle] {\Large$\times$};  & \\
+&  & &  & &\\
 };
-\path (origin) edge[->] (compare) (tf) edge[->] (compare) (compare) edge[->] (length) (length) edge[->] (outsource) (outsource) edge[->] (end);
-\path (out) edge (p1) (p1) edge[->] (compare);
-\draw [->] (node) |- (out) ;
-\path (tf) to node [near end,xshift=0.3em] {$+$} (compare) (p1) to node [near end,xshift=0.5em] {$-$} (compare) (outsource) to node [yshift=0.7em,xshift = 1.5em] {Decision value} (end);
+\path (originl) edge[->] (compare1) (compare1) edge[->] (length) (length) edge[->] (outsource) (outsource) edge[->] (end1);
+\path (out.east) edge[->] (compare1);
+\draw [->] (node1) |- (out) ;
+\path (out) to node [near end,xshift=0.5em,yshift=0.7em] {$-$} (compare1) (outsource) to node [near end,yshift=-0.7em,xshift = -0.7em] {Decision var.} (end1);
 \end{tikzpicture}
