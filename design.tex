@@ -129,7 +129,7 @@ incubation and outsourcing mode are options for provider, while metabolism mode 
     \label{fig:originmode}
 \end{figure}
 
-A provider makes decision at time $\tau\ge r_i$ to respond  to task if the belonging resource $mr_k$ was type-matched with $t_{ij}$ ($P(mr_k)\in\mathcal{A}_{ij}$). If $A_{k,\tau} \ge q_{\alpha,ij}$, the provider will respond to the task need, demander of $t_{ij}$ will add $mr_k$ to $\mathcal{R}_{ij,\tau}$ and $P(mr_k)$ to $\mathcal{B}_{ij,\tau}$. If $mr_k$ is finally selected, available capacity of $mr_k$ will change to $A_{k,\tau} := A_{k,\tau} - q_{\alpha,ij}$. This available capacity will be restored back to after the finish of $t_{ij}$ part.
+A provider makes decision at time $\tau\ge r_i$ to respond  to task if the belonging resource $mr_k$ was type-matched with $t_{ij}$ ($P(mr_k)\in\mathcal{A}_{ij}$). If $A_{k,\tau} \ge q_{\alpha,ij}$, the provider will respond to the task need, demander of $t_{ij}$ will add $mr_k$ to $\mathcal{R}_{ij,\tau}$ and $P(mr_k)$ to $\mathcal{B}_{ij,\tau}$. If $mr_k$ is finally selected, available capacity of $mr_k$ will change to $A_{k,\tau} := A_{k,\tau} - q_{\alpha,ij}$. This available capacity will be restored after the finish of $t_{ij}$ part.
 
 % \subsubsection{Demander select from resource candidates}
 % \label{subs:select_resource_candidates}
@@ -147,7 +147,7 @@ q_{\alpha,ij} \le C_{k_{\alpha},\tau} & $\alpha\in\mathcal{A}_{ij}$\label{eq:res
 k_\alpha \in \left\{ k | mr_k \in \mathcal{R}_{\alpha,\tau} \right\} &$\alpha\in\mathcal{A}_{ij}$ \label{eq:decisionvark}
 \end{numcases}
 
-The multi-objective in \autoref{eq:selectresaim} aims at high quality, high resource owner rank and low waiting queue length. \autoref{eq:rescaplimit} ensures that resource capacity is capable to process the task part, \autoref{eq:restypeabstract}--\ref{eq:nrc} restrict the resource candidates' type in the task configuration, \autoref{eq:decisionvectork}--\ref{eq:decisionvark} describe decision variables, the demander should make decision to select resources in each type.
+The multi-objective in \autoref{eq:selectresaim} aims at high quality, high resource owner rank and low waiting queue length. \autoref{eq:rescaplimit} ensures that resource capacity is capable to process the task-part, \autoref{eq:restypeabstract}--\ref{eq:nrc} restrict the resource candidates' type in the task configuration, \autoref{eq:decisionvectork}--\ref{eq:decisionvark} describe decision variables, the demander should make decision to select resources in each type.
 
 % \subsubsection{Provider assign task-part in selected resource} % (fold)
 % \label{subs:assign_in_select_resource}
@@ -181,7 +181,7 @@ Now we can generalize task and service-call into \textbf{job}, resource and serv
 
 % \subsubsection{Provider respond to type-matched job} % (fold)
 % \label{ssub:response_in_type_matched_resource}
-Apart from $mr_k$ respond to $t_{ij}$ as we explained in \autoref{subs:Response_for_type_matched_task}, there are 2 other cases in incubation mode:
+Apart from $mr_k$ respond to $t_{ij}$ as we explained above, there are 2 other cases in incubation mode:
 \begin{asparaenum}
 \item $mr_k$ respond to $sc_l$
 \suspend{asparaenum}
@@ -195,7 +195,7 @@ Service is task-oriented machine, so if type-matched ($\mathcal{A}_{ij} =\mathca
 
 % \subsubsection{Demander select from machine candidates} % (fold)
 % \label{ssub:selection_in_resource_candidates_for_service_call}
-Apart from demander of $t_{ij}$ select $mr_k$ as we explained in \autoref{subs:select_resource_candidates} that $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}=0$, there are 3 other cases in incubation mode:
+Apart from demander of $t_{ij}$ select $mr_k$ that $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}=0$, there are 3 other cases in incubation mode:
 
 \begin{asparaenum}
 \item Select $mr_k$ for $sc_l$ when $\mathcal{B}_{l,\tau} = \mathcal{A}_l$
@@ -264,12 +264,12 @@ Similar to other situations, \autoref{eq:combaim} is a multi-objective function 
 % subsubsection selection_in_resource_candidates_for_service_call (end)
 
 % \subsubsection{Provider assign task to selected machine} % (fold)
-Apart from $mr_k$ assign $t_{ij}$ when selected as we explained in \autoref{subs:assign_in_select_resource}, there are 2 other cases in incubation mode:
+Apart from $mr_k$ assign $t_{ij}$, there are 2 other cases in incubation mode:
 
 \begin{asparaenum}
 \item Assign $sc_l$ to $mr_k$
 \suspend{asparaenum}
-If $mr_k$ is selected by provider of $sc_l$ at time $\tau$, the assign condition is more restrict than that in \autoref{subs:assign_in_select_resource}, it should be changed into $\abs{\mathcal{L}_{k,\tau}} = \abs{\mathcal{G}_{k,\tau}} = \abs{\mathcal{H}_{k,\tau}} = 0$, for the capacity dominance feature of service-call, we need to assign this type of job one by one. Then, the provider of $mr_k$ should change the predecessor set:
+If $mr_k$ is selected by provider of $sc_l$ at time $\tau$, the assign condition is more restrict, it should be changed into $\abs{\mathcal{L}_{k,\tau}} = \abs{\mathcal{G}_{k,\tau}} = \abs{\mathcal{H}_{k,\tau}} = 0$, for the capacity dominance feature of service-call, we need to assign this type of job one by one. Then, the provider of $mr_k$ should change the predecessor set:
 \begin{equation}
 	\mathcal{P}_l := \mathcal{P}_l\cup \mathcal{L}_{k,\tau} \cup \mathcal{H}_{k,\tau}
 \end{equation}
@@ -295,7 +295,7 @@ Assign $t_{ij}$ to $ms_l$ is very simple and there will be no semi-active status
 
 \subsection{Outsourcing mode} % (fold)
 \label{sub:outsource_mode}
-Outsourcing mode is one extension on the original mode and will be active when incubation mode is on that only service can perform this procedure. As shown in \autoref{fig:outsourcemode},
+Outsourcing mode is one extension for the original mode when incubation mode is applied. As outsourcing part shown in \autoref{fig:modes},
 % \begin{figure}[htbp]
 %     \centering
 %     \resizebox{0.7\textwidth}{!}{\input{figures/outsource}}
@@ -307,7 +307,7 @@ the idea of outsourcing for service is to republish active or inactive task to p
 
 \subsection{Metabolism mode} % (fold)
 \label{sub:metabolism mode}
-Metabolism mode is one extension on the original mode for platform operator to control the number of individual in the system by both restrict the arrival and eliminate the current members. As shown in \autoref{fig:metabolismmode},
+Metabolism mode is one extension for the original mode to control the number of individual in the system by both restrict the arrival and eliminate the current members. As metabolism part shown in \autoref{fig:modes},
 % \begin{figure}[htbp]
 %     \centering
 %     \resizebox{0.85\textwidth}{!}{\input{figures/metabolism}}
@@ -393,7 +393,7 @@ f^{(s)}_\theta =  \tau_0 + re_\theta & $\theta\in G^{(s)}$ \label{eq:alreadydefi
 f^{(s)}_\theta \ge \tau_0 + p_\theta & $\theta\in L^{(s)}$ \label{eq:finishconstrain}
 \end{numcases}
 
-The schedule aim for each resource \autoref{eq:scheduleaim} is to minimum the maximum delay of jobs. \autoref{eq:subsequence} makes sure that all predecessors of each job finished before the job itself. \autoref{eq:alreadydefined} means that the finish time of activate job is determined. \autoref{eq:caplimitwithtime} makes sure the capacity restriction at every time period and \autoref{eq:finishconstrain} defines the extreme situation of the finish time.
+The schedule aim for each resource \autoref{eq:scheduleaim} is to minimum the maximum delay of jobs. \autoref{eq:subsequence} ensures that all predecessors of each job finished before the job itself. \autoref{eq:alreadydefined} means that the finish time of activate job is determined. \autoref{eq:caplimitwithtime} ensures the capacity restriction at every time period and \autoref{eq:finishconstrain} defines the extreme situation of the finish time.
 Since \autoref{eq:caplimitwithtime} is a time dependent function, the schedule model cannot be
 solved with mixed integer programming (MIP) techniques.
 

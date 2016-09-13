@@ -2,12 +2,7 @@
 \section{Experiment and result Analysis} % (fold)
 \label{sec:Experiment_results}
 
-Individuals in the manufacturing ecosystem are: \begin{inparaenum}[1)]
-\item autonomous and self-directed,
-\item social, interacting with other entities,
-\item controlled by the environment,
-\item self-contained.
-\end{inparaenum} They optimize their multi-objective decision-makings to interact with others and the environment, hence, agent-based modeling and simulation(ABMS) technique \cite{Macal2009,north2007managing} is suitable for the study in such a complex system. With the help of Repast Simphony \cite{North2013} package was utilized in this experiment.
+Because of the  autonomous and self-directed features of individuals in the manufacturing ecosystem, we use agent-based modeling and simulation(ABMS) technique \cite{Macal2009,north2007managing} to study such a complex system. Repast Simphony \cite{North2013} package was utilized in this experiment.
 
 % \subsection{Agent-based modeling and simulation design} % (fold)
 % \label{sub:agent_based_modeling_and_simulation}
@@ -64,7 +59,7 @@ Individuals in the manufacturing ecosystem are: \begin{inparaenum}[1)]
 
 \subsection{Experiments} % (fold)
 \label{ssub:case_design}
-RanGen \cite{Demeulemeester2003} was used to generate order dataset in the well-known Patterson format with the parameters setting listed in \autoref{tab:generalparameter}.
+We design experiments to repeatedly simulate the operating of ecosystem with 6 different mode combinations in \autoref{tab:grouping} group by group, which are the prototypes of feasible cloud manufacturing operating modes. Every single simulation goes with the main flow as show in \autoref{fig:originmode}. We use  RanGen \cite{Demeulemeester2003} to generate dataset in the well-known Patterson format as the the continuously arriving order for the simulation input, related parameter settings are listed in \autoref{tab:generalparameter}.
 \begin{table}[htbp]
   \centering
   \scriptsize
@@ -80,12 +75,13 @@ RanGen \cite{Demeulemeester2003} was used to generate order dataset in the well-
     }
   \label{tab:generalparameter}%
 \end{table}%
+
+
 We assume that providers and demanders are arriving as the Poisson process, in order to make sure the coming need resource capacity rate will not exceed the average coming resource capacity rate in average to prevent the task explosion, and we make sure that,
 \begin{equation}
 \lambda_d n_a n_r \cdot RF \cdot RC < \lambda_p \bar C_{k,0} \label{eq:balance}
 \end{equation}
 
-We design experiments in groups to validate incubation, outsourcing and metabolism mode \autoref{tab:grouping}, 10 datasets represent 10 types of orders, and each of them contains 10 tasks with different configuration on 12 types of resources to perform with.
 
 \begin{table}[htbp]
   \centering
