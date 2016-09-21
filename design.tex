@@ -182,14 +182,12 @@ Now we can generalize task and service-call into \textbf{job}, resource and serv
 
 % \subsubsection{Provider respond to type-matched job} % (fold)
 % \label{ssub:response_in_type_matched_resource}
-Apart from $mr_k$ respond to $t_{ij}$ as we explained above, there are 2 other cases in incubation mode:
 \begin{asparaenum}
-\item $mr_k$ respond to $sc_l$
+\item Respond behavior
 \suspend{asparaenum}
+Apart from $mr_k$ respond to $t_{ij}$ as we explained above, there are 2 other cases in incubation mode:
 If $mr_k$ was type-matched with $sc_l$ ($P(mr_k)\in\mathcal{A}_l$), as long as $C_{k,\tau}> 0$, provider of $mr_k$ will respond to the service-call. If $mr_k$ was finally selected, both available capacity and capacity will change as \autoref{eq:capq}--\ref{eq:cap0}, and these capacity will not be restored even after the finish of $sc_l$ part. Provider of $sc_l$ will add $mr_k$ to $\mathcal{R}_{l,\tau}$ and $P(mr_k)$ to $\mathcal{B}_{l,\tau}$.
-\resume{asparaenum}
-\item $ms_l$ respond to $t_{ij}$
-\end{asparaenum}
+
 Service is task-oriented machine, so if type-matched ($\mathcal{A}_{ij} =\mathcal{A}_l,\sum_{q\in\bm{\alpha}_l} q = q_{\alpha,ij}$), provider of it will respond to $t_{ij}$ as soon as possible, demander will add $ms_l$ to $\mathcal{S}_{ij,\tau}$.
 
 % subsubsection response_in_type_matched_resource (end)
@@ -198,10 +196,13 @@ Service is task-oriented machine, so if type-matched ($\mathcal{A}_{ij} =\mathca
 % \label{ssub:selection_in_resource_candidates_for_service_call}
 Apart from demander of $t_{ij}$ select $mr_k$ that $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}=0$, there are 3 other cases in incubation mode:
 
-\begin{asparaenum}
-\item Select $mr_k$ for $sc_l$ when $\mathcal{B}_{l,\tau} = \mathcal{A}_l$
+\resume{asparaenum}
+\item Select behavior
 \suspend{asparaenum}
+Select $mr_k$ for $sc_l$ when $\mathcal{B}_{l,\tau}\subset\mathcal{A}_l$
+
 Provider of $sc_l$ select resource from $\mathcal{R}_{l,\tau}$ is similar to \autoref{eq:selectresaim}--\ref{eq:decisionvark}, but the difference is that the $\bm{l}_{\alpha}$ here is also a set of selected resources with type $\alpha$, $\bm{l}_{\alpha}$ is subset of decision variable $\bm{l}$. Selected resources capacity will change as \autoref{eq:capq}--\ref{eq:cap0}, and if the sum of capacity quantity in $\bm{l}_{\alpha}$ less than the $sc_l$ required, this selection will not to be executed.
+
 \begin{subnumcases}{}
 C_{k,\tau} := C_{k,\tau} - q_{\alpha,l}& If $C_{k,\tau} \ge q_{\alpha,l}$\label{eq:capq}\\
 C_{k,\tau} := 0 & otherwise \label{eq:cap0}
@@ -209,9 +210,8 @@ C_{k,\tau} := 0 & otherwise \label{eq:cap0}
 
 
 
-\resume{asparaenum}
-\item Select $ms_l$ for $t_{ij}$ when $\mathcal{B}_{ij,\tau}\subset\mathcal{A}_{ij},|\mathcal{S}_{ij,\tau}|>0$
-\suspend{asparaenum}
+Select $ms_l$ for $t_{ij}$ when $\mathcal{B}_{ij,\tau}\subset\mathcal{A}_{ij},|\mathcal{S}_{ij,\tau}|>0$
+
 This situation implies that the resource candidates are not enough and there exists service candidates.
 \begin{equation}
 \max_{\forall l}\left( \Delta_{l}, R\left(F\left(ms_{l}\right)\right), \abs{\mathcal{L}_{l,\tau}}\right)\label{eq:selectserviceaim}
@@ -225,9 +225,8 @@ l \in \left\{l' |  ms_{l'} \in \mathcal{S}_{ij,\tau} \right\}  & \label{eq:decis
 
 Similar to \autoref{eq:selectresaim}, \autoref{eq:selectserviceaim} is also a multi-objective function that aims at high quality, high service owner rank and low job queue length. \autoref{eq:servicecomplydist}--\ref{eq:servicecomplydistend} explain the service quality distribution parameters, \autoref{eq:decisionvariablel} is the decision variable to select one service in $\mathcal{S}_{ij,\tau}$.
 
-\resume{asparaenum}
-\item Select machine for $t_{ij}$ when $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}>0$.
-\end{asparaenum}
+Select machine for $t_{ij}$ when $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}>0$.
+
 In this situation, demander of $t_{ij}$ will select ether a bunch of resources with cooperation or one single service, so the key idea here is to pre-select optimal resources and optimal service, then to compare these two optimal options to select the better one.
 \begin{equation}
 \max_{m\in\{l^*,\bm{k}^*\}} \left( \Delta_m,
@@ -265,11 +264,9 @@ Similar to other situations, \autoref{eq:combaim} is a multi-objective function 
 % subsubsection selection_in_resource_candidates_for_service_call (end)
 
 % \subsubsection{Provider assign task to selected machine} % (fold)
-Apart from $mr_k$ assign $t_{ij}$, there are 2 other cases in incubation mode:
-
-\begin{asparaenum}
-\item Assign $sc_l$ to $mr_k$
-\suspend{asparaenum}
+\resume{asparaenum}
+\item Assign behavior
+\end{asparaenum}
 If $mr_k$ is selected by provider of $sc_l$ at time $\tau$, the assign condition is more restrict, it should be changed into $\abs{\mathcal{L}_{k,\tau}} = \abs{\mathcal{G}_{k,\tau}} = \abs{\mathcal{H}_{k,\tau}} = 0$, for the capacity dominance feature of service-call, we need to assign this type of job one by one. Then, the provider of $mr_k$ should change the predecessor set:
 \begin{equation}
 	\mathcal{P}_l := \mathcal{P}_l\cup \mathcal{L}_{k,\tau} \cup \mathcal{H}_{k,\tau}
@@ -279,9 +276,9 @@ and all the task assign after $\tau$, we say $\tau'>\tau$ will set:
 	\mathcal{P}_{ij} := \mathcal{P}_{ij}\cup \left\{ sc| sc\in\mathcal{L}_{k,\tau'},sc \text{ is service-call} \right\} \cup \mathcal{H}_{k,\tau'}
 \end{equation}
 And $A_{k,\tau}$ will be changed with the same amount in \autoref{eq:capq}--\ref{eq:cap0}.
-\resume{asparaenum}
-\item Assign $t_{ij}$ to $ms_l$
-\end{asparaenum}
+
+Assign $t_{ij}$ to $ms_l$
+
 Assign $t_{ij}$ to $ms_l$ is very simple and there will be no semi-active status for $t_{ij}$, hence it will add to $\mathcal{G}_{k,\tau}$ if $\abs{\mathcal{G}_{k,\tau}}=0$, or to $\mathcal{L}_{k,\tau}$ otherwise.
 % \begin{subnumcases}{}
 % \mathcal{G}_{k,\tau} := \mathcal{G}_{k,\tau} \cup \{sc_{l}\} & if $\abs{\mathcal{G}_{k,\tau}}=0$ \\
