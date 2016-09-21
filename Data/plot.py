@@ -5,8 +5,8 @@ import pandas as pd
 import pylab as pl
 from scipy import interpolate 
 
-seed = '1212'
-t = [(x+1)*50 for x in xrange(240)]
+seed = '776189616'
+t = [(x+1)*50 for x in xrange(120)]
 
 def value(seed,mode,file,loc):
 	data = np.loadtxt(seed+ '/' + file +'_m'+ mode +'.csv',dtype='string',delimiter=',')
@@ -66,7 +66,7 @@ for i in range(6):
 	style = styles[i]
 	N_T = value(seed,modes[i],'Task',1)
 	myplot(N_T,style)
-plt.title(r'Number of tasks($N_T$)')
+plt.title(r'Number of tasks($N_T$) in system')
 
 plt.subplot(424)
 for i in range(6):
@@ -80,14 +80,14 @@ for i in range(6):
 	style = styles[i]
 	N_R = value(seed,modes[i],'Qualities',1)
 	myplot(N_R,style)
-plt.title(r'Maximum queue length($L$)')
+plt.title(r'Maximum queue length($L$), $\forall mr_k$ in system')
 
 plt.subplot(426)
 for i in range(6):
 	style = styles[i]
 	R = value(seed,modes[i],'Qualities',4)
 	myplot(R,style)
-plt.title(r'Maximum rank value($R$)')
+plt.title(r'Maximum rank value($R$), for all provider in system')
 plt.xlabel("Time tick")
 plt.subplot(427)
 # f = Quality(seed,modes[0])
@@ -106,7 +106,7 @@ for style in styles:
 plt.legend(['Mode 11','Mode 12','Mode 21','Mode 22','Mode 31','Mode 32'],loc='center')
 
 plt.savefig('out_new.pdf', transparent=True, bbox_inches='tight', pad_inches=0)
-plt.savefig('out_new.eps', transparent=True, bbox_inches='tight', pad_inches=0)
+plt.savefig('out_new.png', transparent=True, bbox_inches='tight', pad_inches=0)
 
 
 def mymean(seed,mode,file,loc):
