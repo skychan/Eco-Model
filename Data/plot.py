@@ -10,7 +10,7 @@ seed = '776189616'
 t = [(x+1)*50 for x in range(120)]
 
 def value(seed,mode,file,loc):
-	data = np.loadtxt(seed+ '/' + file +'_m'+ mode +'.csv',delimiter=',',dtype='S20',skiprows=1)
+	data = np.loadtxt(seed+ '/' + 'm'+ mode + '/'+ file +'.csv',delimiter=',',dtype='S20',skiprows=1)
 
 	v = []
 	for i in range(int((len(data))/50)):
@@ -22,7 +22,7 @@ def value(seed,mode,file,loc):
 	return v_bspline
 
 def Quality(seed,mode,style):
-	data = np.loadtxt(seed+ '/Quality_m'+ mode +'.csv',delimiter=',',dtype='S20',skiprows=1)
+	data = np.loadtxt(seed+ '/' + 'm' + mode + '/Quality.csv',delimiter=',',dtype='S20',skiprows=1)
 	tick = []
 	q = []
 	
@@ -110,7 +110,7 @@ plt.savefig('out_new.png', transparent=True, bbox_inches='tight', pad_inches=0)
 
 
 def mymean(seed,mode,file,loc):
-	data = np.loadtxt(seed+ '/' + file +'_m'+ mode +'.csv',delimiter=',',dtype='S20',skiprow=1)
+	data = np.loadtxt(seed+ '/' + 'm' + mode + '/' + file + '.csv',delimiter=',',dtype='S20',skiprow=1)
 
 	v = []
 	
