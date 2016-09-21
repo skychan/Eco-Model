@@ -6,15 +6,15 @@ import pylab as pl
 from scipy import interpolate 
 
 seed = '776189616'
-t = [(x+1)*50 for x in xrange(120)]
+
+t = [(x+1)*50 for x in range(120)]
 
 def value(seed,mode,file,loc):
-	data = np.loadtxt(seed+ '/' + file +'_m'+ mode +'.csv',dtype='string',delimiter=',')
+	data = np.loadtxt(seed+ '/' + file +'_m'+ mode +'.csv',delimiter=',',dtype='S20',skiprows=1)
 
 	v = []
-	
-	for i in xrange((len(data)-1)/50):
-		line = data[(i+1)*50]
+	for i in range(int((len(data))/50)):
+		line = data[(i+1)*50-1]
 		v.append(float(line[loc]))
 	tck = interpolate.splrep(t,v)
 	# tck_2 = interpolate.splrep(t)
@@ -22,12 +22,12 @@ def value(seed,mode,file,loc):
 	return v_bspline
 
 def Quality(seed,mode,style):
-	data = np.loadtxt(seed+ '/Quality_m'+ mode +'.csv',dtype='string',delimiter=',')
+	data = np.loadtxt(seed+ '/Quality_m'+ mode +'.csv',delimiter=',',dtype='S20',skiprows=1)
 	tick = []
 	q = []
 	
-	for i in xrange((len(data)-1)/50):
-		line = data[(i+1)*50]
+	for i in range(int((len(data))/50)):
+		line = data[(i+1)*50-1]
 		tick.append(float(line[0]))
 		q.append(float(line[1]))
 	f2 = interpolate.interp1d(tick, q, kind='cubic')
@@ -110,11 +110,11 @@ plt.savefig('out_new.png', transparent=True, bbox_inches='tight', pad_inches=0)
 
 
 def mymean(seed,mode,file,loc):
-	data = np.loadtxt(seed+ '/' + file +'_m'+ mode +'.csv',dtype='string',delimiter=',')
+	data = np.loadtxt(seed+ '/' + file +'_m'+ mode +'.csv',delimiter=',',dtype='S20',skiprow=1)
 
 	v = []
 	
-	for i in xrange((len(data)-1)):
+	for i in range(int((len(data)))):
 		line = data[(i+1)]
 		v.append(float(line[loc]))
 	
