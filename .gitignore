@@ -41,5 +41,6 @@
 *.bak
 .DS_Store
 /Data/1212/
+!/Data/*/*.pdf
 ~*
 .vscode/
