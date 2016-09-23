@@ -307,14 +307,15 @@ Platform restrict the arrival of new machine by block the registration, eliminat
 
 \subsection{Provider schedule the jobs in machine} % (fold)
 \label{sub:schedule_the_jobs_in_machine}
-In order to reduce the idle rate, provider will schedule the inactive jobs on their machines. Since the schedule in service is a single machine scheduling problem that not on  what we focus in this study, we only discuss the job scheduling in resource. Since the  resource capacity dominance feature of service-call, it's necessary to suspend service-call in inactive status until all the job before it in $\mathcal{L}_{k,\tau}$ are finished, at the meantime, all the job after service-call should be stay in inactive status until the service-call is finished, as shown in \autoref{fig:simplejoblist}, service-call likes partition plate in $\mathcal{L}_{k,\tau}$.
-\begin{figure}[htbp]
-	\centering
-    \large
-	\resizebox{.7\textwidth}{!}{\input{figures/service-call}}
-	\caption{Simple illustration for one $\mathcal{L}_{k,\tau}$}
-	\label{fig:simplejoblist}
-\end{figure}
+In order to reduce the idle rate, provider will schedule the inactive jobs on their machines. Since the schedule in service is a single machine scheduling problem that not on  what we focus in this study, we only discuss the job scheduling in resource. Since the  resource capacity dominance feature of service-call, it's necessary to suspend service-call in inactive status until all the job before it in $\mathcal{L}_{k,\tau}$ are finished, at the meantime, all the job after service-call should be stay in inactive status until the service-call is finished.
+% as shown in \autoref{fig:simplejoblist}, service-call likes partition plate in $\mathcal{L}_{k,\tau}$.
+% \begin{figure}[htbp]
+% 	\centering
+%     \large
+% 	\resizebox{.7\textwidth}{!}{\input{figures/service-call}}
+% 	\caption{Simple illustration for one $\mathcal{L}_{k,\tau}$}
+% 	\label{fig:simplejoblist}
+% \end{figure}
 Therefore, provider can only makes decision on the schedule of tasks before the first service-call in $\mathcal{L}_{k,\tau}$ when one of the active job in $\mathcal{G}_{k,\tau}$ was finished at $\tau_0$, we denote the set of these inactive task to be scheduled as $\mathcal{L}^{(s)}_{k,\tau_0}$.
 
 \begin{table}[htbp]
@@ -340,7 +341,7 @@ Therefore, provider can only makes decision on the schedule of tasks before the 
 \end{table}%
 
 Specifically, a simple instance with configuration \autoref{tab:simplejobconfiguration} and schedule chart \autoref{fig:scheduleChart} will elucidate the settings.
-Since the task may come from different orders, we here use the single uniform denotation $job_\theta$ to distinguish these tasks and their related variables. In this instance, as shown in \autoref{fig:simplejoblist}, horizontal dotted line constrained the available capacity of the resource for the subsequent jobs. Each finish of service-call will make the horizontal dotted line lower and it will never get higher again unless the related service is repealed.
+Since the task may come from different orders, we here use the single uniform denotation $job_\theta$ to distinguish these tasks and their related variables. In this instance, as shown in \autoref{fig:scheduleChart}, horizontal dotted line constrained the available capacity of the resource for the subsequent jobs. Each finish of service-call will make the horizontal dotted line lower and it will never get higher again unless the related service is repealed.
 
 
 \begin{figure}[htbp]
@@ -361,7 +362,7 @@ L^{(s)} = \left\{\theta| job_{\theta}\in \mathcal{L}^{(s)}_{k,\tau_0}\cup\mathca
 f^{(s)}_h \le f_\theta^{(s)} - p_\theta & $h\in\mathcal{P}_\theta$,$\theta\in L^{(s)}$\label{eq:subsequence}\\
 G^{(s)} = \left\{\theta | job_{\theta}\in \mathcal{G}_{k,\tau_0}\right\} & \label{eq:activesubscript}\\
 f^{(s)}_\theta =  \tau_0 + re_\theta & $\theta\in G^{(s)}$ \label{eq:alreadydefined}\\
-\sum_{\theta\in\left\{  \theta' |t_{\theta'} \in\mathcal{G}_{k,\tau}\right\}} q_\theta \le A_{k,\tau}& $\tau \ge \tau_0$ \label{eq:caplimitwithtime} \\
+\sum_{\theta\in\left\{  \theta' |job_{\theta'} \in\mathcal{G}_{k,\tau}\right\}} q_\theta \le A_{k,\tau}& $\tau \ge \tau_0$ \label{eq:caplimitwithtime} \\
 f^{(s)}_\theta \ge \tau_0 + p_\theta & $\theta\in L^{(s)}$ \label{eq:finishconstrain}
 \end{numcases}
 
