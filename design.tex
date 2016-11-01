@@ -137,18 +137,18 @@ A provider makes decision at time $\tau\ge r_i$ to respond  to task if the belon
 % \subsubsection{Demander select from resource candidates}
 % \label{subs:select_resource_candidates}
 A demander makes decision about resource selection from $\mathcal{R}_{ij,\tau}$ when $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij}$. Without loss of generality, we suppose at time $\tau \ge r_i$, the decision-making of demander can be described as follows,
-\begin{equation}
-\max_{\forall \bm{k}}\left( \delta_{\bm{k}},
-R\left( F\left( mr_{\bm{k}} \right) \right), \abs{\mathcal{L}_{\bm{k},\tau} }
-\right) \label{eq:selectresaim}
-\end{equation}
-\begin{numcases}{\text{s.t.}}
-q_{\alpha,ij} \le C_{k_{\alpha},\tau} & $\alpha\in\mathcal{A}_{ij}$\label{eq:rescaplimit}\\
-\mathcal{R}_{\alpha,\tau} = \left\{ mr| mr\in\mathcal{R}_{ij,\tau}, P(mr) = \alpha \right\} & $\alpha\in\mathcal{A}_{ij}$\label{eq:restypeabstract}\\
-\mathcal{R}_{ij,\tau} = \bigcup_{\alpha\in\mathcal{A}_{ij}}\mathcal{R}_{\alpha,\tau} & \label{eq:nrc}\\
-\bm{k} = \left[k_1,\dots ,k_\alpha,\dots,k_{\abs{\mathcal{A}_{ij}}} \right] & \label{eq:decisionvectork}\\
-k_\alpha \in \left\{ k | mr_k \in \mathcal{R}_{\alpha,\tau} \right\} &$\alpha\in\mathcal{A}_{ij}$ \label{eq:decisionvark}
-\end{numcases}
+% \begin{equation}
+% \max_{\forall \bm{k}}\left( \delta_{\bm{k}},
+% R\left( F\left( mr_{\bm{k}} \right) \right), \abs{\mathcal{L}_{\bm{k},\tau} }
+% \right) \label{eq:selectresaim}
+% \end{equation}
+% \begin{numcases}{\text{s.t.}}
+% q_{\alpha,ij} \le C_{k_{\alpha},\tau} & $\alpha\in\mathcal{A}_{ij}$\label{eq:rescaplimit}\\
+% \mathcal{R}_{\alpha,\tau} = \left\{ mr| mr\in\mathcal{R}_{ij,\tau}, P(mr) = \alpha \right\} & $\alpha\in\mathcal{A}_{ij}$\label{eq:restypeabstract}\\
+% \mathcal{R}_{ij,\tau} = \bigcup_{\alpha\in\mathcal{A}_{ij}}\mathcal{R}_{\alpha,\tau} & \label{eq:nrc}\\
+% \bm{k} = \left[k_1,\dots ,k_\alpha,\dots,k_{\abs{\mathcal{A}_{ij}}} \right] & \label{eq:decisionvectork}\\
+% k_\alpha \in \left\{ k | mr_k \in \mathcal{R}_{\alpha,\tau} \right\} &$\alpha\in\mathcal{A}_{ij}$ \label{eq:decisionvark}
+% \end{numcases}
 
 The multi-objective in \autoref{eq:selectresaim} aims at high quality, high resource owner rank and low waiting queue length. \autoref{eq:rescaplimit} ensures that resource capacity is capable to process the task-part, \autoref{eq:restypeabstract}--\ref{eq:nrc} restrict the resource candidates' type in the task configuration, \autoref{eq:decisionvectork}--\ref{eq:decisionvark} describe decision variables, the demander should make decision to select resources in each type.
 
@@ -204,15 +204,15 @@ Apart from the condition that $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\ma
 % \end{subnumcases}
 Demander of $t_{ij}$ will select $ms_l$ when $\mathcal{B}_{ij,\tau}\subset\mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}>0$ and this implies that the resource candidates are not enough and there exists service candidates.
 
-\begin{equation}
-\max_{\forall l}\left( \Delta_{l}, R\left(F\left(ms_{l}\right)\right), \abs{\mathcal{L}_{l,\tau}}\right)\label{eq:selectserviceaim}
-\end{equation}
-\begin{numcases}{\text{s.t.}}
-\Delta_l \sim \mathcal{N} \left(\mu_l,\sigma_l^2\right) & \label{eq:servicecomplydist}\\
-\mu_l = mean\left( \bm{mr}_l , \bm{q}_l \right) & \\
-\sigma_l = std\left( \bm{mr}_l , \bm{q}_l \right) & \label{eq:servicecomplydistend}\\
-l \in \left\{l' |  ms_{l'} \in \mathcal{S}_{ij,\tau} \right\}  & \label{eq:decisionvariablel}
-\end{numcases}
+% \begin{equation}
+% \max_{\forall l}\left( \Delta_{l}, R\left(F\left(ms_{l}\right)\right), \abs{\mathcal{L}_{l,\tau}}\right)\label{eq:selectserviceaim}
+% \end{equation}
+% \begin{numcases}{\text{s.t.}}
+% \Delta_l \sim \mathcal{N} \left(\mu_l,\sigma_l^2\right) & \label{eq:servicecomplydist}\\
+% \mu_l = mean\left( \bm{mr}_l , \bm{q}_l \right) & \\
+% \sigma_l = std\left( \bm{mr}_l , \bm{q}_l \right) & \label{eq:servicecomplydistend}\\
+% l \in \left\{l' |  ms_{l'} \in \mathcal{S}_{ij,\tau} \right\}  & \label{eq:decisionvariablel}
+% \end{numcases}
 Similar to \autoref{eq:selectresaim}, \autoref{eq:selectserviceaim} is also a multi-objective function that aims at high quality, high service owner rank and low job queue length. \autoref{eq:servicecomplydist}--\ref{eq:servicecomplydistend} explain the service quality distribution parameters, \autoref{eq:decisionvariablel} is the decision variable to select one service in $\mathcal{S}_{ij,\tau}$.
 
 In more general condition where $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}>0$, demander of $t_{ij}$ will select ether a bunch of resources with cooperation or one single service.
@@ -232,11 +232,11 @@ R\left( F\left( mr_{\bm{k}} \right) \right), \abs{\mathcal{L}_{\bm{k},\tau} }
 \right)\right) & \label{eq:optk}\\
 Rank_{\bm{k}^*} = \min_{k\in\bm{k}^*} \left\{ R\left( F\left( mr_k \right) \right) \right\} & \label{eq:temprank}\\
 \mathcal{L}_{\bm{k}^*} = \max_{k\in\bm{k}^*}\left\{ \abs{\mathcal{L}_{k,\tau}} \right\} & \label{eq:templength}\\
-\Delta_{\bm{k}^*} \sim \mathcal{N} \left(\mu_{\bm{k}^*},\sigma_{\bm{k}^*}^2\right) & \label{eq:tempqualitystart}\\
-\mu_{\bm{k}^*} = mean\left( \bm{mr}_{\bm{k}^*} , \bm{q}_{\bm{k}^*} \right) & \\
-\sigma_{\bm{k}^*} = std\left( \bm{mr}_{\bm{k}^*} , \bm{q}_{\bm{k}^*} \right) & \\
-\bm{mr}_{\bm{k}^*} = \bigcup_{k\in\bm{k}^*}mr_k  &\\
-\bm{q}_{\bm{k}^*}  =\bigcup_{\alpha\in\mathcal{A}_{ij}}q_{\alpha,ij} & \label{eq:tempqualityend}\\
+% \Delta_{\bm{k}^*} \sim \mathcal{N} \left(\mu_{\bm{k}^*},\sigma_{\bm{k}^*}^2\right) & \label{eq:tempqualitystart}\\
+% \mu_{\bm{k}^*} = mean\left( \bm{mr}_{\bm{k}^*} , \bm{q}_{\bm{k}^*} \right) & \\
+% \sigma_{\bm{k}^*} = std\left( \bm{mr}_{\bm{k}^*} , \bm{q}_{\bm{k}^*} \right) & \\
+% \bm{mr}_{\bm{k}^*} = \bigcup_{k\in\bm{k}^*}mr_k  &\\
+% \bm{q}_{\bm{k}^*}  =\bigcup_{\alpha\in\mathcal{A}_{ij}}q_{\alpha,ij} & \label{eq:tempqualityend}\\
 % \Delta_l \sim \mathcal{N} \left(\mu_l,\sigma_l^2\right) & \\
 % \mu_l = mean\left( \bm{mr}_l , \bm{q}_l \right) & \\
 % \sigma_l = std\left( \bm{mr}_l , \bm{q}_l \right) & \\
@@ -349,7 +349,7 @@ Since the task may come from different orders, we here use the single uniform de
 \begin{figure}[htbp]
 	\centering
 	\large
-	\resizebox{.8\textwidth}{!}{\input{figures/scheduleChart}}
+	\resizebox{.95\textwidth}{!}{\input{figures/scheduleChart}}
 	\caption{Simple instance schedule chart with 4 resources in 3 different types}
 	\label{fig:scheduleChart}
 \end{figure}
