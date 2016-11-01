@@ -66,10 +66,10 @@ In this mode, individual executes activities that interact with others depicted 
     $\mathcal{A}_l$ & Resource type subset required by $sc_l$ or provided by $ms_l$ \\ %, $\mathcal{A}_l\subset\mathcal{A}$\\
     $ms_l$ & Service that generated after the finish of $sc_l$\\
     $\Delta_l$ & Product quality produced via service $ms_l$\\
-    $\bm{mr}_l$ & Resource member set of $ms_l$\\
-    $\bm{q}_l$ & Resource member's capacity contribution set of $ms_l$\\
+    % $\bm{mr}_l$ & Resource member set of $ms_l$\\
+    % $\bm{q}_l$ & Resource member's capacity contribution set of $ms_l$\\
     $q_{\alpha,l}$ & Need resource capacity of $sc_l$ with type $\alpha$,$\alpha\in\mathcal{A}_{l}$\\
-    $\bm{\alpha}_l$ & Subset of $\bm{q}_l$ that consists of all the capacities of type $\alpha$ resources in $\bm{mr}_l$\\
+    % $\bm{\alpha}_l$ & Subset of $\bm{q}_l$ that consists of all the capacities of type $\alpha$ resources in $\bm{mr}_l$\\
     $\mathcal{L}_{l,\tau}$ & The list of job queue of $ms_l$ at $\tau$ with sequence\\
     $\mathcal{G}_{l,\tau}$ & The set of active job of $ms_l$ at $\tau$ \\
     $\mathcal{R}_{ij,\tau}$ & Resource candidates set for $t_{ij}$ to select\\
@@ -80,7 +80,7 @@ In this mode, individual executes activities that interact with others depicted 
     $R(\cdot)$ & Rank inquire function about provider\\
     $F(\cdot)$ & Owner inquire function about resource or service\\
     $P(\cdot)$ & Type inquire function about resource type\\
-    $\bm{x}$ & Bold font of the variable($x$) means the temp set of a bunch of these variables\\
+    % $\bm{x}$ & Bold font of the variable($x$) means the temp set of a bunch of these variables\\
     \hline
 \end{tabularx}
 \end{table}
@@ -136,7 +136,8 @@ A provider makes decision at time $\tau\ge r_i$ to respond  to task if the belon
 
 % \subsubsection{Demander select from resource candidates}
 % \label{subs:select_resource_candidates}
-A demander makes decision about resource selection from $\mathcal{R}_{ij,\tau}$ when $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij}$. Without loss of generality, we suppose at time $\tau \ge r_i$, the decision-making of demander can be described as follows,
+A demander makes decision about resource selection from $\mathcal{R}_{ij,\tau}$ when $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij}$. Without loss of generality, we suppose at time $\tau \ge r_i$,
+the decision-making of demander can be formulated as the special case of general model, which aims at multi-objective function as \autoref{eq:optk}.
 % \begin{equation}
 % \max_{\forall \bm{k}}\left( \delta_{\bm{k}},
 % R\left( F\left( mr_{\bm{k}} \right) \right), \abs{\mathcal{L}_{\bm{k},\tau} }
@@ -150,7 +151,6 @@ A demander makes decision about resource selection from $\mathcal{R}_{ij,\tau}$ 
 % k_\alpha \in \left\{ k | mr_k \in \mathcal{R}_{\alpha,\tau} \right\} &$\alpha\in\mathcal{A}_{ij}$ \label{eq:decisionvark}
 % \end{numcases}
 
-The multi-objective in \autoref{eq:selectresaim} aims at high quality, high resource owner rank and low waiting queue length. \autoref{eq:rescaplimit} ensures that resource capacity is capable to process the task-part, \autoref{eq:restypeabstract}--\ref{eq:nrc} restrict the resource candidates' type in the task configuration, \autoref{eq:decisionvectork}--\ref{eq:decisionvark} describe decision variables, the demander should make decision to select resources in each type.
 
 % \subsubsection{Provider assign task-part in selected resource} % (fold)
 % \label{subs:assign_in_select_resource}
@@ -179,7 +179,7 @@ Incubation mode is one extension for the original mode, the purpose of this mode
     \caption{Service incubation from $job_7$ in \autoref{tab:simplejobconfiguration}}
     \label{fig:servicefigure}
 \end{figure}
-After the finish of task-part, provider record the resource configuration as task frequency, when the frequency value reached some point, provider will decide to incubate such a task-specified service for the future performance. As the example in \autoref{fig:servicefigure}, if task $job_1$ in \autoref{tab:simplejobconfiguration} was finished, the first thing of incubation for the resource provider is to publish a job named \textbf{service-call} ($job_7$), which is similar to task except for the capacity dominance feature , which means capacity of selected resource will not be restored after the processing. The process result of one service-call is manufacturing \textbf{service} as shown in \autoref{fig:servicefigure}, which is actually a set of resources that may come from selected providers in the system, it's possible for more than one resources in a same type to make contributions to the incubation of one service. No more cooperation and assembly procedure are one pro of service, and product quality will no longer be restricted to the worst quality of resources for the complementary effect, while one con of service include that service can only perform specified task.
+After the finish of task-part, provider record the resource configuration as task frequency, when the frequency value reached some point, provider will decide to incubate such a task-specified service for the future performance. As the example in \autoref{fig:servicefigure}, if task $job_1$ in \autoref{tab:simplejobconfiguration} was finished, the first thing of incubation for the resource provider is to publish a job named \textbf{service-call} ($job_7$), which is similar to task except for the capacity dominance feature, which means capacity of selected resource will not be restored after the processing. The process result of one service-call is manufacturing \textbf{service} as shown in \autoref{fig:servicefigure}, which is actually a set of resources that may come from selected providers in the system, it's possible for more than one resources in a same type to make contributions to the incubation of one service. No more cooperation and assembly procedure are one pro of service, and product quality will no longer be restricted to the worst quality of resources for the complementary effect, while one con of service include that service can only perform specified task.
 Now we can generalize task and service-call into \textbf{job}, resource and service into \textbf{machine} for the follow discuss.
 
 % \subsubsection{Provider respond to type-matched job} % (fold)
@@ -203,6 +203,7 @@ Apart from the condition that $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\ma
 % C_{k,\tau} := 0 & otherwise \label{eq:cap0}
 % \end{subnumcases}
 Demander of $t_{ij}$ will select $ms_l$ when $\mathcal{B}_{ij,\tau}\subset\mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}>0$ and this implies that the resource candidates are not enough and there exists service candidates.
+This decision-making of demander can also be formulated as the special case of general model, which aims at multi-objective function as \autoref{eq:optl}.
 
 % \begin{equation}
 % \max_{\forall l}\left( \Delta_{l}, R\left(F\left(ms_{l}\right)\right), \abs{\mathcal{L}_{l,\tau}}\right)\label{eq:selectserviceaim}
@@ -213,7 +214,6 @@ Demander of $t_{ij}$ will select $ms_l$ when $\mathcal{B}_{ij,\tau}\subset\mathc
 % \sigma_l = std\left( \bm{mr}_l , \bm{q}_l \right) & \label{eq:servicecomplydistend}\\
 % l \in \left\{l' |  ms_{l'} \in \mathcal{S}_{ij,\tau} \right\}  & \label{eq:decisionvariablel}
 % \end{numcases}
-Similar to \autoref{eq:selectresaim}, \autoref{eq:selectserviceaim} is also a multi-objective function that aims at high quality, high service owner rank and low job queue length. \autoref{eq:servicecomplydist}--\ref{eq:servicecomplydistend} explain the service quality distribution parameters, \autoref{eq:decisionvariablel} is the decision variable to select one service in $\mathcal{S}_{ij,\tau}$.
 
 In more general condition where $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}>0$, demander of $t_{ij}$ will select ether a bunch of resources with cooperation or one single service.
 \begin{equation}
@@ -247,7 +247,14 @@ Rank_{l^*} = R\left( F\left( ms_{l^*} \right) \right) & \\
 m \in \left\{ l^*,\bm{k}^* \right\} \label{eq:newdicisionvariable}
 \end{numcases}
 
-Similar to other situations, \autoref{eq:combaim} is a multi-objective function that aims at high quality, high rank and low waiting queue length. \autoref{eq:optk} and \autoref{eq:optl} are the optimal decision in independent conditions, \autoref{eq:temprank}, \autoref{eq:templength} and \autoref{eq:tempqualitystart} are the virtual rank value, virtual queue length and virtual quality value that are set in the worst cases.\autoref{eq:tempqualitystart}--\ref{eq:tempqualityend} are the virtual quality value calculation procedure. \autoref{eq:newdicisionvariable} is the decision to choose one of these two partial optimal decision.
+% The multi-objective in \autoref{eq:selectresaim} aims at high quality, high resource owner rank and low waiting queue length. \autoref{eq:rescaplimit} ensures that resource capacity is capable to process the task-part, \autoref{eq:restypeabstract}--\ref{eq:nrc} restrict the resource candidates' type in the task configuration, \autoref{eq:decisionvectork}--\ref{eq:decisionvark} describe decision variables, the demander should make decision to select resources in each type.
+
+% Similar to \autoref{eq:selectresaim}, \autoref{eq:selectserviceaim} is also a multi-objective function that aims at high quality, high service owner rank and low job queue length. \autoref{eq:servicecomplydist}--\ref{eq:servicecomplydistend} explain the service quality distribution parameters, \autoref{eq:decisionvariablel} is the decision variable to select one service in $\mathcal{S}_{ij,\tau}$.
+
+The decision variable $\bm{k}$ is a vector that wraps $k_\alpha$ up ($\alpha\in\mathcal{A}_{ij}$). 
+\autoref{eq:combaim} is a multi-objective function that aims at high quality, high rank and low waiting queue length. \autoref{eq:optk} and \autoref{eq:optl} are the optimal decision in independent conditions. \autoref{eq:temprank} determines the virtual rank value while \autoref{eq:templength} determines virtual queue length that are set in the worst cases.
+% \autoref{eq:tempqualitystart}--\ref{eq:tempqualityend} are the virtual quality value calculation procedure.
+\autoref{eq:newdicisionvariable} is the decision to choose one of these two partial optimal decision. The determination of $\Delta_{\bm{k}^*}$ is tedious and insignificant so that we are not going to show the details. 
 
 % subsubsection selection_in_resource_candidates_for_service_call (end)
 
@@ -349,12 +356,12 @@ Since the task may come from different orders, we here use the single uniform de
 \begin{figure}[htbp]
 	\centering
 	\large
-	\resizebox{.95\textwidth}{!}{\input{figures/scheduleChart}}
+	\resizebox{.9\textwidth}{!}{\input{figures/scheduleChart}}
 	\caption{Simple instance schedule chart with 4 resources in 3 different types}
 	\label{fig:scheduleChart}
 \end{figure}
 
-In every single resource, a schedule is given by a vector of ideal finish times $\bm{f}^{(s)} = \left[f_1^{(s)}, f_2^{(s)},\dots,f^{(s)}_n\right]$,$n=\abs{\mathcal{L}^{(s)}_{k,\tau_0}}$. Even though provider will not schedule $job_\theta\in\mathcal{H}_{k,\tau_0}$, the finish time $f_\theta$ of these job cannot be determined because the waiting in the cooperation. We ignore the type subscript $\alpha$ because all the job assigned here are already type-matched. The schedule model is:
+In every single resource, a schedule is given by a vector of ideal finish times $\bm{f}^{(s)}$ wraps $f^{(s)}_\theta$ up ($job_\theta\in\mathcal{L}^{(s)}_{k,\tau_0}$). Even though provider will not schedule $job_\theta\in\mathcal{H}_{k,\tau_0}$, the finish time $f_\theta$ of these job cannot be determined because the waiting in the cooperation. We ignore the type subscript $\alpha$ because all the job assigned here are already type-matched. The schedule model is:
 
 \begin{equation}
 \min_{\forall\bm{f}^{(s)}}\left( \max_{\theta\in L^{(s)}}\left\{ f_j^{(s)} - r_\theta - p_\theta \right\} \right) \label{eq:scheduleaim}
