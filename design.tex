@@ -3,12 +3,12 @@
 \label{sec:design_of_the_ecosystem}
 % \subsection{Preliminaries} % (fold)
 % \label{sub:preliminaries}
-Before introducing the design of the ecosystem, we specify some basic definitions:
+Before introduce the design of the ecosystem, we specify some basic definitions first:
 \begin{compactitem}
-	\item Provider: the individual who provides resource;
+	\item Provider: the entity that provides resource;
 	\item Resource: the basic task process object with renewable capacity and unique type;
-	\item Demander: the individual who publishes orders that contain bunch of tasks;
-	\item Order: the task bundle like a project;
+	\item Demander: the entity that publishes orders that contain bunch of tasks;
+	\item Order: the task bundle as a project;
 	\item Task: the basic object that needs to be processed with resource-type cooperation;
 	\item Task-part: virtual resource-type segmentation unit of one task as squares in \autoref{fig:scheduleChart};
 	\item Product: the perform result of a task;
@@ -16,7 +16,7 @@ Before introducing the design of the ecosystem, we specify some basic definition
     \item Job: the generalization of task and service-call;
     \item Service: the perform result of a service-call, a group of tasks;
     \item Machine: the generalization of resource and service;
-	\item Platform: the place where individuals interact with others;
+	\item Platform: the place where entities interact with each others;
     \item Resource-type cooperation: resource in specific type to process a job simultaneously;
     \item Resource-capacity cooperation: part of resources in same type to process a service-call simultaneously as in \autoref{fig:servicefigure}.
 \end{compactitem}
@@ -26,9 +26,8 @@ Platform is the cradle of the ecosystem and the incubator for manufacturing serv
 \item application providers and
 \item physical resource providers.
 \end{inparaenum}
-Inspired by this model, we design the original operation mode shown in \autoref{fig:originmode} as the basis.
-In original mode, entities interact with each others is depicted by object flow (full lines) and information flow (dashed lines). A single order can be described by an activity-on-node (AON) network where the node represent the task and the arc the precedence relation. Each task needs to be performed with resource-type cooperation as listed in \autoref{tab:simplejobconfiguration}, and the selected resource cannot start to process the task until all of other selected resources are ready, what each resource actually processes is the task-part and we call the task-part is \textbf{active} when being processed, \textbf{semi-active} when selected resource is waiting as shadow in \autoref{fig:scheduleChart}, \textbf{inactive} when this part is just assigned to the job queue. Product, the performance result after the processing and assembly procedure, will be delivered to demander, then demander change the rank value of the selected resource owners according to the review of the product. 
-
+Inspired by this model, we design the original operation mode shown in \autoref{fig:originmode} as the basis, interaction among entities is depicted by object flow (full lines) and information flow (dashed lines).
+A single order can be described by an activity-on-node (AON) network where the node represent the task and the arc the precedence relation of task. Each task needs to be performed with types of resources as listed in \autoref{tab:simplejobconfiguration}, and all the selected resource need to be start the processing simultaneously, what each resource actually processes is the task-part and we call the task-part is \textbf{active} when being processed, \textbf{semi-active} when selected resource is waiting as shadow in \autoref{fig:scheduleChart}, \textbf{inactive} when this part is just assigned to the job queue. Product, the performance result after the processing and assembly procedure, will be delivered to demander, then demander change the rank value of the owner according to the review of the product. 
 
 \subsection{Nomenclature and assumptions} % (fold)
 \label{ssub:assumptions_nomenclature}
@@ -38,33 +37,33 @@ In original mode, entities interact with each others is depicted by object flow 
     \hline
     \multicolumn{2}{|l|}{\multirow{2}[0]{*}{\textbf{Nomenclature}}} \\
     \multicolumn{2}{|l|}{} \\
-    $\mathcal{T}_i$ & Order that come with demander, who can be quired by $F(\cdot)$ \\
-    $t_{ij}$ & Task belongs to $\mathcal{T}_i$, $t_{ij}\in\mathcal{T}_i$ \\
+    $\mathcal{T}_i$ & Order that comes with demander, it can be quired by $F(\cdot)$ \\
+    $t_{ij}$ & Task that belongs to $\mathcal{T}_i$, $t_{ij}\in\mathcal{T}_i$ \\
     $p_{ij}$ & Process duration of $t_{ij}$\\
-    $\gamma_{ij}$ & Expect quality of product after the finish of $t_{ij}$\\
+    $\gamma_{ij}$ & Expect quality of product as the process result of $t_{ij}$\\
     $r_i$ & Release time of all $t_{ij}\in\mathcal{T}_i$\\
     $f_{ij}$ & Actual finish time of $t_{ij}$ \\
     % $f_{i}$ & Finish time of $\mathcal{T}_i$\\
     $\mathcal{P}_{ij}$ & The set of predecessor of $t_{ij}$, determined by order and some assignment procedure\\
-    $mr_k$ & Resource that come with provider, who can be quired by $F(\cdot)$ \\
-    $\delta_k$ & Task-part quality produced via resource $mr_k$ \\
+    $mr_k$ & Resource that comes with provider, it can be quired by $F(\cdot)$ \\
+    $\delta_k$ & Quality of task-part that processed via resource $mr_k$ \\
     $C_{k,\tau}$ & Capacity of $mr_k$ at time $\tau$\\
     $A_{k,\tau}$ & Available capacity of $mr_k$ at time $\tau$\\
     $\mathcal{L}_{k,\tau}$ & The list of inactive job queue of $mr_k$ at $\tau$ with sequence\\
     $\mathcal{H}_{k,\tau}$ & The list of semi-active job of $mr_k$ at $\tau$ \\
     $\mathcal{G}_{k,\tau}$ & The set of active job of $mr_k$ at $\tau$ \\
     % $job_\theta$ & Task that need to be scheduled at $\tau_0$,  $\theta = 1,...,\abs{\mathcal{L}^{(s)}_{k,\tau_0}\cup\mathcal{G}^{(s)}_{k,\tau_0}}$\\
-    $f^{(s)}_\theta$ & Ideal finish time of $job_\theta$ in $\mathcal{L}^{(s)}_{k,\tau_0}$ for schedule at $\tau_0$ . \\
+    $f^{(s)}_\theta$ & Theoretical finish time of $job_\theta$ in $\mathcal{L}^{(s)}_{k,\tau_0}$ for schedule at $\tau_0$ . \\
     $re_j$ & Remaining process time of $t_j$ in $\mathcal{G}_{k,\tau_0}$ for schedule at $\tau_0$. \\
     % $\mathcal{A}$ & Resource type set \\
-    $\mathcal{A}_{ij}$ & Resource type subset required by $t_{ij}$\\ %, $\mathcal{A}_{ij}\subset\mathcal{A}$\\
+    $\mathcal{A}_{ij}$ & Subset of resource type required by $t_{ij}$\\ %, $\mathcal{A}_{ij}\subset\mathcal{A}$\\
     $q_{\alpha,ij}$ & Required amount of resource with type $\alpha$ by $t_{ij}$, $\alpha\in\mathcal{A}_{ij}$\\
     $sc_l$ & Service-call generated by provider\\
     $p_l$ & Process duration of $sc_l$\\
     $r_l$ & Release time of $sc_l$\\
-    $\mathcal{P}_{l}$ & The set of predecessor of $sc_{l}$\\
-    $\mathcal{A}_l$ & Resource type subset required by $sc_l$ or provided by $ms_l$ \\ %, $\mathcal{A}_l\subset\mathcal{A}$\\
-    $ms_l$ & Service that generated after the finish of $sc_l$\\
+    $\mathcal{P}_{l}$ & Predecessor set of $sc_{l}$\\
+    $\mathcal{A}_l$ & Subset of resource type required by $sc_l$ or provided by $ms_l$ \\ %, $\mathcal{A}_l\subset\mathcal{A}$\\
+    $ms_l$ & Service that incubated after the finish of $sc_l$\\
     $\Delta_l$ & Product quality produced via service $ms_l$\\
     % $\bm{mr}_l$ & Resource member set of $ms_l$\\
     % $\bm{q}_l$ & Resource member's capacity contribution set of $ms_l$\\
@@ -72,11 +71,11 @@ In original mode, entities interact with each others is depicted by object flow 
     % $\bm{\alpha}_l$ & Subset of $\bm{q}_l$ that consists of all the capacities of type $\alpha$ resources in $\bm{mr}_l$\\
     $\mathcal{L}_{l,\tau}$ & The list of job queue of $ms_l$ at $\tau$ with sequence\\
     $\mathcal{G}_{l,\tau}$ & The set of active job of $ms_l$ at $\tau$ \\
-    $\mathcal{R}_{ij,\tau}$ & Resource candidates set for $t_{ij}$ to select\\
-    $\mathcal{B}_{ij,\tau}$ & Resource candidate types set for $t_{ij}$\\
-    $\mathcal{S}_{ij,\tau}$ & Service candidates set for $t_{ij}$ to select\\
-    $\mathcal{R}_{l,\tau}$ & Resource candidates set for $sc_l$ to select\\
-    $\mathcal{B}_{l,\tau}$ & Resource candidate types set for $sc_l$\\
+    $\mathcal{R}_{ij,\tau}$ & Resource candidate set for $t_{ij}$ to select\\
+    $\mathcal{B}_{ij,\tau}$ & Resource candidate type set for $t_{ij}$\\
+    $\mathcal{S}_{ij,\tau}$ & Service candidate set for $t_{ij}$ to select\\
+    $\mathcal{R}_{l,\tau}$ & Resource candidate set for $sc_l$ to select\\
+    $\mathcal{B}_{l,\tau}$ & Resource candidate type set for $sc_l$\\
     $R(\cdot)$ & Rank inquire function about provider\\
     $F(\cdot)$ & Owner inquire function about resource or service\\
     $P(\cdot)$ & Type inquire function about resource type\\
@@ -84,38 +83,35 @@ In original mode, entities interact with each others is depicted by object flow 
     \hline
 \end{tabularx}
 \end{table}
-Since demander and provider continuous arrives, there is no upper bound of the subscripts
+Since demander and provider arrives successively, there is no upper bound of the subscripts
 $(i,j,k,l,\alpha)$.
-To scope our research, we make some assumptions as follows for the original mode, while in other extensions, some of the assumptions will be modified.
+To scope our research, we make some assumptions as follows for the original mode, some of them will be modified in the extension modes.
 \begin{compactitem}
-\item Operate of the ecosystem starts from the very beginning that no demander or provider is registered;
+\item Operation of the ecosystem starts from the very beginning that no demander or provider is registered;
 \item Each single task should be assembled by its task-parts, and these parts should be processed simultaneously;
 \item The quality of product is determined by the worst quality of the selected resource;
-\item Resource are renewable that the available capacity will be restored when the processing procedure finished;
-\item Resource quality comply normal distribution with given mean and standard deviation by provider when registered;
+\item Resource are renewable that the available capacity will be restored after the processing procedure;
+% \item Resource quality comply normal distribution with given mean and standard deviation by provider when registered;
 \item Cooperation and processing procedure cannot be interrupted;
-\item Provider can only schedule task-parts in inactive status.
+\item Provider can only schedule task-parts that in inactive status.
 \end{compactitem}
-
-
 
 % \vspace{-2.5em}
 % subsubsection assumptions_nomenclature (end)
 \subsection{Master plan for original and extended modes} % (fold)
 \label{ssub:master_plam}
-(describe these models more clearly, understand it more easily)
 
-In original mode, operating of ecosystem begins with void, then there comes the registration of provider and demander. A single \textbf{order} consists of a set $\mathcal{T}_i = \left\{ t_{i1},t_{i2},\dots\right\}$ of tasks, the tasks are interrelated by kinds of constraints. First, precedence constraints force \textbf{task} $t_{ij}$ not to be started before all its immediate predecessors $\mathcal{P}_{ij}$. Second, performing the tasks requires resources with limited capacities. Third, resources cooperation requires all the task-parts in active status.
-A single \textbf{resource}($mr_k$) belongs to only one type. While being processed, task $t_{ij}$ requires $q_{\alpha,ij}$ units capacity of the resources with each type $\alpha\in\mathcal{A}_{ij}$ during every period of its non-preemptable duration $p_{ij}$. Each resource $mr_k$ has a limited capacity $C_{k,\tau}$ and available capacity $A_{k,\tau}$ at any point in time $\tau$. This plan is much like the settings in RCPSP\cite{Kolisch1999} except that the task here need to be processed with resource cooperation.
+In original mode, ecosystem starts with void, then there comes the registration of provider and demander. A single \textbf{order} consists of a set $\mathcal{T}_i = \left\{ t_{i1},t_{i2},\dots\right\}$ of tasks, which are interrelated by kinds of constraints. First, precedence constraints force \textbf{task} $t_{ij}$ not to be started before all its immediate predecessors $\mathcal{P}_{ij}$. Second, performing the tasks requires resources with limited capacities. Third, resource-type cooperation requires all the task-parts in active status.
+A single \textbf{resource}($mr_k$) belongs to only one type. While being processed, task $t_{ij}$ requires $q_{\alpha,ij}$ units capacity of the resources with each type $\alpha\in\mathcal{A}_{ij}$ during every period of its non-preemptable duration $p_{ij}$. Each resource $mr_k$ has a limited capacity $C_{k,\tau}$ and available capacity $A_{k,\tau}$ at any point in time $\tau$. This plan is much like the settings in RCPSP\cite{Kolisch1999} except that the task here need to be processed with resource-type cooperation.
 
-The life cycle management of resource contains its vicissitude, which is the design basis of proposed extended modes \autoref{fig:modes}.
+The life cycle management of resource contains its vicissitude, which is the basis of the following extended modes \autoref{fig:modes}.
 \begin{figure}[htbp]
     \centering
     \resizebox{\textwidth}{!}{\input{figures/modes}}
     \caption{Three Extended modes}
     \label{fig:modes}
 \end{figure}
-Incubation and outsourcing mode are options for provider, while metabolism mode is option for platform operator, and the outsourcing mode can only be applied if incubation mode is applied because only the task that processed by service can be outsourced.
+Incubation mode and outsourcing mode are options for provider, while metabolism mode is option for platform operator. Outsourcing mode can only be applied if incubation mode is applied because only the task that processed by service can be outsourced.
 
 % subsubsection master_plan (end)
 % subsection preliminaries (end)
@@ -132,7 +128,7 @@ Incubation and outsourcing mode are options for provider, while metabolism mode 
     \label{fig:originmode}
 \end{figure}
 
-A provider makes decision at time $\tau\ge r_i$ to respond  to task if the belonging resource $mr_k$ was type-matched with $t_{ij}$ ($P(mr_k)\in\mathcal{A}_{ij}$). If $A_{k,\tau} \ge q_{\alpha,ij}$, the provider will respond to the task need, demander of $t_{ij}$ will add $mr_k$ to $\mathcal{R}_{ij,\tau}$ and $P(mr_k)$ to $\mathcal{B}_{ij,\tau}$. If $mr_k$ is finally selected, available capacity of $mr_k$ will change to $A_{k,\tau} := A_{k,\tau} - q_{\alpha,ij}$. This available capacity will be restored after the finish of $t_{ij}$ part.
+A provider makes decision at time $\tau\ge r_i$ to respond to task if the belonging resource $mr_k$ is type-matched with $t_{ij}$ ($P(mr_k)\in\mathcal{A}_{ij}$). If $A_{k,\tau} \ge q_{\alpha,ij}$, the provider will respond to the task, demander of $t_{ij}$ will add $mr_k$ to $\mathcal{R}_{ij,\tau}$ and $P(mr_k)$ to $\mathcal{B}_{ij,\tau}$. If $mr_k$ is finally selected, available capacity of $mr_k$ will change to $A_{k,\tau} := A_{k,\tau} - q_{\alpha,ij}$. This available capacity will be restored after the processing of $t_{ij}$ part.
 
 % \subsubsection{Demander select from resource candidates}
 % \label{subs:select_resource_candidates}
@@ -154,7 +150,7 @@ the decision-making of demander can be formulated as the special case of general
 
 % \subsubsection{Provider assign task-part in selected resource} % (fold)
 % \label{subs:assign_in_select_resource}
-If $mr_k$ was selected by the demander of $t_{ij}$, then the provider will add $t_{ij}$ part to $\mathcal{H}_{k,\tau}$ if $\abs{\mathcal{L}_{k,\tau}}=0,A_{k,\tau}\ge q_{\alpha,ij}$, or to  $\mathcal{L}_{k,\tau}$ otherwise.
+If $mr_k$ is selected by the demander of $t_{ij}$, then the provider will add $t_{ij}$ part to $\mathcal{H}_{k,\tau}$ if $\abs{\mathcal{L}_{k,\tau}}=0,A_{k,\tau}\ge q_{\alpha,ij}$, or to  $\mathcal{L}_{k,\tau}$ otherwise.
 % \begin{subnumcases}{}
 % \mathcal{H}_{k,\tau} := \mathcal{H}_{k,\tau} \cup \{t_{ij}\} & if $\abs{\mathcal{L}_{k,\tau}}=0,A_{k,\tau}\ge q_{\alpha,ij}$ \label{eq:addtobuffer}\\
 % \mathcal{L}_{k,\tau} := \mathcal{L}_{k,\tau} \cup \{t_{ij}\} & otherwise
@@ -165,7 +161,7 @@ If all the part of $t_{ij}$ are in semi-active status, then these providers will
 
 \subsection{Incubation mode} % (fold)
 \label{sub:incubation_mode}
-Incubation mode is one extension for the original mode, the purpose of this mode is to remove the cooperation and assembly procedure in advance by gathering types of resources with certain quota into manufacturing service, which will be incubated as shown in incubation part of \autoref{fig:modes}.
+Incubation mode is one extension for the original mode, which describes the generating process of  manufacturing service, the purpose of this mode is to remove the cooperation and assembly procedure among resources in advance by wrapping types of resources with certain quota up. A service is incubated as shown in incubation part of \autoref{fig:modes}.
 % \begin{figure}[htbp]
 %     \centering
 %     \resizebox{0.7\textwidth}{!}{\input{figures/service-incubate}}
@@ -179,7 +175,7 @@ Incubation mode is one extension for the original mode, the purpose of this mode
     \caption{Service incubation from $job_7$ in \autoref{tab:simplejobconfiguration}}
     \label{fig:servicefigure}
 \end{figure}
-After the finish of task-part, provider record the resource configuration as task frequency, when the frequency value reached some point, provider will decide to incubate such a task-specified service for the future performance. As the example in \autoref{fig:servicefigure}, if task $job_1$ in \autoref{tab:simplejobconfiguration} was finished, the first thing of incubation for the resource provider is to publish a job named \textbf{service-call} ($job_7$), which is similar to task except for the capacity dominance feature, which means capacity of selected resource will not be restored after the processing. The process result of one service-call is manufacturing \textbf{service} as shown in \autoref{fig:servicefigure}, which is actually a set of resources that may come from selected providers in the system, it's possible for more than one resources in a same type to make contributions to the incubation of one service. No more cooperation and assembly procedure are one pro of service, and product quality will no longer be restricted to the worst quality of resources for the complementary effect, while one con of service include that service can only perform specified task.
+After the finish of task-part, provider records the resource configuration as task frequency, when the frequency value reached some point, provider will decide to incubate such a task-specified service for the future performance. As the example in \autoref{fig:servicefigure}, if task $job_1$ in \autoref{tab:simplejobconfiguration} was finished, the first thing of incubation for the resource provider is to publish a job named \textbf{service-call} ($job_7$), which is similar to task except for the capacity dominance feature, which means capacity of selected resource will not be restored after the processing. The process result of one service-call is manufacturing \textbf{service} as shown in \autoref{fig:servicefigure}, which is actually a set of resources that may come from selected providers in the system, it's possible for more than one resources in a same type to make contributions to the incubation of one service. No more cooperation and assembly procedure are one pro of service, and product quality will no longer be restricted to the worst quality of resources for the complementary effect, while one con of service include that service can only perform specified task.
 Now we can generalize task and service-call into \textbf{job}, resource and service into \textbf{machine} for the follow discuss.
 
 % \subsubsection{Provider respond to type-matched job} % (fold)
@@ -288,7 +284,7 @@ the idea of outsourcing for service is to republish active or inactive task to p
 
 \subsection{Metabolism mode} % (fold)
 \label{sub:metabolism mode}
-Metabolism mode is one extension for the original mode to control the number of individual in the system by both restrict the arrival and eliminate the current members. As metabolism part shown in \autoref{fig:modes},
+Metabolism mode is one extension for the original mode to control the number of entity in the system by both restrict the arrival and eliminate the current entities. As metabolism part shown in \autoref{fig:modes},
 % \begin{figure}[htbp]
 %     \centering
 %     \resizebox{0.85\textwidth}{!}{\input{figures/metabolism}}
