@@ -37,7 +37,7 @@ A single order can be described by an activity-on-node (AON) network where the n
     \hline
     \multicolumn{2}{|l|}{\multirow{2}[0]{*}{\textbf{Nomenclature}}} \\
     \multicolumn{2}{|l|}{} \\
-    $\mathcal{T}_i$ & Order that comes with demander, it can be quired by $F(\cdot)$ \\
+    $\mathcal{T}_i$ & Order that comes with demander, it can be inquired by $F(\cdot)$ \\
     $t_{ij}$ & Task that belongs to $\mathcal{T}_i$, $t_{ij}\in\mathcal{T}_i$ \\
     $p_{ij}$ & Process duration of $t_{ij}$\\
     $\gamma_{ij}$ & Expect quality of product as the process result of $t_{ij}$\\
@@ -45,7 +45,7 @@ A single order can be described by an activity-on-node (AON) network where the n
     $f_{ij}$ & Actual finish time of $t_{ij}$ \\
     % $f_{i}$ & Finish time of $\mathcal{T}_i$\\
     $\mathcal{P}_{ij}$ & The set of predecessor of $t_{ij}$, determined by order and some assignment procedure\\
-    $mr_k$ & Resource that comes with provider, it can be quired by $F(\cdot)$ \\
+    $mr_k$ & Resource that comes with provider, it can be inquired by $F(\cdot)$ \\
     $\delta_k$ & Quality of task-part that processed via resource $mr_k$ \\
     $C_{k,\tau}$ & Capacity of $mr_k$ at time $\tau$\\
     $A_{k,\tau}$ & Available capacity of $mr_k$ at time $\tau$\\
@@ -101,17 +101,17 @@ To scope our research, we make some assumptions as follows for the original mode
 \subsection{Master plan for original and extended modes} % (fold)
 \label{ssub:master_plam}
 
-In original mode, ecosystem starts with void, then there comes the registration of provider and demander. A single \textbf{order} consists of a set $\mathcal{T}_i = \left\{ t_{i1},t_{i2},\dots\right\}$ of tasks, which are interrelated by kinds of constraints. First, precedence constraints force \textbf{task} $t_{ij}$ not to be started before all its immediate predecessors $\mathcal{P}_{ij}$. Second, performing the tasks requires resources with limited capacities. Third, resource-type cooperation requires all the task-parts in active status.
+In original mode, ecosystem starts with void, then there comes the registration of provider and demander. A single \textbf{order} consists of a set $\mathcal{T}_i = \left\{ t_{i1},t_{i2},\dots\right\}$ of tasks, which are interrelated by kinds of constraints. First, precedence constraints force \textbf{task} $t_{ij}$ not to be started before all its immediate predecessors in $\mathcal{P}_{ij}$. Second, performing the tasks requires resources with limited capacities. Third, resource-type cooperation requires all the task-parts in active status.
 A single \textbf{resource}($mr_k$) belongs to only one type. While being processed, task $t_{ij}$ requires $q_{\alpha,ij}$ units capacity of the resources with each type $\alpha\in\mathcal{A}_{ij}$ during every period of its non-preemptable duration $p_{ij}$. Each resource $mr_k$ has a limited capacity $C_{k,\tau}$ and available capacity $A_{k,\tau}$ at any point in time $\tau$. This plan is much like the settings in RCPSP\cite{Kolisch1999} except that the task here need to be processed with resource-type cooperation.
 
-The life cycle management of resource contains its vicissitude, which is the basis of the following extended modes \autoref{fig:modes}.
+The life cycle management of resource contains its vicissitude, which is the basis of the following extended modes in \autoref{fig:modes}.
 \begin{figure}[htbp]
     \centering
     \resizebox{\textwidth}{!}{\input{figures/modes}}
     \caption{Three Extended modes}
     \label{fig:modes}
 \end{figure}
-Incubation mode and outsourcing mode are options for provider, while metabolism mode is option for platform operator. Outsourcing mode can only be applied if incubation mode is applied because only the task that processed by service can be outsourced.
+Incubation mode and outsourcing mode are options for provider, while metabolism mode is an option for platform operator. Outsourcing mode can only be applied if incubation mode is applied because only the task that processed by service can be outsourced.
 
 % subsubsection master_plan (end)
 % subsection preliminaries (end)
@@ -175,15 +175,15 @@ Incubation mode is one extension for the original mode, which describes the gene
     \caption{Service incubation from $job_7$ in \autoref{tab:simplejobconfiguration}}
     \label{fig:servicefigure}
 \end{figure}
-After the finish of task-part, provider records the resource configuration as task frequency, when the frequency value reached some point, provider will decide to incubate such a task-specified service for the future performance. As the example in \autoref{fig:servicefigure}, if task $job_1$ in \autoref{tab:simplejobconfiguration} was finished, the first thing of incubation for the resource provider is to publish a job named \textbf{service-call} ($job_7$), which is similar to task except for the capacity dominance feature, which means capacity of selected resource will not be restored after the processing. The process result of one service-call is manufacturing \textbf{service} as shown in \autoref{fig:servicefigure}, which is actually a set of resources that may come from selected providers in the system, it's possible for more than one resources in a same type to make contributions to the incubation of one service. No more cooperation and assembly procedure are one pro of service, and product quality will no longer be restricted to the worst quality of resources for the complementary effect, while one con of service include that service can only perform specified task.
-Now we can generalize task and service-call into \textbf{job}, resource and service into \textbf{machine} for the follow discuss.
+After the finish of task-part, provider records the resource configuration as task frequency, when the frequency value reaches some point, provider will decide to incubate such a task-specified service for the future performance. As the example in \autoref{fig:servicefigure}, if task $job_1$ in \autoref{tab:simplejobconfiguration} is finished, the first thing of incubation for the resource provider is to publish a job named \textbf{service-call} ($job_7$), which is similar to task except for the capacity dominance feature, which means capacity of selected resource will be restored after the processing. The process result of one service-call is manufacturing \textbf{service} as shown in \autoref{fig:servicefigure}, which is actually a bunch of resources that come from selected providers in the system, it's possible for more than one resources in same type to make contributions to the incubation of one service. There is no more cooperation and assembly procedure in service, and product quality will no longer be restricted to the worst quality of resources for the complementary effect. However service can only perform specified task.
+Now we can generalize task and service-call into \textbf{job}, resource and service into \textbf{machine} for the follow discuss. Few behaviors will be discussed to explain how these decisions make.
 
 % \subsubsection{Provider respond to type-matched job} % (fold)
 % \label{ssub:response_in_type_matched_resource}
 \begin{asparaenum}
 \item Respond behavior
 \suspend{asparaenum}
-Similar with response of $mr_k$ to $t_{ij}$ in original mode, provider of $mr_k$ can also respond to type-matched service-call $sc_l$ ($P(mr_k)\in\mathcal{A}_l$), as long as $C_{k,\tau}> 0$. If $mr_k$ was finally selected, both available capacity and capacity will be changed as required, and these capacity will not be restored even after the finish of $sc_l$ part. Provider of $sc_l$ will add $mr_k$ to $\mathcal{R}_{l,\tau}$ and $P(mr_k)$ to $\mathcal{B}_{l,\tau}$. When service $ms_l$ was type-matched with $t_{ij}$ ($\mathcal{A}_{ij} =\mathcal{A}_l,\sum_{q\in\bm{\alpha}_l} q = q_{\alpha,ij}$), provider of $ms_l$ will respond to $t_{ij}$ as soon as possible, demander of $t_{ij}$ will add $ms_l$ to $\mathcal{S}_{ij,\tau}$.
+Similar with response of $mr_k$ to $t_{ij}$ in original mode, provider of $mr_k$ can also respond to type-matched service-call $sc_l$ ($P(mr_k)\in\mathcal{A}_l$), as long as $C_{k,\tau}> 0$. If $mr_k$ is finally selected, both available capacity and capacity will be changed as required, and these capacity will not be restored even after the finish of $sc_l$ part. Provider of $sc_l$ will add $mr_k$ to $\mathcal{R}_{l,\tau}$ and $P(mr_k)$ to $\mathcal{B}_{l,\tau}$. When service $ms_l$ is type-matched with $t_{ij}$ ($\mathcal{A}_{ij} =\mathcal{A}_l,\sum_{q\in\bm{\alpha}_l} q = q_{\alpha,ij}$), provider of $ms_l$ will respond to $t_{ij}$ as soon as possible, demander of $t_{ij}$ will add $ms_l$ to $\mathcal{S}_{ij,\tau}$.
 
 % subsubsection response_in_type_matched_resource (end)
 
@@ -198,7 +198,7 @@ Apart from the condition that $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\ma
 % C_{k,\tau} := C_{k,\tau} - q_{\alpha,l}& If $C_{k,\tau} \ge q_{\alpha,l}$\label{eq:capq}\\
 % C_{k,\tau} := 0 & otherwise \label{eq:cap0}
 % \end{subnumcases}
-Demander of $t_{ij}$ will select $ms_l$ when $\mathcal{B}_{ij,\tau}\subset\mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}>0$ and this implies that the resource candidates are not enough and there exists service candidates.
+Demander of $t_{ij}$ will select $ms_l$ when $\mathcal{B}_{ij,\tau}\subset\mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}>0$ and this implies that the resource candidates are not enough but there exists service candidates.
 This decision-making of demander can also be formulated as the special case of general model, which aims at multi-objective function as \autoref{eq:optl}.
 
 % \begin{equation}
@@ -211,7 +211,7 @@ This decision-making of demander can also be formulated as the special case of g
 % l \in \left\{l' |  ms_{l'} \in \mathcal{S}_{ij,\tau} \right\}  & \label{eq:decisionvariablel}
 % \end{numcases}
 
-In more general condition where $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}>0$, demander of $t_{ij}$ will select ether a bunch of resources with cooperation or one single service.
+In more general condition where $\mathcal{B}_{ij,\tau} = \mathcal{A}_{ij},\abs{\mathcal{S}_{ij,\tau}}>0$, demander of $t_{ij}$ will select ether a bunch of resources or one single service.
 \begin{equation}
 \max_{m\in\{l^*,\bm{k}^*\}} \left( \Delta_m,
 Rank_m, \mathcal{L}_m \right) \\ \label{eq:combaim}
@@ -272,7 +272,7 @@ If $mr_k$ is selected by provider of $sc_l$ at time $\tau$, the assign condition
 
 \subsection{Outsourcing mode} % (fold)
 \label{sub:outsource_mode}
-Outsourcing mode is one extension for the original mode when incubation mode is applied. As outsourcing part shown in \autoref{fig:modes},
+Outsourcing mode is one extension for the original mode when incubation mode is applied, the meaning of this mode is to transfer task to idle resource. As outsourcing part shown in \autoref{fig:modes},
 % \begin{figure}[htbp]
 %     \centering
 %     \resizebox{0.7\textwidth}{!}{\input{figures/outsource}}
@@ -284,14 +284,14 @@ the idea of outsourcing for service is to republish active or inactive task to p
 
 \subsection{Metabolism mode} % (fold)
 \label{sub:metabolism mode}
-Metabolism mode is one extension for the original mode to control the number of entity in the system by both restrict the arrival and eliminate the current entities. As metabolism part shown in \autoref{fig:modes},
+Metabolism mode is one extension for the original mode to control the number of entity in the system by both restrict the arrival and eliminate the current entities, the meaning of this mode is to keep high quality resource instead of low quality that will lead to a good evolution in manufacturing industrial. As metabolism part shown in \autoref{fig:modes},
 % \begin{figure}[htbp]
 %     \centering
 %     \resizebox{0.85\textwidth}{!}{\input{figures/metabolism}}
 %     \caption{Metabolism mode}
 %     \label{fig:metabolismmode}
 % \end{figure}
-we can define machine scarcity as $\sum_jq_{\alpha,ij} - \sum_kC_{k,\tau}$.
+we can define machine scarcity as $\sum_jq_{\alpha,ij} - \sum_kC_{k,\tau}$, this indicator will guide the metabolism module to execute, the object of metabolism is to improve overall resource quality without loss of manufacturing efficiency.
 
 Platform restrict the arrival of new machine by block the registration, eliminate the current machine by their quality and owner's rank.
 
@@ -312,7 +312,9 @@ Platform restrict the arrival of new machine by block the registration, eliminat
 
 \subsection{Provider schedule the jobs in machine} % (fold)
 \label{sub:schedule_the_jobs_in_machine}
-In order to reduce the idle rate, provider will schedule the inactive jobs on their machines. Since the schedule in service is a single machine scheduling problem that not on  what we focus in this study, we only discuss the job scheduling in resource. Since the  resource capacity dominance feature of service-call, it's necessary to suspend service-call in inactive status until all the job before it in $\mathcal{L}_{k,\tau}$ are finished, at the meantime, all the job after service-call should be stay in inactive status until the service-call is finished.
+In order to reduce the idle rate, provider will schedule the inactive jobs on their machines.
+% Since the schedule in service is a single machine scheduling problem that not on  what we focus in this study, we only discuss the job scheduling in resource.
+Since the  resource capacity dominance feature of service-call, it's necessary to suspend service-call in inactive status until all the job before it in $\mathcal{L}_{k,\tau}$ are finished, at the meantime, all the job after service-call should be stay in inactive status until the service-call is finished.
 % as shown in \autoref{fig:simplejoblist}, service-call likes partition plate in $\mathcal{L}_{k,\tau}$.
 % \begin{figure}[htbp]
 % 	\centering
